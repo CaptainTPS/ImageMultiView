@@ -1,0 +1,10 @@
+D:/captainT/project_13/ImageMultiView/Build/CC/CMakeFiles/CC_CORE_LIB.dir
+D:/captainT/project_13/ImageMultiView/Build/libs/qCC_glWindow/CMakeFiles/QCC_GL_LIB.dir
+D:/captainT/project_13/ImageMultiView/Build/libs/qCC_db/CMakeFiles/QCC_DB_LIB.dir
+D:/captainT/project_13/ImageMultiView/Build/libs/qCC_io/CMakeFiles/QCC_IO_LIB.dir
+D:/captainT/project_13/ImageMultiView/Build/libs/qcustomplot/CMakeFiles/ALL_BUILD.dir
+D:/captainT/project_13/ImageMultiView/Build/qCC/CMakeFiles/CloudCompare.dir
+D:/captainT/project_13/ImageMultiView/Build/CMakeFiles/ZERO_CHECK.dir
+D:/captainT/project_13/ImageMultiView/Build/libs/CCFbo/CMakeFiles/CC_FBO_LIB.dir
+D:/captainT/project_13/ImageMultiView/Build/ccViewer/CMakeFiles/ccViewer.dir
+D:/captainT/project_13/ImageMultiView/Build/libs/qcustomplot/CMakeFiles/qcustomplot.dir

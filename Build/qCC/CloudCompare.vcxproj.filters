@@ -1,0 +1,842 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\cc2.5DimEditor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccAboutDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccAdjustZoomDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccAlignDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccApplyTransformationDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccAskThreeDoubleValuesDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccAskTwoDoubleValuesDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccBoundingBoxEditorDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccCameraParamEditDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccCamSensorProjectionDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccClippingBoxRepeatDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccClippingBoxTool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccColorGradientDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccColorLevelsDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccColorScaleEditorDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccColorScaleEditorWidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccColorScaleSelector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccCommandLineParser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccCommon.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccComparisonDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccComputeOctreeDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccConsole.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccContourExtractor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccContourExtractorDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccCropTool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccCurvatureDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccDensityDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccDisplayOptionsDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccEntityAction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccEntityPickerDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccExportCoordToSFDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccFilterByValueDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccGBLSensorProjectionDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccGraphicalSegmentationTool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccGraphicalTransformationTool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccHistogramWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccInnerRect2DFinder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccLabelingDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccLibAlgorithms.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccMatchScalesDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccNoiseFilterDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccNormalComputationDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccOrderChoiceDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccOrthoSectionGenerationDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccOverlayDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccPickOneElementDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccPlaneEditDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccPluginDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccPointListPickingDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccPointPairRegistrationDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccPointPickingGenericInterface.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccPointPropertiesDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccPrimitiveFactoryDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccPtsSamplingDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccRasterizeTool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccRegistrationDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccRegistrationTools.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccRenderToFileDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccScalarFieldArithmeticsDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccScalarFieldFromColorDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccSectionExtractionSubDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccSectionExtractionTool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccSelectChildrenDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccSensorComputeDistancesDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccSensorComputeScatteringAnglesDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccSORFilterDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccStatisticalTestDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccStereoModeDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccSubsamplingDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccTracePolylineTool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccUnrollDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccUtils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccVolumeCalcTool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccWaveformDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\mainwindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\db_tree\ccDBRoot.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\db_tree\ccPropertiesTreeDelegate.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\db_tree\matrixDisplayDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\db_tree\sfEditDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\Build\qCC\qrc_icones.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\Build\qCC\CloudCompare_automoc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\trunk-master\qCC\db_tree\dealDepthDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\openglGetDepth\mydata.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\trunk-master\qCC\db_tree\apss.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\trunk-master\qCC\db_tree\MeshRender.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\trunk-master\qCC\db_tree\videoThread.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\cc2.5DimEditor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccAboutDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccAdjustZoomDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccAlignDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccApplyTransformationDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccAskThreeDoubleValuesDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccAskTwoDoubleValuesDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccBoundingBoxEditorDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccCameraParamEditDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccCamSensorProjectionDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccClippingBoxRepeatDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccClippingBoxTool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccColorGradientDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccColorLevelsDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccColorScaleEditorDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccColorScaleEditorWidget.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccColorScaleSelector.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccCommandLineParser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccCommon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccComparisonDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccComputeOctreeDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccConsole.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccContourExtractor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccContourExtractorDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccCropTool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccCurvatureDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccCustomDoubleValidator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccDensityDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccDisplayOptionsDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccEntityAction.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccEntityPickerDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccExportCoordToSFDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccFilterByValueDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccGBLSensorProjectionDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccGraphicalSegmentationTool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccGraphicalTransformationTool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccHistogramWindow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccInnerRect2DFinder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccIsolines.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccLabelingDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccLibAlgorithms.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccMatchScalesDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccNoiseFilterDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccNormalComputationDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccOrderChoiceDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccOrthoSectionGenerationDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccOverlayDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccPersistentSettings.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccPickOneElementDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccPlaneEditDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccPluginDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccPointListPickingDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccPointPairRegistrationDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccPointPickingGenericInterface.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccPointPropertiesDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccPrimitiveFactoryDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccPtsSamplingDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccQCustomPlot.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccQtHelpers.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccRasterizeTool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccRegistrationDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccRegistrationTools.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccRenderToFileDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccScalarFieldArithmeticsDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccScalarFieldFromColorDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccSectionExtractionSubDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccSectionExtractionTool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccSelectChildrenDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccSensorComputeDistancesDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccSensorComputeScatteringAnglesDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccSORFilterDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccStatisticalTestDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccStereoModeDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccSubsamplingDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccTracePolylineTool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccUnrollDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccUtils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccVolumeCalcTool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccWaveformDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\mainwindow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\db_tree\ccDBRoot.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\db_tree\ccPropertiesTreeDelegate.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\db_tree\matrixDisplayDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\db_tree\sfEditDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_aboutDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_adjustZoomDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_alignDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_applyTransformationDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_askOneDoubleValueDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_askOneIntValueDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_askOneStringDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_askThreeDoubleValuesDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_askTwoDoubleValuesDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_boundingBoxEditorDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_cameraParamDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_camSensorProjectDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_clippingBoxDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_clippingBoxRepeatDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_colorGradientDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_colorLevelsDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_colorScaleEditorDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_commandLineDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_comparisonDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_computeOctreeDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_contourExtractorDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_curvatureDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_densityDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_displayOptionsDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_distanceMapDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_exportCoordToSFDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_filterByValueDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_gblSensorProjectDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_globalShiftSettingsDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_graphicalSegmentationDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_graphicalTransformationDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_heightGridGenerationDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_histogramDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_labelingDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_mainWindow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_matchScalesDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_matrixDisplayDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_noiseFilterDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_normalComputationDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_orthoSectionGenerationDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_pickEntityDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_pickOneElementDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_planeEditDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_pointListPickingDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_pointPairRegistrationDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_pointPropertiesDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_primitiveFactoryDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_ptsSamplingDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_rasterExportOptionsDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_rasterizeDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_registrationDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_renderToFileDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_roleChoiceDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_scalarFieldFromColorDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_sectionExtractionDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_sectionExtractionSubDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_selectChildrenDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_sensorComputeDistancesDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_sensorComputeScatteringAnglesDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_sfArithmeticsDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_sfEditDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_sorFilterDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_statisticalTestDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_stereoModeDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_subsamplingDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_tracePolylineDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_unrollDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_volumeCalcDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_waveDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ui_dealDepthDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\trunk-master\qCC\db_tree\dealDepthDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\trunk-master\qCC\db_tree\patchDealer.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\trunk-master\qCC\db_tree\apss.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\trunk-master\qCC\db_tree\MeshRender.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\trunk-master\qCC\db_tree\MeshRenderQt.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\trunk-master\qCC\db_tree\videoThread.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\trunk-master\qCC\db_tree\newPatchDealer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\CMakeLists.txt" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\aboutDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\adjustZoomDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\alignDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\applyTransformationDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\askOneDoubleValueDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\askOneIntValueDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\askOneStringDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\askThreeDoubleValuesDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\askTwoDoubleValuesDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\boundingBoxEditorDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\cameraParamDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\camSensorProjectDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\clippingBoxDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\clippingBoxRepeatDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\colorGradientDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\colorLevelsDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\colorScaleEditorDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\commandLineDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\comparisonDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\computeOctreeDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\contourExtractorDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\curvatureDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\densityDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\displayOptionsDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\distanceMapDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\exportCoordToSFDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\filterByValueDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\gblSensorProjectDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\globalShiftSettingsDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\graphicalSegmentationDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\graphicalTransformationDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\heightGridGenerationDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\histogramDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\labelingDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\mainWindow.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\matchScalesDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\matrixDisplayDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\noiseFilterDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\normalComputationDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\orthoSectionGenerationDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\pickEntityDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\pickOneElementDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\planeEditDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\pointListPickingDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\pointPairRegistrationDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\pointPropertiesDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\primitiveFactoryDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\ptsSamplingDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\rasterExportOptionsDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\rasterizeDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\registrationDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\renderToFileDialog.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\roleChoiceDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\scalarFieldFromColorDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\sectionExtractionDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\sectionExtractionSubDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\selectChildrenDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\sensorComputeDistancesDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\sensorComputeScatteringAnglesDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\sfArithmeticsDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\sfEditDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\sorFilterDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\statisticalTestDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\stereoModeDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\subsamplingDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\tracePolylineDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\unrollDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\volumeCalcDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\waveDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\icones.qrc" />
+    <CustomBuild Include="..\..\trunk-master\qCC\ui_templates\dealDepthDlg.ui" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\TODO.txt" />
+    <None Include="D:\captainT\project_13\ImageMultiView\trunk-master\CHANGELOG.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\icon\cc_icon.rc">
+      <Filter>Source Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{53D89DA7-C9DF-4E8C-8EE4-6CDBEB0EC659}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{D63269BA-2614-43E6-AA77-4E3FE4A92BA6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

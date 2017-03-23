@@ -1,0 +1,764 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGUID>{C4E07866-6D6B-447B-9E8F-E0AE667E7CFF}</ProjectGUID>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>x64</Platform>
+    <ProjectName>ccViewer</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+    <PropertyGroup>
+      <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\captainT\project_13\ImageMultiView\Build\ccViewer\Debug\</OutDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">ccViewer.dir\Debug\</IntDir>
+      <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">ccViewer</TargetName>
+      <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.exe</TargetExt>
+      <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+      <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</GenerateManifest>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\captainT\project_13\ImageMultiView\Build\ccViewer\Release\</OutDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">ccViewer.dir\Release\</IntDir>
+      <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">ccViewer</TargetName>
+      <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.exe</TargetExt>
+      <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+      <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</GenerateManifest>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\captainT\project_13\ImageMultiView\Build\ccViewer\MinSizeRel\</OutDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">ccViewer.dir\MinSizeRel\</IntDir>
+      <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">ccViewer</TargetName>
+      <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.exe</TargetExt>
+      <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
+      <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</GenerateManifest>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\captainT\project_13\ImageMultiView\Build\ccViewer\RelWithDebInfo\</OutDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">ccViewer.dir\RelWithDebInfo\</IntDir>
+      <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">ccViewer</TargetName>
+      <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.exe</TargetExt>
+      <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</LinkIncremental>
+      <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</GenerateManifest>
+    </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\captainT\project_13\ImageMultiView\Build\ccViewer;D:\captainT\project_13\ImageMultiView\trunk-master\ccViewer;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtOpenGL;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtWidgets;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtGui;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtCore;D:\Qt\Qt5.5.1\5.5\msvc2013_64\.\mkspecs\win32-msvc2013;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtConcurrent;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtPrintSupport;D:\captainT\project_13\ImageMultiView\trunk-master\libs\CCFbo\include;D:\captainT\project_13\ImageMultiView\trunk-master\CC\include;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_db;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_db\msvc;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_glWindow;D:\captainT\project_13\ImageMultiView\trunk-master\plugins;D:\captainT\project_13\ImageMultiView\trunk-master\ccViewer\..\qCC;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtOpenGLExtensions;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Debug/</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <OpenMPSupport>true</OpenMPSupport>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;QT_OPENGL_LIB;CC_VIEWER;CC_USE_AS_DLL;QCC_DB_USE_AS_DLL;QCC_IO_USE_AS_DLL;NOMINMAX;_CRT_SECURE_NO_WARNINGS;__STDC_LIMIT_MACROS;QT_USE_QSTRINGBUILDER;QT_OPENGLEXTENSIONS_LIB;QT_CONCURRENT_LIB;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;QT_OPENGL_LIB;CC_VIEWER;CC_USE_AS_DLL;QCC_DB_USE_AS_DLL;QCC_IO_USE_AS_DLL;NOMINMAX;_CRT_SECURE_NO_WARNINGS;__STDC_LIMIT_MACROS;QT_USE_QSTRINGBUILDER;QT_OPENGLEXTENSIONS_LIB;QT_CONCURRENT_LIB;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\captainT\project_13\ImageMultiView\Build\ccViewer;D:\captainT\project_13\ImageMultiView\trunk-master\ccViewer;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtOpenGL;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtWidgets;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtGui;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtCore;D:\Qt\Qt5.5.1\5.5\msvc2013_64\.\mkspecs\win32-msvc2013;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtConcurrent;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtPrintSupport;D:\captainT\project_13\ImageMultiView\trunk-master\libs\CCFbo\include;D:\captainT\project_13\ImageMultiView\trunk-master\CC\include;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_db;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_db\msvc;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_glWindow;D:\captainT\project_13\ImageMultiView\trunk-master\plugins;D:\captainT\project_13\ImageMultiView\trunk-master\ccViewer\..\qCC;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtOpenGLExtensions;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\captainT\project_13\ImageMultiView\Build\ccViewer;D:\captainT\project_13\ImageMultiView\trunk-master\ccViewer;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtOpenGL;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtWidgets;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtGui;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtCore;D:\Qt\Qt5.5.1\5.5\msvc2013_64\.\mkspecs\win32-msvc2013;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtConcurrent;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtPrintSupport;D:\captainT\project_13\ImageMultiView\trunk-master\libs\CCFbo\include;D:\captainT\project_13\ImageMultiView\trunk-master\CC\include;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_db;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_db\msvc;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_glWindow;D:\captainT\project_13\ImageMultiView\trunk-master\plugins;D:\captainT\project_13\ImageMultiView\trunk-master\ccViewer\..\qCC;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtOpenGLExtensions;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PreBuildEvent>
+      <Message>Automatic moc for target ccViewer</Message>
+      <Command>setlocal
+cd D:\captainT\project_13\ImageMultiView\Build\ccViewer
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_autogen D:/captainT/project_13/ImageMultiView/Build/ccViewer/CMakeFiles/ccViewer_automoc.dir/ Debug
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PreBuildEvent>
+    <Link>
+      <AdditionalOptions> /machine:x64 /debug %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;..\libs\CCFbo\Debug\CC_FBO_LIBd.lib;..\libs\qCC_io\Debug\QCC_IO_LIBd.lib;..\libs\qCC_glWindow\Debug\QCC_GL_LIBd.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\qtmaind.lib;..\libs\qCC_db\Debug\QCC_DB_LIBd.lib;..\libs\CCFbo\Debug\CC_FBO_LIBd.lib;..\CC\Debug\CC_CORE_LIBd.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\Qt5Concurrentd.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\Qt5OpenGLd.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\Qt5Widgetsd.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\Qt5OpenGLExtensionsd.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\Qt5Guid.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\Qt5Cored.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\qtmaind.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/captainT/project_13/ImageMultiView/Build/ccViewer/Debug/ccViewer.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/captainT/project_13/ImageMultiView/Build/ccViewer/Debug/ccViewer.pdb</ProgramDataBaseFile>
+      <SubSystem>Windows</SubSystem>
+      <Version></Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\captainT\project_13\ImageMultiView\Build\ccViewer;D:\captainT\project_13\ImageMultiView\trunk-master\ccViewer;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtOpenGL;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtWidgets;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtGui;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtCore;D:\Qt\Qt5.5.1\5.5\msvc2013_64\.\mkspecs\win32-msvc2013;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtConcurrent;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtPrintSupport;D:\captainT\project_13\ImageMultiView\trunk-master\libs\CCFbo\include;D:\captainT\project_13\ImageMultiView\trunk-master\CC\include;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_db;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_db\msvc;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_glWindow;D:\captainT\project_13\ImageMultiView\trunk-master\plugins;D:\captainT\project_13\ImageMultiView\trunk-master\ccViewer\..\qCC;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtOpenGLExtensions;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Release/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <OpenMPSupport>true</OpenMPSupport>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_SECURE_SCL=0;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;QT_OPENGL_LIB;CC_VIEWER;CC_USE_AS_DLL;QCC_DB_USE_AS_DLL;QCC_IO_USE_AS_DLL;NOMINMAX;_CRT_SECURE_NO_WARNINGS;__STDC_LIMIT_MACROS;QT_USE_QSTRINGBUILDER;QT_NO_DEBUG;QT_OPENGLEXTENSIONS_LIB;QT_CONCURRENT_LIB;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat></DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_SECURE_SCL=0;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;QT_OPENGL_LIB;CC_VIEWER;CC_USE_AS_DLL;QCC_DB_USE_AS_DLL;QCC_IO_USE_AS_DLL;NOMINMAX;_CRT_SECURE_NO_WARNINGS;__STDC_LIMIT_MACROS;QT_USE_QSTRINGBUILDER;QT_NO_DEBUG;QT_OPENGLEXTENSIONS_LIB;QT_CONCURRENT_LIB;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\captainT\project_13\ImageMultiView\Build\ccViewer;D:\captainT\project_13\ImageMultiView\trunk-master\ccViewer;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtOpenGL;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtWidgets;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtGui;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtCore;D:\Qt\Qt5.5.1\5.5\msvc2013_64\.\mkspecs\win32-msvc2013;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtConcurrent;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtPrintSupport;D:\captainT\project_13\ImageMultiView\trunk-master\libs\CCFbo\include;D:\captainT\project_13\ImageMultiView\trunk-master\CC\include;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_db;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_db\msvc;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_glWindow;D:\captainT\project_13\ImageMultiView\trunk-master\plugins;D:\captainT\project_13\ImageMultiView\trunk-master\ccViewer\..\qCC;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtOpenGLExtensions;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\captainT\project_13\ImageMultiView\Build\ccViewer;D:\captainT\project_13\ImageMultiView\trunk-master\ccViewer;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtOpenGL;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtWidgets;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtGui;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtCore;D:\Qt\Qt5.5.1\5.5\msvc2013_64\.\mkspecs\win32-msvc2013;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtConcurrent;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtPrintSupport;D:\captainT\project_13\ImageMultiView\trunk-master\libs\CCFbo\include;D:\captainT\project_13\ImageMultiView\trunk-master\CC\include;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_db;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_db\msvc;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_glWindow;D:\captainT\project_13\ImageMultiView\trunk-master\plugins;D:\captainT\project_13\ImageMultiView\trunk-master\ccViewer\..\qCC;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtOpenGLExtensions;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PreBuildEvent>
+      <Message>Automatic moc for target ccViewer</Message>
+      <Command>setlocal
+cd D:\captainT\project_13\ImageMultiView\Build\ccViewer
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_autogen D:/captainT/project_13/ImageMultiView/Build/ccViewer/CMakeFiles/ccViewer_automoc.dir/ Release
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PreBuildEvent>
+    <Link>
+      <AdditionalOptions> /machine:x64 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;..\libs\CCFbo\Release\CC_FBO_LIB.lib;..\libs\qCC_io\Release\QCC_IO_LIB.lib;..\libs\qCC_glWindow\Release\QCC_GL_LIB.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\qtmain.lib;..\libs\qCC_db\Release\QCC_DB_LIB.lib;..\libs\CCFbo\Release\CC_FBO_LIB.lib;..\CC\Release\CC_CORE_LIB.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\Qt5Concurrent.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\Qt5OpenGL.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\Qt5Widgets.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\Qt5OpenGLExtensions.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\Qt5Gui.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\Qt5Core.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\qtmain.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/captainT/project_13/ImageMultiView/Build/ccViewer/Release/ccViewer.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/captainT/project_13/ImageMultiView/Build/ccViewer/Release/ccViewer.pdb</ProgramDataBaseFile>
+      <SubSystem>Windows</SubSystem>
+      <Version></Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\captainT\project_13\ImageMultiView\Build\ccViewer;D:\captainT\project_13\ImageMultiView\trunk-master\ccViewer;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtOpenGL;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtWidgets;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtGui;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtCore;D:\Qt\Qt5.5.1\5.5\msvc2013_64\.\mkspecs\win32-msvc2013;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtConcurrent;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtPrintSupport;D:\captainT\project_13\ImageMultiView\trunk-master\libs\CCFbo\include;D:\captainT\project_13\ImageMultiView\trunk-master\CC\include;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_db;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_db\msvc;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_glWindow;D:\captainT\project_13\ImageMultiView\trunk-master\plugins;D:\captainT\project_13\ImageMultiView\trunk-master\ccViewer\..\qCC;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtOpenGLExtensions;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>MinSizeRel/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <OpenMPSupport>true</OpenMPSupport>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;QT_OPENGL_LIB;CC_VIEWER;CC_USE_AS_DLL;QCC_DB_USE_AS_DLL;QCC_IO_USE_AS_DLL;NOMINMAX;_CRT_SECURE_NO_WARNINGS;__STDC_LIMIT_MACROS;QT_USE_QSTRINGBUILDER;QT_NO_DEBUG;QT_OPENGLEXTENSIONS_LIB;QT_CONCURRENT_LIB;CMAKE_INTDIR="MinSizeRel";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat></DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;QT_OPENGL_LIB;CC_VIEWER;CC_USE_AS_DLL;QCC_DB_USE_AS_DLL;QCC_IO_USE_AS_DLL;NOMINMAX;_CRT_SECURE_NO_WARNINGS;__STDC_LIMIT_MACROS;QT_USE_QSTRINGBUILDER;QT_NO_DEBUG;QT_OPENGLEXTENSIONS_LIB;QT_CONCURRENT_LIB;CMAKE_INTDIR=\"MinSizeRel\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\captainT\project_13\ImageMultiView\Build\ccViewer;D:\captainT\project_13\ImageMultiView\trunk-master\ccViewer;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtOpenGL;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtWidgets;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtGui;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtCore;D:\Qt\Qt5.5.1\5.5\msvc2013_64\.\mkspecs\win32-msvc2013;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtConcurrent;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtPrintSupport;D:\captainT\project_13\ImageMultiView\trunk-master\libs\CCFbo\include;D:\captainT\project_13\ImageMultiView\trunk-master\CC\include;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_db;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_db\msvc;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_glWindow;D:\captainT\project_13\ImageMultiView\trunk-master\plugins;D:\captainT\project_13\ImageMultiView\trunk-master\ccViewer\..\qCC;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtOpenGLExtensions;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\captainT\project_13\ImageMultiView\Build\ccViewer;D:\captainT\project_13\ImageMultiView\trunk-master\ccViewer;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtOpenGL;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtWidgets;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtGui;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtCore;D:\Qt\Qt5.5.1\5.5\msvc2013_64\.\mkspecs\win32-msvc2013;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtConcurrent;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtPrintSupport;D:\captainT\project_13\ImageMultiView\trunk-master\libs\CCFbo\include;D:\captainT\project_13\ImageMultiView\trunk-master\CC\include;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_db;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_db\msvc;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_glWindow;D:\captainT\project_13\ImageMultiView\trunk-master\plugins;D:\captainT\project_13\ImageMultiView\trunk-master\ccViewer\..\qCC;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtOpenGLExtensions;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PreBuildEvent>
+      <Message>Automatic moc for target ccViewer</Message>
+      <Command>setlocal
+cd D:\captainT\project_13\ImageMultiView\Build\ccViewer
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_autogen D:/captainT/project_13/ImageMultiView/Build/ccViewer/CMakeFiles/ccViewer_automoc.dir/ MinSizeRel
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PreBuildEvent>
+    <Link>
+      <AdditionalOptions> /machine:x64 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;..\libs\CCFbo\MinSizeRel\CC_FBO_LIB.lib;..\libs\qCC_io\MinSizeRel\QCC_IO_LIB.lib;..\libs\qCC_glWindow\MinSizeRel\QCC_GL_LIB.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\qtmain.lib;..\libs\qCC_db\MinSizeRel\QCC_DB_LIB.lib;..\libs\CCFbo\MinSizeRel\CC_FBO_LIB.lib;..\CC\MinSizeRel\CC_CORE_LIB.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\Qt5Concurrent.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\Qt5OpenGL.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\Qt5Widgets.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\Qt5OpenGLExtensions.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\Qt5Gui.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\Qt5Core.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\qtmain.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/captainT/project_13/ImageMultiView/Build/ccViewer/MinSizeRel/ccViewer.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/captainT/project_13/ImageMultiView/Build/ccViewer/MinSizeRel/ccViewer.pdb</ProgramDataBaseFile>
+      <SubSystem>Windows</SubSystem>
+      <Version></Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\captainT\project_13\ImageMultiView\Build\ccViewer;D:\captainT\project_13\ImageMultiView\trunk-master\ccViewer;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtOpenGL;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtWidgets;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtGui;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtCore;D:\Qt\Qt5.5.1\5.5\msvc2013_64\.\mkspecs\win32-msvc2013;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtConcurrent;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtPrintSupport;D:\captainT\project_13\ImageMultiView\trunk-master\libs\CCFbo\include;D:\captainT\project_13\ImageMultiView\trunk-master\CC\include;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_db;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_db\msvc;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_glWindow;D:\captainT\project_13\ImageMultiView\trunk-master\plugins;D:\captainT\project_13\ImageMultiView\trunk-master\ccViewer\..\qCC;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtOpenGLExtensions;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>RelWithDebInfo/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <OpenMPSupport>true</OpenMPSupport>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;QT_OPENGL_LIB;CC_VIEWER;CC_USE_AS_DLL;QCC_DB_USE_AS_DLL;QCC_IO_USE_AS_DLL;NOMINMAX;_CRT_SECURE_NO_WARNINGS;__STDC_LIMIT_MACROS;QT_USE_QSTRINGBUILDER;QT_NO_DEBUG;QT_OPENGLEXTENSIONS_LIB;QT_CONCURRENT_LIB;CMAKE_INTDIR="RelWithDebInfo";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;QT_OPENGL_LIB;CC_VIEWER;CC_USE_AS_DLL;QCC_DB_USE_AS_DLL;QCC_IO_USE_AS_DLL;NOMINMAX;_CRT_SECURE_NO_WARNINGS;__STDC_LIMIT_MACROS;QT_USE_QSTRINGBUILDER;QT_NO_DEBUG;QT_OPENGLEXTENSIONS_LIB;QT_CONCURRENT_LIB;CMAKE_INTDIR=\"RelWithDebInfo\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\captainT\project_13\ImageMultiView\Build\ccViewer;D:\captainT\project_13\ImageMultiView\trunk-master\ccViewer;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtOpenGL;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtWidgets;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtGui;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtCore;D:\Qt\Qt5.5.1\5.5\msvc2013_64\.\mkspecs\win32-msvc2013;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtConcurrent;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtPrintSupport;D:\captainT\project_13\ImageMultiView\trunk-master\libs\CCFbo\include;D:\captainT\project_13\ImageMultiView\trunk-master\CC\include;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_db;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_db\msvc;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_glWindow;D:\captainT\project_13\ImageMultiView\trunk-master\plugins;D:\captainT\project_13\ImageMultiView\trunk-master\ccViewer\..\qCC;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtOpenGLExtensions;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\captainT\project_13\ImageMultiView\Build\ccViewer;D:\captainT\project_13\ImageMultiView\trunk-master\ccViewer;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtOpenGL;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtWidgets;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtGui;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtCore;D:\Qt\Qt5.5.1\5.5\msvc2013_64\.\mkspecs\win32-msvc2013;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtConcurrent;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtPrintSupport;D:\captainT\project_13\ImageMultiView\trunk-master\libs\CCFbo\include;D:\captainT\project_13\ImageMultiView\trunk-master\CC\include;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_db;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_db\msvc;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_glWindow;D:\captainT\project_13\ImageMultiView\trunk-master\plugins;D:\captainT\project_13\ImageMultiView\trunk-master\ccViewer\..\qCC;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtOpenGLExtensions;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PreBuildEvent>
+      <Message>Automatic moc for target ccViewer</Message>
+      <Command>setlocal
+cd D:\captainT\project_13\ImageMultiView\Build\ccViewer
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_autogen D:/captainT/project_13/ImageMultiView/Build/ccViewer/CMakeFiles/ccViewer_automoc.dir/ RelWithDebInfo
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PreBuildEvent>
+    <Link>
+      <AdditionalOptions> /machine:x64 /debug %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;..\libs\CCFbo\RelWithDebInfo\CC_FBO_LIB.lib;..\libs\qCC_io\RelWithDebInfo\QCC_IO_LIB.lib;..\libs\qCC_glWindow\RelWithDebInfo\QCC_GL_LIB.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\qtmain.lib;..\libs\qCC_db\RelWithDebInfo\QCC_DB_LIB.lib;..\libs\CCFbo\RelWithDebInfo\CC_FBO_LIB.lib;..\CC\RelWithDebInfo\CC_CORE_LIB.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\Qt5Concurrent.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\Qt5OpenGL.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\Qt5Widgets.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\Qt5OpenGLExtensions.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\Qt5Gui.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\Qt5Core.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\qtmain.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/captainT/project_13/ImageMultiView/Build/ccViewer/RelWithDebInfo/ccViewer.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/captainT/project_13/ImageMultiView/Build/ccViewer/RelWithDebInfo/ccViewer.pdb</ProgramDataBaseFile>
+      <SubSystem>Windows</SubSystem>
+      <Version></Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\ccViewer\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule D:/captainT/project_13/ImageMultiView/trunk-master/ccViewer/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -HD:/captainT/project_13/ImageMultiView/trunk-master -BD:/captainT/project_13/ImageMultiView/Build --check-stamp-file D:\captainT\project_13\ImageMultiView\Build\ccViewer\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/ccViewer/CMakeLists.txt;D:\captainT\project_13\ImageMultiView\trunk-master\ccViewer\CMakeLists.txt;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\icones.qrc;D:\captainT\project_13\ImageMultiView\trunk-master\ccViewer\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\captainT\project_13\ImageMultiView\Build\ccViewer\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule D:/captainT/project_13/ImageMultiView/trunk-master/ccViewer/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -HD:/captainT/project_13/ImageMultiView/trunk-master -BD:/captainT/project_13/ImageMultiView/Build --check-stamp-file D:\captainT\project_13\ImageMultiView\Build\ccViewer\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/ccViewer/CMakeLists.txt;D:\captainT\project_13\ImageMultiView\trunk-master\ccViewer\CMakeLists.txt;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\icones.qrc;D:\captainT\project_13\ImageMultiView\trunk-master\ccViewer\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\captainT\project_13\ImageMultiView\Build\ccViewer\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule D:/captainT/project_13/ImageMultiView/trunk-master/ccViewer/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -HD:/captainT/project_13/ImageMultiView/trunk-master -BD:/captainT/project_13/ImageMultiView/Build --check-stamp-file D:\captainT\project_13\ImageMultiView\Build\ccViewer\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/ccViewer/CMakeLists.txt;D:\captainT\project_13\ImageMultiView\trunk-master\ccViewer\CMakeLists.txt;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\icones.qrc;D:\captainT\project_13\ImageMultiView\trunk-master\ccViewer\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\captainT\project_13\ImageMultiView\Build\ccViewer\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule D:/captainT/project_13/ImageMultiView/trunk-master/ccViewer/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -HD:/captainT/project_13/ImageMultiView/trunk-master -BD:/captainT/project_13/ImageMultiView/Build --check-stamp-file D:\captainT\project_13\ImageMultiView\Build\ccViewer\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/ccViewer/CMakeLists.txt;D:\captainT\project_13\ImageMultiView\trunk-master\ccViewer\CMakeLists.txt;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\icones.qrc;D:\captainT\project_13\ImageMultiView\trunk-master\ccViewer\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\captainT\project_13\ImageMultiView\Build\ccViewer\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\ccViewer\ui_templates\ccviewer.ui">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating ui_ccviewer.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\uic.exe -o D:/captainT/project_13/ImageMultiView/Build/ccViewer/ui_ccviewer.h D:/captainT/project_13/ImageMultiView/trunk-master/ccViewer/ui_templates/ccviewer.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/ccViewer/ui_templates/ccviewer.ui;D:\captainT\project_13\ImageMultiView\trunk-master\ccViewer\ui_templates\ccviewer.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\captainT\project_13\ImageMultiView\Build\ccViewer\ui_ccviewer.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating ui_ccviewer.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\uic.exe -o D:/captainT/project_13/ImageMultiView/Build/ccViewer/ui_ccviewer.h D:/captainT/project_13/ImageMultiView/trunk-master/ccViewer/ui_templates/ccviewer.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/ccViewer/ui_templates/ccviewer.ui;D:\captainT\project_13\ImageMultiView\trunk-master\ccViewer\ui_templates\ccviewer.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\captainT\project_13\ImageMultiView\Build\ccViewer\ui_ccviewer.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Generating ui_ccviewer.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\uic.exe -o D:/captainT/project_13/ImageMultiView/Build/ccViewer/ui_ccviewer.h D:/captainT/project_13/ImageMultiView/trunk-master/ccViewer/ui_templates/ccviewer.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/ccViewer/ui_templates/ccviewer.ui;D:\captainT\project_13\ImageMultiView\trunk-master\ccViewer\ui_templates\ccviewer.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\captainT\project_13\ImageMultiView\Build\ccViewer\ui_ccviewer.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Generating ui_ccviewer.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\uic.exe -o D:/captainT/project_13/ImageMultiView/Build/ccViewer/ui_ccviewer.h D:/captainT/project_13/ImageMultiView/trunk-master/ccViewer/ui_templates/ccviewer.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/ccViewer/ui_templates/ccviewer.ui;D:\captainT\project_13\ImageMultiView\trunk-master\ccViewer\ui_templates\ccviewer.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\captainT\project_13\ImageMultiView\Build\ccViewer\ui_ccviewer.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\ccViewer\ui_templates\ccviewerAbout.ui">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating ui_ccviewerAbout.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\uic.exe -o D:/captainT/project_13/ImageMultiView/Build/ccViewer/ui_ccviewerAbout.h D:/captainT/project_13/ImageMultiView/trunk-master/ccViewer/ui_templates/ccviewerAbout.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/ccViewer/ui_templates/ccviewerAbout.ui;D:\captainT\project_13\ImageMultiView\trunk-master\ccViewer\ui_templates\ccviewerAbout.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\captainT\project_13\ImageMultiView\Build\ccViewer\ui_ccviewerAbout.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating ui_ccviewerAbout.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\uic.exe -o D:/captainT/project_13/ImageMultiView/Build/ccViewer/ui_ccviewerAbout.h D:/captainT/project_13/ImageMultiView/trunk-master/ccViewer/ui_templates/ccviewerAbout.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/ccViewer/ui_templates/ccviewerAbout.ui;D:\captainT\project_13\ImageMultiView\trunk-master\ccViewer\ui_templates\ccviewerAbout.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\captainT\project_13\ImageMultiView\Build\ccViewer\ui_ccviewerAbout.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Generating ui_ccviewerAbout.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\uic.exe -o D:/captainT/project_13/ImageMultiView/Build/ccViewer/ui_ccviewerAbout.h D:/captainT/project_13/ImageMultiView/trunk-master/ccViewer/ui_templates/ccviewerAbout.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/ccViewer/ui_templates/ccviewerAbout.ui;D:\captainT\project_13\ImageMultiView\trunk-master\ccViewer\ui_templates\ccviewerAbout.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\captainT\project_13\ImageMultiView\Build\ccViewer\ui_ccviewerAbout.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Generating ui_ccviewerAbout.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\uic.exe -o D:/captainT/project_13/ImageMultiView/Build/ccViewer/ui_ccviewerAbout.h D:/captainT/project_13/ImageMultiView/trunk-master/ccViewer/ui_templates/ccviewerAbout.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/ccViewer/ui_templates/ccviewerAbout.ui;D:\captainT\project_13\ImageMultiView\trunk-master\ccViewer\ui_templates\ccviewerAbout.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\captainT\project_13\ImageMultiView\Build\ccViewer\ui_ccviewerAbout.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\cameraParamDlg.ui">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating ui_cameraParamDlg.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\uic.exe -o D:/captainT/project_13/ImageMultiView/Build/ccViewer/ui_cameraParamDlg.h D:/captainT/project_13/ImageMultiView/trunk-master/qCC/ui_templates/cameraParamDlg.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/qCC/ui_templates/cameraParamDlg.ui;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\cameraParamDlg.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\captainT\project_13\ImageMultiView\Build\ccViewer\ui_cameraParamDlg.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating ui_cameraParamDlg.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\uic.exe -o D:/captainT/project_13/ImageMultiView/Build/ccViewer/ui_cameraParamDlg.h D:/captainT/project_13/ImageMultiView/trunk-master/qCC/ui_templates/cameraParamDlg.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/qCC/ui_templates/cameraParamDlg.ui;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\cameraParamDlg.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\captainT\project_13\ImageMultiView\Build\ccViewer\ui_cameraParamDlg.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Generating ui_cameraParamDlg.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\uic.exe -o D:/captainT/project_13/ImageMultiView/Build/ccViewer/ui_cameraParamDlg.h D:/captainT/project_13/ImageMultiView/trunk-master/qCC/ui_templates/cameraParamDlg.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/qCC/ui_templates/cameraParamDlg.ui;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\cameraParamDlg.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\captainT\project_13\ImageMultiView\Build\ccViewer\ui_cameraParamDlg.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Generating ui_cameraParamDlg.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\uic.exe -o D:/captainT/project_13/ImageMultiView/Build/ccViewer/ui_cameraParamDlg.h D:/captainT/project_13/ImageMultiView/trunk-master/qCC/ui_templates/cameraParamDlg.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/qCC/ui_templates/cameraParamDlg.ui;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\cameraParamDlg.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\captainT\project_13\ImageMultiView\Build\ccViewer\ui_cameraParamDlg.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\displayOptionsDlg.ui">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating ui_displayOptionsDlg.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\uic.exe -o D:/captainT/project_13/ImageMultiView/Build/ccViewer/ui_displayOptionsDlg.h D:/captainT/project_13/ImageMultiView/trunk-master/qCC/ui_templates/displayOptionsDlg.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/qCC/ui_templates/displayOptionsDlg.ui;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\displayOptionsDlg.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\captainT\project_13\ImageMultiView\Build\ccViewer\ui_displayOptionsDlg.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating ui_displayOptionsDlg.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\uic.exe -o D:/captainT/project_13/ImageMultiView/Build/ccViewer/ui_displayOptionsDlg.h D:/captainT/project_13/ImageMultiView/trunk-master/qCC/ui_templates/displayOptionsDlg.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/qCC/ui_templates/displayOptionsDlg.ui;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\displayOptionsDlg.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\captainT\project_13\ImageMultiView\Build\ccViewer\ui_displayOptionsDlg.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Generating ui_displayOptionsDlg.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\uic.exe -o D:/captainT/project_13/ImageMultiView/Build/ccViewer/ui_displayOptionsDlg.h D:/captainT/project_13/ImageMultiView/trunk-master/qCC/ui_templates/displayOptionsDlg.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/qCC/ui_templates/displayOptionsDlg.ui;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\displayOptionsDlg.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\captainT\project_13\ImageMultiView\Build\ccViewer\ui_displayOptionsDlg.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Generating ui_displayOptionsDlg.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\uic.exe -o D:/captainT/project_13/ImageMultiView/Build/ccViewer/ui_displayOptionsDlg.h D:/captainT/project_13/ImageMultiView/trunk-master/qCC/ui_templates/displayOptionsDlg.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/qCC/ui_templates/displayOptionsDlg.ui;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\displayOptionsDlg.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\captainT\project_13\ImageMultiView\Build\ccViewer\ui_displayOptionsDlg.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\stereoModeDlg.ui">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating ui_stereoModeDlg.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\uic.exe -o D:/captainT/project_13/ImageMultiView/Build/ccViewer/ui_stereoModeDlg.h D:/captainT/project_13/ImageMultiView/trunk-master/qCC/ui_templates/stereoModeDlg.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/qCC/ui_templates/stereoModeDlg.ui;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\stereoModeDlg.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\captainT\project_13\ImageMultiView\Build\ccViewer\ui_stereoModeDlg.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating ui_stereoModeDlg.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\uic.exe -o D:/captainT/project_13/ImageMultiView/Build/ccViewer/ui_stereoModeDlg.h D:/captainT/project_13/ImageMultiView/trunk-master/qCC/ui_templates/stereoModeDlg.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/qCC/ui_templates/stereoModeDlg.ui;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\stereoModeDlg.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\captainT\project_13\ImageMultiView\Build\ccViewer\ui_stereoModeDlg.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Generating ui_stereoModeDlg.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\uic.exe -o D:/captainT/project_13/ImageMultiView/Build/ccViewer/ui_stereoModeDlg.h D:/captainT/project_13/ImageMultiView/trunk-master/qCC/ui_templates/stereoModeDlg.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/qCC/ui_templates/stereoModeDlg.ui;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\stereoModeDlg.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\captainT\project_13\ImageMultiView\Build\ccViewer\ui_stereoModeDlg.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Generating ui_stereoModeDlg.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\uic.exe -o D:/captainT/project_13/ImageMultiView/Build/ccViewer/ui_stereoModeDlg.h D:/captainT/project_13/ImageMultiView/trunk-master/qCC/ui_templates/stereoModeDlg.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/qCC/ui_templates/stereoModeDlg.ui;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\stereoModeDlg.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\captainT\project_13\ImageMultiView\Build\ccViewer\ui_stereoModeDlg.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\icones.qrc">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating qrc_icones.cpp</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\rcc.exe --name icones --output D:/captainT/project_13/ImageMultiView/Build/ccViewer/qrc_icones.cpp D:/captainT/project_13/ImageMultiView/trunk-master/qCC/icones.qrc
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/qCC/icones.qrc;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\restore.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\square.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\interactors.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\oculus.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\nvidia.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccSwapUpDown.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\unfoldSmall.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccStereo.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccSORFilter.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\smallCSVFile.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\smallSphere.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccLevel.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccGrid.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\sectionExtraction.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\orthoSections.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccExit.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccFullScreen.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccSunLight.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccClippingBox.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccClippingBoxMultExport.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccClippingBoxSingleExport.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccGear.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccCenteredPerspective32.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccOrthoMode32.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccViewerBasedPerspective32.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbAreaLabelSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbViewportSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbHObjectSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbHObjectSymbolLocked.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbImageSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbCalibratedImageSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbContainerSymbolLocked.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbContainerSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbMaterialSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbLabelSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbCloudSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbCloudSymbolLocked.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbLockSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbSubMeshSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbSubMeshSymbolLocked.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbMeshSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbMeshSymbolLocked.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbMiscGeomSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbMiscGeomSymbolLocked.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbOctreeSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbOctreeSymbolLocked.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbPolylineSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccPivotAuto.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccPivotOff.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccPivotOn.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbGBLSensorSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbCamSensorSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\smallTrash.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\smallRectangleSelect.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\im3DxLogo.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\smallPolygonSelect.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\smallCancel.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\smallPause.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\smallPointDistance.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\smallPointProperties.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\smallPointsAngle.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\smallReset.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\smallSegmentIn.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\smallSegmentOut.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\smallValidate.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\smallBasket.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\smallRevert.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccPointListPicking.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccPointPicking.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccSfArithmetic.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccAddConstSF.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccPickCenter.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccCamera.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccSettings.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccViewXneg.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccViewXpos.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccViewYneg.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccViewYpos.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccViewZneg.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccViewZpos.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccCCExtract.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccClone.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccCloudCloudDistance.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccCloudMeshDistance.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccComputeStat.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccDeleteSF.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccFilterByValue.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccMerge.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccGaussianFilter.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccGlobalZoom.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccGradient.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccHistogram.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccInteractiveTransformation.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccAlign.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccRegister.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccSampleCloud.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccSamplePoints.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccSegment.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccStatTest.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccZoom.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccConsole.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccOpen.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccPointSize.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccSave.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccDelete.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccZoomIn.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccBilateralFilter.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccUnstack.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccPencil.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccPlus.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccMinus.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccLightParams.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\imLogoV2Qt.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\primBox.gif;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\primPlane.gif;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\primCone.gif;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\primCylinder.gif;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccViewIso1.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccViewIso2.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\primDish.gif;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\primSphere.gif;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\primTorus.gif;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\typePositiveSF.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\typeGrayColor.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\typeNormal.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\typeRgbCcolor.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\typeSF.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\typeXCoordinate.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\typeYCoordinate.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\typeZCoordinate.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccTracePolyline.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\icon\cc_viewer_icon_16.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\icon\cc_viewer_icon_32.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\icon\cc_viewer_icon_64.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\icon\cc_icon_16.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\icon\cc_icon_32.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\icon\cc_icon_64.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\icones.qrc;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\captainT\project_13\ImageMultiView\Build\ccViewer\qrc_icones.cpp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating qrc_icones.cpp</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\rcc.exe --name icones --output D:/captainT/project_13/ImageMultiView/Build/ccViewer/qrc_icones.cpp D:/captainT/project_13/ImageMultiView/trunk-master/qCC/icones.qrc
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/qCC/icones.qrc;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\restore.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\square.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\interactors.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\oculus.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\nvidia.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccSwapUpDown.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\unfoldSmall.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccStereo.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccSORFilter.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\smallCSVFile.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\smallSphere.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccLevel.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccGrid.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\sectionExtraction.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\orthoSections.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccExit.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccFullScreen.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccSunLight.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccClippingBox.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccClippingBoxMultExport.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccClippingBoxSingleExport.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccGear.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccCenteredPerspective32.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccOrthoMode32.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccViewerBasedPerspective32.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbAreaLabelSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbViewportSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbHObjectSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbHObjectSymbolLocked.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbImageSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbCalibratedImageSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbContainerSymbolLocked.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbContainerSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbMaterialSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbLabelSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbCloudSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbCloudSymbolLocked.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbLockSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbSubMeshSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbSubMeshSymbolLocked.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbMeshSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbMeshSymbolLocked.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbMiscGeomSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbMiscGeomSymbolLocked.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbOctreeSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbOctreeSymbolLocked.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbPolylineSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccPivotAuto.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccPivotOff.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccPivotOn.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbGBLSensorSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbCamSensorSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\smallTrash.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\smallRectangleSelect.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\im3DxLogo.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\smallPolygonSelect.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\smallCancel.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\smallPause.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\smallPointDistance.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\smallPointProperties.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\smallPointsAngle.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\smallReset.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\smallSegmentIn.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\smallSegmentOut.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\smallValidate.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\smallBasket.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\smallRevert.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccPointListPicking.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccPointPicking.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccSfArithmetic.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccAddConstSF.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccPickCenter.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccCamera.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccSettings.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccViewXneg.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccViewXpos.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccViewYneg.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccViewYpos.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccViewZneg.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccViewZpos.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccCCExtract.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccClone.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccCloudCloudDistance.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccCloudMeshDistance.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccComputeStat.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccDeleteSF.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccFilterByValue.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccMerge.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccGaussianFilter.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccGlobalZoom.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccGradient.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccHistogram.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccInteractiveTransformation.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccAlign.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccRegister.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccSampleCloud.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccSamplePoints.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccSegment.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccStatTest.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccZoom.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccConsole.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccOpen.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccPointSize.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccSave.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccDelete.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccZoomIn.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccBilateralFilter.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccUnstack.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccPencil.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccPlus.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccMinus.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccLightParams.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\imLogoV2Qt.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\primBox.gif;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\primPlane.gif;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\primCone.gif;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\primCylinder.gif;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccViewIso1.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccViewIso2.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\primDish.gif;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\primSphere.gif;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\primTorus.gif;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\typePositiveSF.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\typeGrayColor.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\typeNormal.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\typeRgbCcolor.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\typeSF.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\typeXCoordinate.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\typeYCoordinate.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\typeZCoordinate.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccTracePolyline.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\icon\cc_viewer_icon_16.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\icon\cc_viewer_icon_32.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\icon\cc_viewer_icon_64.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\icon\cc_icon_16.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\icon\cc_icon_32.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\icon\cc_icon_64.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\icones.qrc;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\captainT\project_13\ImageMultiView\Build\ccViewer\qrc_icones.cpp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Generating qrc_icones.cpp</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\rcc.exe --name icones --output D:/captainT/project_13/ImageMultiView/Build/ccViewer/qrc_icones.cpp D:/captainT/project_13/ImageMultiView/trunk-master/qCC/icones.qrc
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/qCC/icones.qrc;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\restore.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\square.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\interactors.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\oculus.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\nvidia.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccSwapUpDown.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\unfoldSmall.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccStereo.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccSORFilter.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\smallCSVFile.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\smallSphere.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccLevel.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccGrid.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\sectionExtraction.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\orthoSections.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccExit.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccFullScreen.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccSunLight.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccClippingBox.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccClippingBoxMultExport.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccClippingBoxSingleExport.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccGear.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccCenteredPerspective32.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccOrthoMode32.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccViewerBasedPerspective32.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbAreaLabelSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbViewportSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbHObjectSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbHObjectSymbolLocked.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbImageSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbCalibratedImageSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbContainerSymbolLocked.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbContainerSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbMaterialSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbLabelSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbCloudSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbCloudSymbolLocked.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbLockSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbSubMeshSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbSubMeshSymbolLocked.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbMeshSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbMeshSymbolLocked.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbMiscGeomSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbMiscGeomSymbolLocked.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbOctreeSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbOctreeSymbolLocked.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbPolylineSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccPivotAuto.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccPivotOff.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccPivotOn.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbGBLSensorSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbCamSensorSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\smallTrash.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\smallRectangleSelect.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\im3DxLogo.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\smallPolygonSelect.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\smallCancel.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\smallPause.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\smallPointDistance.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\smallPointProperties.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\smallPointsAngle.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\smallReset.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\smallSegmentIn.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\smallSegmentOut.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\smallValidate.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\smallBasket.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\smallRevert.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccPointListPicking.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccPointPicking.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccSfArithmetic.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccAddConstSF.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccPickCenter.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccCamera.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccSettings.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccViewXneg.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccViewXpos.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccViewYneg.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccViewYpos.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccViewZneg.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccViewZpos.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccCCExtract.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccClone.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccCloudCloudDistance.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccCloudMeshDistance.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccComputeStat.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccDeleteSF.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccFilterByValue.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccMerge.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccGaussianFilter.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccGlobalZoom.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccGradient.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccHistogram.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccInteractiveTransformation.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccAlign.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccRegister.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccSampleCloud.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccSamplePoints.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccSegment.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccStatTest.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccZoom.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccConsole.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccOpen.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccPointSize.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccSave.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccDelete.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccZoomIn.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccBilateralFilter.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccUnstack.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccPencil.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccPlus.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccMinus.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccLightParams.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\imLogoV2Qt.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\primBox.gif;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\primPlane.gif;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\primCone.gif;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\primCylinder.gif;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccViewIso1.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccViewIso2.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\primDish.gif;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\primSphere.gif;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\primTorus.gif;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\typePositiveSF.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\typeGrayColor.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\typeNormal.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\typeRgbCcolor.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\typeSF.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\typeXCoordinate.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\typeYCoordinate.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\typeZCoordinate.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccTracePolyline.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\icon\cc_viewer_icon_16.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\icon\cc_viewer_icon_32.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\icon\cc_viewer_icon_64.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\icon\cc_icon_16.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\icon\cc_icon_32.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\icon\cc_icon_64.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\icones.qrc;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\captainT\project_13\ImageMultiView\Build\ccViewer\qrc_icones.cpp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Generating qrc_icones.cpp</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\rcc.exe --name icones --output D:/captainT/project_13/ImageMultiView/Build/ccViewer/qrc_icones.cpp D:/captainT/project_13/ImageMultiView/trunk-master/qCC/icones.qrc
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/qCC/icones.qrc;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\restore.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\square.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\interactors.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\oculus.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\nvidia.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccSwapUpDown.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\unfoldSmall.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccStereo.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccSORFilter.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\smallCSVFile.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\smallSphere.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccLevel.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccGrid.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\sectionExtraction.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\orthoSections.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccExit.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccFullScreen.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccSunLight.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccClippingBox.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccClippingBoxMultExport.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccClippingBoxSingleExport.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccGear.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccCenteredPerspective32.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccOrthoMode32.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccViewerBasedPerspective32.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbAreaLabelSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbViewportSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbHObjectSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbHObjectSymbolLocked.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbImageSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbCalibratedImageSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbContainerSymbolLocked.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbContainerSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbMaterialSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbLabelSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbCloudSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbCloudSymbolLocked.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbLockSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbSubMeshSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbSubMeshSymbolLocked.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbMeshSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbMeshSymbolLocked.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbMiscGeomSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbMiscGeomSymbolLocked.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbOctreeSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbOctreeSymbolLocked.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbPolylineSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccPivotAuto.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccPivotOff.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccPivotOn.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbGBLSensorSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\dbCamSensorSymbol.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\smallTrash.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\smallRectangleSelect.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\im3DxLogo.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\smallPolygonSelect.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\smallCancel.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\smallPause.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\smallPointDistance.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\smallPointProperties.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\smallPointsAngle.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\smallReset.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\smallSegmentIn.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\smallSegmentOut.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\smallValidate.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\smallBasket.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\smallRevert.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccPointListPicking.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccPointPicking.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccSfArithmetic.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccAddConstSF.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccPickCenter.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccCamera.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccSettings.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccViewXneg.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccViewXpos.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccViewYneg.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccViewYpos.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccViewZneg.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccViewZpos.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccCCExtract.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccClone.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccCloudCloudDistance.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccCloudMeshDistance.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccComputeStat.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccDeleteSF.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccFilterByValue.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccMerge.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccGaussianFilter.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccGlobalZoom.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccGradient.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccHistogram.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccInteractiveTransformation.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccAlign.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccRegister.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccSampleCloud.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccSamplePoints.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccSegment.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccStatTest.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccZoom.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccConsole.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccOpen.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccPointSize.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccSave.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccDelete.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccZoomIn.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccBilateralFilter.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccUnstack.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccPencil.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccPlus.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccMinus.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccLightParams.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\imLogoV2Qt.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\primBox.gif;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\primPlane.gif;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\primCone.gif;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\primCylinder.gif;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccViewIso1.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccViewIso2.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\primDish.gif;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\primSphere.gif;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\primTorus.gif;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\typePositiveSF.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\typeGrayColor.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\typeNormal.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\typeRgbCcolor.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\typeSF.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\typeXCoordinate.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\typeYCoordinate.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\typeZCoordinate.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\ccTracePolyline.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\icon\cc_viewer_icon_16.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\icon\cc_viewer_icon_32.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\icon\cc_viewer_icon_64.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\icon\cc_icon_16.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\icon\cc_icon_32.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\images\icon\cc_icon_64.png;D:\captainT\project_13\ImageMultiView\trunk-master\qCC\icones.qrc;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\captainT\project_13\ImageMultiView\Build\ccViewer\qrc_icones.cpp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\ccViewer\ccviewer.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\ccViewer\ccviewerlog.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccOverlayDialog.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccCameraParamEditDlg.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccDisplayOptionsDlg.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccStereoModeDlg.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\ccViewer\ui_ccviewer.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\ccViewer\ui_ccviewerAbout.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\ccViewer\ui_cameraParamDlg.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\ccViewer\ui_displayOptionsDlg.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\ccViewer\ui_stereoModeDlg.h" />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\ccViewer\ccviewer.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\ccViewer\main.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccOverlayDialog.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccCameraParamEditDlg.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccDisplayOptionsDlg.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccStereoModeDlg.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\Build\ccViewer\qrc_icones.cpp"  />
+    <ResourceCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\ccViewer\images\icon\cc_viewer_icon.rc"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\Build\ccViewer\ccViewer_automoc.cpp"  />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="D:/captainT/project_13/ImageMultiView/Build/CC/CC_CORE_LIB.vcxproj">
+      <Project>CE011146-3E0F-4637-B926-B77C47382EE1</Project>
+    </ProjectReference>
+    <ProjectReference Include="D:/captainT/project_13/ImageMultiView/Build/libs/CCFbo/CC_FBO_LIB.vcxproj">
+      <Project>BCB7B66D-1DDD-4962-B4F0-92FB78D24EEF</Project>
+    </ProjectReference>
+    <ProjectReference Include="D:/captainT/project_13/ImageMultiView/Build/libs/qCC_db/QCC_DB_LIB.vcxproj">
+      <Project>6C398E3D-9157-4B7B-B48A-F19EC8BAE954</Project>
+    </ProjectReference>
+    <ProjectReference Include="D:/captainT/project_13/ImageMultiView/Build/libs/qCC_glWindow/QCC_GL_LIB.vcxproj">
+      <Project>E38E03E7-DA22-46A1-AF19-F064FB339EC8</Project>
+    </ProjectReference>
+    <ProjectReference Include="D:/captainT/project_13/ImageMultiView/Build/libs/qCC_io/QCC_IO_LIB.vcxproj">
+      <Project>45627B13-77AA-4CBF-A7FB-B5D6BA222481</Project>
+    </ProjectReference>
+    <ProjectReference Include="D:/captainT/project_13/ImageMultiView/Build/ZERO_CHECK.vcxproj">
+      <Project>C6C6C8DF-FB71-4BB2-922B-C8C7B108A514</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

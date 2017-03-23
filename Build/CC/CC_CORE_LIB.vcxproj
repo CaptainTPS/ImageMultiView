@@ -1,0 +1,485 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGUID>{CE011146-3E0F-4637-B926-B77C47382EE1}</ProjectGUID>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>x64</Platform>
+    <ProjectName>CC_CORE_LIB</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+    <PropertyGroup>
+      <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\captainT\project_13\ImageMultiView\Build\CC\Debug\</OutDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CC_CORE_LIB.dir\Debug\</IntDir>
+      <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CC_CORE_LIBd</TargetName>
+      <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.dll</TargetExt>
+      <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+      <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\captainT\project_13\ImageMultiView\Build\CC\Release\</OutDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CC_CORE_LIB.dir\Release\</IntDir>
+      <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CC_CORE_LIB</TargetName>
+      <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.dll</TargetExt>
+      <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+      <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\captainT\project_13\ImageMultiView\Build\CC\MinSizeRel\</OutDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CC_CORE_LIB.dir\MinSizeRel\</IntDir>
+      <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CC_CORE_LIB</TargetName>
+      <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.dll</TargetExt>
+      <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
+      <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\captainT\project_13\ImageMultiView\Build\CC\RelWithDebInfo\</OutDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CC_CORE_LIB.dir\RelWithDebInfo\</IntDir>
+      <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CC_CORE_LIB</TargetName>
+      <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.dll</TargetExt>
+      <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</LinkIncremental>
+      <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</GenerateManifest>
+    </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\captainT\project_13\ImageMultiView\Build\CC;D:\captainT\project_13\ImageMultiView\trunk-master\CC;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtOpenGL;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtWidgets;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtGui;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtCore;D:\Qt\Qt5.5.1\5.5\msvc2013_64\.\mkspecs\win32-msvc2013;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtConcurrent;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtPrintSupport;D:\captainT\project_13\ImageMultiView\trunk-master\CC\include;D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Debug/</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <OpenMPSupport>true</OpenMPSupport>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;QT_CORE_LIB;QT_WIDGETS_LIB;QT_GUI_LIB;QT_CONCURRENT_LIB;USE_QT;CC_USE_AS_DLL;_CRT_SECURE_NO_WARNINGS;NOMINMAX;__STDC_LIMIT_MACROS;QT_USE_QSTRINGBUILDER;CMAKE_INTDIR="Debug";CC_CORE_LIB_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;QT_CORE_LIB;QT_WIDGETS_LIB;QT_GUI_LIB;QT_CONCURRENT_LIB;USE_QT;CC_USE_AS_DLL;_CRT_SECURE_NO_WARNINGS;NOMINMAX;__STDC_LIMIT_MACROS;QT_USE_QSTRINGBUILDER;CMAKE_INTDIR=\"Debug\";CC_CORE_LIB_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\captainT\project_13\ImageMultiView\Build\CC;D:\captainT\project_13\ImageMultiView\trunk-master\CC;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtOpenGL;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtWidgets;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtGui;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtCore;D:\Qt\Qt5.5.1\5.5\msvc2013_64\.\mkspecs\win32-msvc2013;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtConcurrent;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtPrintSupport;D:\captainT\project_13\ImageMultiView\trunk-master\CC\include;D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\captainT\project_13\ImageMultiView\Build\CC;D:\captainT\project_13\ImageMultiView\trunk-master\CC;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtOpenGL;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtWidgets;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtGui;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtCore;D:\Qt\Qt5.5.1\5.5\msvc2013_64\.\mkspecs\win32-msvc2013;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtConcurrent;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtPrintSupport;D:\captainT\project_13\ImageMultiView\trunk-master\CC\include;D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PreBuildEvent>
+      <Message>Automatic moc for target CC_CORE_LIB</Message>
+      <Command>setlocal
+cd D:\captainT\project_13\ImageMultiView\Build\CC
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_autogen D:/captainT/project_13/ImageMultiView/Build/CC/CMakeFiles/CC_CORE_LIB_automoc.dir/ Debug
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PreBuildEvent>
+    <Link>
+      <AdditionalOptions> /machine:x64 /debug %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\Qt5Widgetsd.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\Qt5Concurrentd.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\Qt5Guid.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\Qt5Cored.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/captainT/project_13/ImageMultiView/Build/CC/Debug/CC_CORE_LIBd.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/captainT/project_13/ImageMultiView/Build/CC/Debug/CC_CORE_LIBd.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+      <Version></Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\captainT\project_13\ImageMultiView\Build\CC;D:\captainT\project_13\ImageMultiView\trunk-master\CC;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtOpenGL;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtWidgets;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtGui;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtCore;D:\Qt\Qt5.5.1\5.5\msvc2013_64\.\mkspecs\win32-msvc2013;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtConcurrent;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtPrintSupport;D:\captainT\project_13\ImageMultiView\trunk-master\CC\include;D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Release/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <OpenMPSupport>true</OpenMPSupport>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_SECURE_SCL=0;QT_CORE_LIB;QT_WIDGETS_LIB;QT_GUI_LIB;QT_CONCURRENT_LIB;USE_QT;CC_USE_AS_DLL;_CRT_SECURE_NO_WARNINGS;NOMINMAX;__STDC_LIMIT_MACROS;QT_USE_QSTRINGBUILDER;QT_NO_DEBUG;CMAKE_INTDIR="Release";CC_CORE_LIB_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat></DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_SECURE_SCL=0;QT_CORE_LIB;QT_WIDGETS_LIB;QT_GUI_LIB;QT_CONCURRENT_LIB;USE_QT;CC_USE_AS_DLL;_CRT_SECURE_NO_WARNINGS;NOMINMAX;__STDC_LIMIT_MACROS;QT_USE_QSTRINGBUILDER;QT_NO_DEBUG;CMAKE_INTDIR=\"Release\";CC_CORE_LIB_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\captainT\project_13\ImageMultiView\Build\CC;D:\captainT\project_13\ImageMultiView\trunk-master\CC;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtOpenGL;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtWidgets;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtGui;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtCore;D:\Qt\Qt5.5.1\5.5\msvc2013_64\.\mkspecs\win32-msvc2013;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtConcurrent;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtPrintSupport;D:\captainT\project_13\ImageMultiView\trunk-master\CC\include;D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\captainT\project_13\ImageMultiView\Build\CC;D:\captainT\project_13\ImageMultiView\trunk-master\CC;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtOpenGL;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtWidgets;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtGui;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtCore;D:\Qt\Qt5.5.1\5.5\msvc2013_64\.\mkspecs\win32-msvc2013;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtConcurrent;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtPrintSupport;D:\captainT\project_13\ImageMultiView\trunk-master\CC\include;D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PreBuildEvent>
+      <Message>Automatic moc for target CC_CORE_LIB</Message>
+      <Command>setlocal
+cd D:\captainT\project_13\ImageMultiView\Build\CC
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_autogen D:/captainT/project_13/ImageMultiView/Build/CC/CMakeFiles/CC_CORE_LIB_automoc.dir/ Release
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PreBuildEvent>
+    <Link>
+      <AdditionalOptions> /machine:x64 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\Qt5Widgets.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\Qt5Concurrent.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\Qt5Gui.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\Qt5Core.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/captainT/project_13/ImageMultiView/Build/CC/Release/CC_CORE_LIB.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/captainT/project_13/ImageMultiView/Build/CC/Release/CC_CORE_LIB.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+      <Version></Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\captainT\project_13\ImageMultiView\Build\CC;D:\captainT\project_13\ImageMultiView\trunk-master\CC;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtOpenGL;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtWidgets;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtGui;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtCore;D:\Qt\Qt5.5.1\5.5\msvc2013_64\.\mkspecs\win32-msvc2013;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtConcurrent;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtPrintSupport;D:\captainT\project_13\ImageMultiView\trunk-master\CC\include;D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>MinSizeRel/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <OpenMPSupport>true</OpenMPSupport>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;QT_CORE_LIB;QT_WIDGETS_LIB;QT_GUI_LIB;QT_CONCURRENT_LIB;USE_QT;CC_USE_AS_DLL;_CRT_SECURE_NO_WARNINGS;NOMINMAX;__STDC_LIMIT_MACROS;QT_USE_QSTRINGBUILDER;QT_NO_DEBUG;CMAKE_INTDIR="MinSizeRel";CC_CORE_LIB_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat></DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;QT_CORE_LIB;QT_WIDGETS_LIB;QT_GUI_LIB;QT_CONCURRENT_LIB;USE_QT;CC_USE_AS_DLL;_CRT_SECURE_NO_WARNINGS;NOMINMAX;__STDC_LIMIT_MACROS;QT_USE_QSTRINGBUILDER;QT_NO_DEBUG;CMAKE_INTDIR=\"MinSizeRel\";CC_CORE_LIB_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\captainT\project_13\ImageMultiView\Build\CC;D:\captainT\project_13\ImageMultiView\trunk-master\CC;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtOpenGL;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtWidgets;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtGui;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtCore;D:\Qt\Qt5.5.1\5.5\msvc2013_64\.\mkspecs\win32-msvc2013;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtConcurrent;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtPrintSupport;D:\captainT\project_13\ImageMultiView\trunk-master\CC\include;D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\captainT\project_13\ImageMultiView\Build\CC;D:\captainT\project_13\ImageMultiView\trunk-master\CC;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtOpenGL;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtWidgets;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtGui;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtCore;D:\Qt\Qt5.5.1\5.5\msvc2013_64\.\mkspecs\win32-msvc2013;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtConcurrent;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtPrintSupport;D:\captainT\project_13\ImageMultiView\trunk-master\CC\include;D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PreBuildEvent>
+      <Message>Automatic moc for target CC_CORE_LIB</Message>
+      <Command>setlocal
+cd D:\captainT\project_13\ImageMultiView\Build\CC
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_autogen D:/captainT/project_13/ImageMultiView/Build/CC/CMakeFiles/CC_CORE_LIB_automoc.dir/ MinSizeRel
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PreBuildEvent>
+    <Link>
+      <AdditionalOptions> /machine:x64 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\Qt5Widgets.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\Qt5Concurrent.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\Qt5Gui.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\Qt5Core.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/captainT/project_13/ImageMultiView/Build/CC/MinSizeRel/CC_CORE_LIB.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/captainT/project_13/ImageMultiView/Build/CC/MinSizeRel/CC_CORE_LIB.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+      <Version></Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\captainT\project_13\ImageMultiView\Build\CC;D:\captainT\project_13\ImageMultiView\trunk-master\CC;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtOpenGL;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtWidgets;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtGui;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtCore;D:\Qt\Qt5.5.1\5.5\msvc2013_64\.\mkspecs\win32-msvc2013;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtConcurrent;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtPrintSupport;D:\captainT\project_13\ImageMultiView\trunk-master\CC\include;D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>RelWithDebInfo/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <OpenMPSupport>true</OpenMPSupport>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;QT_CORE_LIB;QT_WIDGETS_LIB;QT_GUI_LIB;QT_CONCURRENT_LIB;USE_QT;CC_USE_AS_DLL;_CRT_SECURE_NO_WARNINGS;NOMINMAX;__STDC_LIMIT_MACROS;QT_USE_QSTRINGBUILDER;QT_NO_DEBUG;CMAKE_INTDIR="RelWithDebInfo";CC_CORE_LIB_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;QT_CORE_LIB;QT_WIDGETS_LIB;QT_GUI_LIB;QT_CONCURRENT_LIB;USE_QT;CC_USE_AS_DLL;_CRT_SECURE_NO_WARNINGS;NOMINMAX;__STDC_LIMIT_MACROS;QT_USE_QSTRINGBUILDER;QT_NO_DEBUG;CMAKE_INTDIR=\"RelWithDebInfo\";CC_CORE_LIB_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\captainT\project_13\ImageMultiView\Build\CC;D:\captainT\project_13\ImageMultiView\trunk-master\CC;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtOpenGL;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtWidgets;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtGui;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtCore;D:\Qt\Qt5.5.1\5.5\msvc2013_64\.\mkspecs\win32-msvc2013;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtConcurrent;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtPrintSupport;D:\captainT\project_13\ImageMultiView\trunk-master\CC\include;D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\captainT\project_13\ImageMultiView\Build\CC;D:\captainT\project_13\ImageMultiView\trunk-master\CC;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtOpenGL;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtWidgets;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtGui;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtCore;D:\Qt\Qt5.5.1\5.5\msvc2013_64\.\mkspecs\win32-msvc2013;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtConcurrent;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtPrintSupport;D:\captainT\project_13\ImageMultiView\trunk-master\CC\include;D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PreBuildEvent>
+      <Message>Automatic moc for target CC_CORE_LIB</Message>
+      <Command>setlocal
+cd D:\captainT\project_13\ImageMultiView\Build\CC
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_autogen D:/captainT/project_13/ImageMultiView/Build/CC/CMakeFiles/CC_CORE_LIB_automoc.dir/ RelWithDebInfo
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PreBuildEvent>
+    <Link>
+      <AdditionalOptions> /machine:x64 /debug %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\Qt5Widgets.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\Qt5Concurrent.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\Qt5Gui.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\Qt5Core.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/captainT/project_13/ImageMultiView/Build/CC/RelWithDebInfo/CC_CORE_LIB.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/captainT/project_13/ImageMultiView/Build/CC/RelWithDebInfo/CC_CORE_LIB.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+      <Version></Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule D:/captainT/project_13/ImageMultiView/trunk-master/CC/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -HD:/captainT/project_13/ImageMultiView/trunk-master -BD:/captainT/project_13/ImageMultiView/Build --check-stamp-file D:\captainT\project_13\ImageMultiView\Build\CC\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/CC/CMakeLists.txt;D:\captainT\project_13\ImageMultiView\trunk-master\CC\CMakeLists.txt;D:\captainT\project_13\ImageMultiView\trunk-master\CMakePolicies.cmake;D:\captainT\project_13\ImageMultiView\trunk-master\CMakeExternalLibs.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Widgets\Qt5WidgetsConfigVersion.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Widgets\Qt5WidgetsConfig.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5GuiConfigVersion.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5GuiConfig.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Core\Qt5CoreConfigVersion.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Core\Qt5CoreConfig.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Core\Qt5CoreConfigExtras.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Core\Qt5CoreConfigExtrasMkspecDir.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Core\Qt5CoreMacros.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\CMakeParseArguments.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QDDSPlugin.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QGifPlugin.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QICNSPlugin.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QICOPlugin.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QJp2Plugin.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QJpegPlugin.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QMinimalIntegrationPlugin.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QMngPlugin.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QOffscreenIntegrationPlugin.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QTgaPlugin.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QTiffPlugin.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QTuioTouchPlugin.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QWbmpPlugin.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QWebpPlugin.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QWindowsIntegrationPlugin.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5GuiConfigExtras.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Widgets\Qt5WidgetsConfigExtras.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Widgets\Qt5WidgetsMacros.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\CMakeParseArguments.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Core\Qt5CoreConfigVersion.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Core\Qt5CoreConfig.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5GuiConfigVersion.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5GuiConfig.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5PrintSupport\Qt5PrintSupportConfigVersion.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5PrintSupport\Qt5PrintSupportConfig.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5PrintSupport\Qt5PrintSupport_QWindowsPrinterSupportPlugin.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Concurrent\Qt5ConcurrentConfigVersion.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Concurrent\Qt5ConcurrentConfig.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5OpenGL\Qt5OpenGLConfigVersion.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5OpenGL\Qt5OpenGLConfig.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5OpenGLExtensions\Qt5OpenGLExtensionsConfigVersion.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5OpenGLExtensions\Qt5OpenGLExtensionsConfig.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\FindOpenMP.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\FindPackageMessage.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\CMakeParseArguments.cmake;D:\captainT\project_13\ImageMultiView\trunk-master\CMakeInclude.cmake;D:\captainT\project_13\ImageMultiView\trunk-master\CC\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\captainT\project_13\ImageMultiView\Build\CC\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule D:/captainT/project_13/ImageMultiView/trunk-master/CC/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -HD:/captainT/project_13/ImageMultiView/trunk-master -BD:/captainT/project_13/ImageMultiView/Build --check-stamp-file D:\captainT\project_13\ImageMultiView\Build\CC\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/CC/CMakeLists.txt;D:\captainT\project_13\ImageMultiView\trunk-master\CC\CMakeLists.txt;D:\captainT\project_13\ImageMultiView\trunk-master\CMakePolicies.cmake;D:\captainT\project_13\ImageMultiView\trunk-master\CMakeExternalLibs.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Widgets\Qt5WidgetsConfigVersion.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Widgets\Qt5WidgetsConfig.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5GuiConfigVersion.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5GuiConfig.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Core\Qt5CoreConfigVersion.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Core\Qt5CoreConfig.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Core\Qt5CoreConfigExtras.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Core\Qt5CoreConfigExtrasMkspecDir.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Core\Qt5CoreMacros.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\CMakeParseArguments.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QDDSPlugin.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QGifPlugin.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QICNSPlugin.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QICOPlugin.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QJp2Plugin.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QJpegPlugin.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QMinimalIntegrationPlugin.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QMngPlugin.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QOffscreenIntegrationPlugin.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QTgaPlugin.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QTiffPlugin.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QTuioTouchPlugin.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QWbmpPlugin.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QWebpPlugin.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QWindowsIntegrationPlugin.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5GuiConfigExtras.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Widgets\Qt5WidgetsConfigExtras.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Widgets\Qt5WidgetsMacros.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\CMakeParseArguments.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Core\Qt5CoreConfigVersion.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Core\Qt5CoreConfig.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5GuiConfigVersion.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5GuiConfig.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5PrintSupport\Qt5PrintSupportConfigVersion.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5PrintSupport\Qt5PrintSupportConfig.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5PrintSupport\Qt5PrintSupport_QWindowsPrinterSupportPlugin.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Concurrent\Qt5ConcurrentConfigVersion.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Concurrent\Qt5ConcurrentConfig.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5OpenGL\Qt5OpenGLConfigVersion.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5OpenGL\Qt5OpenGLConfig.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5OpenGLExtensions\Qt5OpenGLExtensionsConfigVersion.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5OpenGLExtensions\Qt5OpenGLExtensionsConfig.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\FindOpenMP.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\FindPackageMessage.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\CMakeParseArguments.cmake;D:\captainT\project_13\ImageMultiView\trunk-master\CMakeInclude.cmake;D:\captainT\project_13\ImageMultiView\trunk-master\CC\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\captainT\project_13\ImageMultiView\Build\CC\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule D:/captainT/project_13/ImageMultiView/trunk-master/CC/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -HD:/captainT/project_13/ImageMultiView/trunk-master -BD:/captainT/project_13/ImageMultiView/Build --check-stamp-file D:\captainT\project_13\ImageMultiView\Build\CC\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/CC/CMakeLists.txt;D:\captainT\project_13\ImageMultiView\trunk-master\CC\CMakeLists.txt;D:\captainT\project_13\ImageMultiView\trunk-master\CMakePolicies.cmake;D:\captainT\project_13\ImageMultiView\trunk-master\CMakeExternalLibs.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Widgets\Qt5WidgetsConfigVersion.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Widgets\Qt5WidgetsConfig.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5GuiConfigVersion.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5GuiConfig.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Core\Qt5CoreConfigVersion.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Core\Qt5CoreConfig.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Core\Qt5CoreConfigExtras.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Core\Qt5CoreConfigExtrasMkspecDir.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Core\Qt5CoreMacros.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\CMakeParseArguments.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QDDSPlugin.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QGifPlugin.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QICNSPlugin.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QICOPlugin.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QJp2Plugin.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QJpegPlugin.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QMinimalIntegrationPlugin.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QMngPlugin.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QOffscreenIntegrationPlugin.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QTgaPlugin.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QTiffPlugin.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QTuioTouchPlugin.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QWbmpPlugin.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QWebpPlugin.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QWindowsIntegrationPlugin.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5GuiConfigExtras.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Widgets\Qt5WidgetsConfigExtras.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Widgets\Qt5WidgetsMacros.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\CMakeParseArguments.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Core\Qt5CoreConfigVersion.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Core\Qt5CoreConfig.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5GuiConfigVersion.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5GuiConfig.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5PrintSupport\Qt5PrintSupportConfigVersion.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5PrintSupport\Qt5PrintSupportConfig.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5PrintSupport\Qt5PrintSupport_QWindowsPrinterSupportPlugin.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Concurrent\Qt5ConcurrentConfigVersion.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Concurrent\Qt5ConcurrentConfig.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5OpenGL\Qt5OpenGLConfigVersion.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5OpenGL\Qt5OpenGLConfig.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5OpenGLExtensions\Qt5OpenGLExtensionsConfigVersion.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5OpenGLExtensions\Qt5OpenGLExtensionsConfig.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\FindOpenMP.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\FindPackageMessage.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\CMakeParseArguments.cmake;D:\captainT\project_13\ImageMultiView\trunk-master\CMakeInclude.cmake;D:\captainT\project_13\ImageMultiView\trunk-master\CC\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\captainT\project_13\ImageMultiView\Build\CC\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule D:/captainT/project_13/ImageMultiView/trunk-master/CC/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -HD:/captainT/project_13/ImageMultiView/trunk-master -BD:/captainT/project_13/ImageMultiView/Build --check-stamp-file D:\captainT\project_13\ImageMultiView\Build\CC\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/CC/CMakeLists.txt;D:\captainT\project_13\ImageMultiView\trunk-master\CC\CMakeLists.txt;D:\captainT\project_13\ImageMultiView\trunk-master\CMakePolicies.cmake;D:\captainT\project_13\ImageMultiView\trunk-master\CMakeExternalLibs.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Widgets\Qt5WidgetsConfigVersion.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Widgets\Qt5WidgetsConfig.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5GuiConfigVersion.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5GuiConfig.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Core\Qt5CoreConfigVersion.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Core\Qt5CoreConfig.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Core\Qt5CoreConfigExtras.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Core\Qt5CoreConfigExtrasMkspecDir.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Core\Qt5CoreMacros.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\CMakeParseArguments.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QDDSPlugin.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QGifPlugin.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QICNSPlugin.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QICOPlugin.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QJp2Plugin.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QJpegPlugin.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QMinimalIntegrationPlugin.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QMngPlugin.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QOffscreenIntegrationPlugin.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QTgaPlugin.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QTiffPlugin.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QTuioTouchPlugin.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QWbmpPlugin.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QWebpPlugin.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QWindowsIntegrationPlugin.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5GuiConfigExtras.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Widgets\Qt5WidgetsConfigExtras.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Widgets\Qt5WidgetsMacros.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\CMakeParseArguments.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Core\Qt5CoreConfigVersion.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Core\Qt5CoreConfig.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5GuiConfigVersion.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Gui\Qt5GuiConfig.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5PrintSupport\Qt5PrintSupportConfigVersion.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5PrintSupport\Qt5PrintSupportConfig.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5PrintSupport\Qt5PrintSupport_QWindowsPrinterSupportPlugin.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Concurrent\Qt5ConcurrentConfigVersion.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5Concurrent\Qt5ConcurrentConfig.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5OpenGL\Qt5OpenGLConfigVersion.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5OpenGL\Qt5OpenGLConfig.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5OpenGLExtensions\Qt5OpenGLExtensionsConfigVersion.cmake;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\cmake\Qt5OpenGLExtensions\Qt5OpenGLExtensionsConfig.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\FindOpenMP.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\FindPackageMessage.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\CMakeParseArguments.cmake;D:\captainT\project_13\ImageMultiView\trunk-master\CMakeInclude.cmake;D:\captainT\project_13\ImageMultiView\trunk-master\CC\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\captainT\project_13\ImageMultiView\Build\CC\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\AutoSegmentationTools.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\CCConst.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\CCCoreLib.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\CCGeom.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\CCMiscTools.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\CCPlatform.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\CCShareable.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\CCToolbox.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\CCTypes.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\ChamferDistanceTransform.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\ChunkedPointCloud.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\CloudSamplingTools.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\ConjugateGradient.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\Delaunay2dMesh.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\DgmOctree.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\DgmOctreeReferenceCloud.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\DistanceComputationTools.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\ErrorFunction.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\FastMarching.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\FastMarchingForPropagation.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\Garbage.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\GenericChunkedArray.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\GenericCloud.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\GenericDistribution.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\GenericIndexedCloud.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\GenericIndexedCloudPersist.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\GenericIndexedMesh.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\GenericMesh.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\GenericOctree.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\GenericProgressCallback.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\GenericTriangle.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\GeometricalAnalysisTools.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\Grid3D.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\Jacobi.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\KdTree.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\LocalModel.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\ManualSegmentationTools.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\MathTools.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\MeshSamplingTools.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\Neighbourhood.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\NormalDistribution.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\PointProjectionTools.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\Polyline.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\RayAndBox.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\ReferenceCloud.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\RegistrationTools.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\SaitoSquaredDistanceTransform.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\ScalarField.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\ScalarFieldTools.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\SimpleCloud.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\SimpleMesh.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\SimpleTriangle.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\SortAlgo.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\SquareMatrix.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\StatisticalTestingTools.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\TrueKdTree.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\WeibullDistribution.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\Chi2Helper.h" />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\AutoSegmentationTools.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\CCMiscTools.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\CCShareable.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\ChamferDistanceTransform.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\ChunkedPointCloud.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\CloudSamplingTools.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\Delaunay2dMesh.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\DgmOctree.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\DgmOctreeReferenceCloud.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\DistanceComputationTools.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\ErrorFunction.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\FastMarching.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\FastMarchingForPropagation.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\GeometricalAnalysisTools.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\KdTree.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\LocalModel.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\ManualSegmentationTools.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\MeshSamplingTools.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\Neighbourhood.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\NormalDistribution.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\NormalizedProgress.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\PointProjectionTools.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\Polyline.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\ReferenceCloud.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\RegistrationTools.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\SaitoSquaredDistanceTransform.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\ScalarField.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\ScalarFieldTools.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\SimpleCloud.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\SimpleMesh.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\StatisticalTestingTools.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\TrueKdTree.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\WeibullDistribution.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\Build\CC\CC_CORE_LIB_automoc.cpp"  />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="D:/captainT/project_13/ImageMultiView/Build/ZERO_CHECK.vcxproj">
+      <Project>C6C6C8DF-FB71-4BB2-922B-C8C7B108A514</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

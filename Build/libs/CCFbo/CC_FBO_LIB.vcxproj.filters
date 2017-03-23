@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\CCFbo\src\ccBilateralFilter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\CCFbo\src\ccFrameBufferObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\CCFbo\src\ccShader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\Build\libs\CCFbo\CC_FBO_LIB_automoc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\CCFbo\include\ccBilateralFilter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\CCFbo\include\ccFrameBufferObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\CCFbo\include\ccGlFilter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\CCFbo\include\ccShader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\CCFbo\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{53D89DA7-C9DF-4E8C-8EE4-6CDBEB0EC659}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{D63269BA-2614-43E6-AA77-4E3FE4A92BA6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

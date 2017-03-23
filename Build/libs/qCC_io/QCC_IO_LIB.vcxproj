@@ -1,0 +1,1109 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGUID>{45627B13-77AA-4CBF-A7FB-B5D6BA222481}</ProjectGUID>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>x64</Platform>
+    <ProjectName>QCC_IO_LIB</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+    <PropertyGroup>
+      <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\Debug\</OutDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">QCC_IO_LIB.dir\Debug\</IntDir>
+      <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">QCC_IO_LIBd</TargetName>
+      <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.dll</TargetExt>
+      <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+      <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\Release\</OutDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">QCC_IO_LIB.dir\Release\</IntDir>
+      <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">QCC_IO_LIB</TargetName>
+      <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.dll</TargetExt>
+      <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+      <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\MinSizeRel\</OutDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">QCC_IO_LIB.dir\MinSizeRel\</IntDir>
+      <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">QCC_IO_LIB</TargetName>
+      <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.dll</TargetExt>
+      <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
+      <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\RelWithDebInfo\</OutDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">QCC_IO_LIB.dir\RelWithDebInfo\</IntDir>
+      <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">QCC_IO_LIB</TargetName>
+      <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.dll</TargetExt>
+      <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</LinkIncremental>
+      <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</GenerateManifest>
+    </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtOpenGL;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtWidgets;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtGui;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtCore;D:\Qt\Qt5.5.1\5.5\msvc2013_64\.\mkspecs\win32-msvc2013;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtConcurrent;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtPrintSupport;D:\captainT\project_13\ImageMultiView\trunk-master\CC\include;D:\captainT\project_13\ImageMultiView\trunk-master\libs\CCFbo\include;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_db;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_db\msvc;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtOpenGLExtensions;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Debug/</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <OpenMPSupport>true</OpenMPSupport>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;QT_CORE_LIB;CC_USE_AS_DLL;QCC_IO_USE_AS_DLL;NOMINMAX;_CRT_SECURE_NO_WARNINGS;__STDC_LIMIT_MACROS;QT_USE_QSTRINGBUILDER;QT_WIDGETS_LIB;QT_GUI_LIB;QT_CONCURRENT_LIB;QT_OPENGL_LIB;QT_OPENGLEXTENSIONS_LIB;CMAKE_INTDIR="Debug";QCC_IO_LIB_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;QT_CORE_LIB;CC_USE_AS_DLL;QCC_IO_USE_AS_DLL;NOMINMAX;_CRT_SECURE_NO_WARNINGS;__STDC_LIMIT_MACROS;QT_USE_QSTRINGBUILDER;QT_WIDGETS_LIB;QT_GUI_LIB;QT_CONCURRENT_LIB;QT_OPENGL_LIB;QT_OPENGLEXTENSIONS_LIB;CMAKE_INTDIR=\"Debug\";QCC_IO_LIB_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtOpenGL;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtWidgets;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtGui;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtCore;D:\Qt\Qt5.5.1\5.5\msvc2013_64\.\mkspecs\win32-msvc2013;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtConcurrent;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtPrintSupport;D:\captainT\project_13\ImageMultiView\trunk-master\CC\include;D:\captainT\project_13\ImageMultiView\trunk-master\libs\CCFbo\include;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_db;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_db\msvc;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtOpenGLExtensions;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtOpenGL;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtWidgets;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtGui;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtCore;D:\Qt\Qt5.5.1\5.5\msvc2013_64\.\mkspecs\win32-msvc2013;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtConcurrent;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtPrintSupport;D:\captainT\project_13\ImageMultiView\trunk-master\CC\include;D:\captainT\project_13\ImageMultiView\trunk-master\libs\CCFbo\include;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_db;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_db\msvc;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtOpenGLExtensions;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PreBuildEvent>
+      <Message>Automatic moc for target QCC_IO_LIB</Message>
+      <Command>setlocal
+cd D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_autogen D:/captainT/project_13/ImageMultiView/Build/libs/qCC_io/CMakeFiles/QCC_IO_LIB_automoc.dir/ Debug
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PreBuildEvent>
+    <Link>
+      <AdditionalOptions> /machine:x64 /debug %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;..\CCFbo\Debug\CC_FBO_LIBd.lib;..\qCC_db\Debug\QCC_DB_LIBd.lib;..\..\CC\Debug\CC_CORE_LIBd.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\Qt5Concurrentd.lib;..\CCFbo\Debug\CC_FBO_LIBd.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\Qt5OpenGLExtensionsd.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\Qt5OpenGLd.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\Qt5Widgetsd.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\Qt5Guid.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\Qt5Cored.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/captainT/project_13/ImageMultiView/Build/libs/qCC_io/Debug/QCC_IO_LIBd.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/captainT/project_13/ImageMultiView/Build/libs/qCC_io/Debug/QCC_IO_LIBd.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+      <Version></Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtOpenGL;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtWidgets;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtGui;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtCore;D:\Qt\Qt5.5.1\5.5\msvc2013_64\.\mkspecs\win32-msvc2013;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtConcurrent;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtPrintSupport;D:\captainT\project_13\ImageMultiView\trunk-master\CC\include;D:\captainT\project_13\ImageMultiView\trunk-master\libs\CCFbo\include;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_db;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_db\msvc;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtOpenGLExtensions;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Release/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <OpenMPSupport>true</OpenMPSupport>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_SECURE_SCL=0;QT_CORE_LIB;CC_USE_AS_DLL;QCC_IO_USE_AS_DLL;NOMINMAX;_CRT_SECURE_NO_WARNINGS;__STDC_LIMIT_MACROS;QT_USE_QSTRINGBUILDER;QT_NO_DEBUG;QT_WIDGETS_LIB;QT_GUI_LIB;QT_CONCURRENT_LIB;QT_OPENGL_LIB;QT_OPENGLEXTENSIONS_LIB;CMAKE_INTDIR="Release";QCC_IO_LIB_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat></DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_SECURE_SCL=0;QT_CORE_LIB;CC_USE_AS_DLL;QCC_IO_USE_AS_DLL;NOMINMAX;_CRT_SECURE_NO_WARNINGS;__STDC_LIMIT_MACROS;QT_USE_QSTRINGBUILDER;QT_NO_DEBUG;QT_WIDGETS_LIB;QT_GUI_LIB;QT_CONCURRENT_LIB;QT_OPENGL_LIB;QT_OPENGLEXTENSIONS_LIB;CMAKE_INTDIR=\"Release\";QCC_IO_LIB_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtOpenGL;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtWidgets;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtGui;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtCore;D:\Qt\Qt5.5.1\5.5\msvc2013_64\.\mkspecs\win32-msvc2013;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtConcurrent;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtPrintSupport;D:\captainT\project_13\ImageMultiView\trunk-master\CC\include;D:\captainT\project_13\ImageMultiView\trunk-master\libs\CCFbo\include;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_db;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_db\msvc;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtOpenGLExtensions;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtOpenGL;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtWidgets;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtGui;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtCore;D:\Qt\Qt5.5.1\5.5\msvc2013_64\.\mkspecs\win32-msvc2013;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtConcurrent;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtPrintSupport;D:\captainT\project_13\ImageMultiView\trunk-master\CC\include;D:\captainT\project_13\ImageMultiView\trunk-master\libs\CCFbo\include;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_db;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_db\msvc;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtOpenGLExtensions;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PreBuildEvent>
+      <Message>Automatic moc for target QCC_IO_LIB</Message>
+      <Command>setlocal
+cd D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_autogen D:/captainT/project_13/ImageMultiView/Build/libs/qCC_io/CMakeFiles/QCC_IO_LIB_automoc.dir/ Release
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PreBuildEvent>
+    <Link>
+      <AdditionalOptions> /machine:x64 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;..\CCFbo\Release\CC_FBO_LIB.lib;..\qCC_db\Release\QCC_DB_LIB.lib;..\..\CC\Release\CC_CORE_LIB.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\Qt5Concurrent.lib;..\CCFbo\Release\CC_FBO_LIB.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\Qt5OpenGLExtensions.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\Qt5OpenGL.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\Qt5Widgets.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\Qt5Gui.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\Qt5Core.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/captainT/project_13/ImageMultiView/Build/libs/qCC_io/Release/QCC_IO_LIB.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/captainT/project_13/ImageMultiView/Build/libs/qCC_io/Release/QCC_IO_LIB.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+      <Version></Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtOpenGL;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtWidgets;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtGui;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtCore;D:\Qt\Qt5.5.1\5.5\msvc2013_64\.\mkspecs\win32-msvc2013;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtConcurrent;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtPrintSupport;D:\captainT\project_13\ImageMultiView\trunk-master\CC\include;D:\captainT\project_13\ImageMultiView\trunk-master\libs\CCFbo\include;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_db;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_db\msvc;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtOpenGLExtensions;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>MinSizeRel/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <OpenMPSupport>true</OpenMPSupport>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;QT_CORE_LIB;CC_USE_AS_DLL;QCC_IO_USE_AS_DLL;NOMINMAX;_CRT_SECURE_NO_WARNINGS;__STDC_LIMIT_MACROS;QT_USE_QSTRINGBUILDER;QT_NO_DEBUG;QT_WIDGETS_LIB;QT_GUI_LIB;QT_CONCURRENT_LIB;QT_OPENGL_LIB;QT_OPENGLEXTENSIONS_LIB;CMAKE_INTDIR="MinSizeRel";QCC_IO_LIB_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat></DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;QT_CORE_LIB;CC_USE_AS_DLL;QCC_IO_USE_AS_DLL;NOMINMAX;_CRT_SECURE_NO_WARNINGS;__STDC_LIMIT_MACROS;QT_USE_QSTRINGBUILDER;QT_NO_DEBUG;QT_WIDGETS_LIB;QT_GUI_LIB;QT_CONCURRENT_LIB;QT_OPENGL_LIB;QT_OPENGLEXTENSIONS_LIB;CMAKE_INTDIR=\"MinSizeRel\";QCC_IO_LIB_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtOpenGL;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtWidgets;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtGui;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtCore;D:\Qt\Qt5.5.1\5.5\msvc2013_64\.\mkspecs\win32-msvc2013;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtConcurrent;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtPrintSupport;D:\captainT\project_13\ImageMultiView\trunk-master\CC\include;D:\captainT\project_13\ImageMultiView\trunk-master\libs\CCFbo\include;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_db;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_db\msvc;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtOpenGLExtensions;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtOpenGL;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtWidgets;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtGui;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtCore;D:\Qt\Qt5.5.1\5.5\msvc2013_64\.\mkspecs\win32-msvc2013;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtConcurrent;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtPrintSupport;D:\captainT\project_13\ImageMultiView\trunk-master\CC\include;D:\captainT\project_13\ImageMultiView\trunk-master\libs\CCFbo\include;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_db;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_db\msvc;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtOpenGLExtensions;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PreBuildEvent>
+      <Message>Automatic moc for target QCC_IO_LIB</Message>
+      <Command>setlocal
+cd D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_autogen D:/captainT/project_13/ImageMultiView/Build/libs/qCC_io/CMakeFiles/QCC_IO_LIB_automoc.dir/ MinSizeRel
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PreBuildEvent>
+    <Link>
+      <AdditionalOptions> /machine:x64 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;..\CCFbo\MinSizeRel\CC_FBO_LIB.lib;..\qCC_db\MinSizeRel\QCC_DB_LIB.lib;..\..\CC\MinSizeRel\CC_CORE_LIB.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\Qt5Concurrent.lib;..\CCFbo\MinSizeRel\CC_FBO_LIB.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\Qt5OpenGLExtensions.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\Qt5OpenGL.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\Qt5Widgets.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\Qt5Gui.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\Qt5Core.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/captainT/project_13/ImageMultiView/Build/libs/qCC_io/MinSizeRel/QCC_IO_LIB.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/captainT/project_13/ImageMultiView/Build/libs/qCC_io/MinSizeRel/QCC_IO_LIB.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+      <Version></Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtOpenGL;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtWidgets;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtGui;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtCore;D:\Qt\Qt5.5.1\5.5\msvc2013_64\.\mkspecs\win32-msvc2013;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtConcurrent;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtPrintSupport;D:\captainT\project_13\ImageMultiView\trunk-master\CC\include;D:\captainT\project_13\ImageMultiView\trunk-master\libs\CCFbo\include;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_db;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_db\msvc;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtOpenGLExtensions;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>RelWithDebInfo/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <OpenMPSupport>true</OpenMPSupport>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;QT_CORE_LIB;CC_USE_AS_DLL;QCC_IO_USE_AS_DLL;NOMINMAX;_CRT_SECURE_NO_WARNINGS;__STDC_LIMIT_MACROS;QT_USE_QSTRINGBUILDER;QT_NO_DEBUG;QT_WIDGETS_LIB;QT_GUI_LIB;QT_CONCURRENT_LIB;QT_OPENGL_LIB;QT_OPENGLEXTENSIONS_LIB;CMAKE_INTDIR="RelWithDebInfo";QCC_IO_LIB_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;QT_CORE_LIB;CC_USE_AS_DLL;QCC_IO_USE_AS_DLL;NOMINMAX;_CRT_SECURE_NO_WARNINGS;__STDC_LIMIT_MACROS;QT_USE_QSTRINGBUILDER;QT_NO_DEBUG;QT_WIDGETS_LIB;QT_GUI_LIB;QT_CONCURRENT_LIB;QT_OPENGL_LIB;QT_OPENGLEXTENSIONS_LIB;CMAKE_INTDIR=\"RelWithDebInfo\";QCC_IO_LIB_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtOpenGL;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtWidgets;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtGui;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtCore;D:\Qt\Qt5.5.1\5.5\msvc2013_64\.\mkspecs\win32-msvc2013;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtConcurrent;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtPrintSupport;D:\captainT\project_13\ImageMultiView\trunk-master\CC\include;D:\captainT\project_13\ImageMultiView\trunk-master\libs\CCFbo\include;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_db;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_db\msvc;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtOpenGLExtensions;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtOpenGL;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtWidgets;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtGui;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtCore;D:\Qt\Qt5.5.1\5.5\msvc2013_64\.\mkspecs\win32-msvc2013;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtConcurrent;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtPrintSupport;D:\captainT\project_13\ImageMultiView\trunk-master\CC\include;D:\captainT\project_13\ImageMultiView\trunk-master\libs\CCFbo\include;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_db;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_db\msvc;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtOpenGLExtensions;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PreBuildEvent>
+      <Message>Automatic moc for target QCC_IO_LIB</Message>
+      <Command>setlocal
+cd D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_autogen D:/captainT/project_13/ImageMultiView/Build/libs/qCC_io/CMakeFiles/QCC_IO_LIB_automoc.dir/ RelWithDebInfo
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PreBuildEvent>
+    <Link>
+      <AdditionalOptions> /machine:x64 /debug %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;..\CCFbo\RelWithDebInfo\CC_FBO_LIB.lib;..\qCC_db\RelWithDebInfo\QCC_DB_LIB.lib;..\..\CC\RelWithDebInfo\CC_CORE_LIB.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\Qt5Concurrent.lib;..\CCFbo\RelWithDebInfo\CC_FBO_LIB.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\Qt5OpenGLExtensions.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\Qt5OpenGL.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\Qt5Widgets.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\Qt5Gui.lib;D:\Qt\Qt5.5.1\5.5\msvc2013_64\lib\Qt5Core.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/captainT/project_13/ImageMultiView/Build/libs/qCC_io/RelWithDebInfo/QCC_IO_LIB.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/captainT/project_13/ImageMultiView/Build/libs/qCC_io/RelWithDebInfo/QCC_IO_LIB.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+      <Version></Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -HD:/captainT/project_13/ImageMultiView/trunk-master -BD:/captainT/project_13/ImageMultiView/Build --check-stamp-file D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/CMakeLists.txt;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\CMakeLists.txt;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -HD:/captainT/project_13/ImageMultiView/trunk-master -BD:/captainT/project_13/ImageMultiView/Build --check-stamp-file D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/CMakeLists.txt;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\CMakeLists.txt;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -HD:/captainT/project_13/ImageMultiView/trunk-master -BD:/captainT/project_13/ImageMultiView/Build --check-stamp-file D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/CMakeLists.txt;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\CMakeLists.txt;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -HD:/captainT/project_13/ImageMultiView/trunk-master -BD:/captainT/project_13/ImageMultiView/Build --check-stamp-file D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/CMakeLists.txt;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\CMakeLists.txt;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ui_templates\globalShiftAndScaleAboutDlg.ui">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating ui_globalShiftAndScaleAboutDlg.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\uic.exe -o D:/captainT/project_13/ImageMultiView/Build/libs/qCC_io/ui_globalShiftAndScaleAboutDlg.h D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/globalShiftAndScaleAboutDlg.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/globalShiftAndScaleAboutDlg.ui;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ui_templates\globalShiftAndScaleAboutDlg.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\ui_globalShiftAndScaleAboutDlg.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating ui_globalShiftAndScaleAboutDlg.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\uic.exe -o D:/captainT/project_13/ImageMultiView/Build/libs/qCC_io/ui_globalShiftAndScaleAboutDlg.h D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/globalShiftAndScaleAboutDlg.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/globalShiftAndScaleAboutDlg.ui;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ui_templates\globalShiftAndScaleAboutDlg.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\ui_globalShiftAndScaleAboutDlg.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Generating ui_globalShiftAndScaleAboutDlg.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\uic.exe -o D:/captainT/project_13/ImageMultiView/Build/libs/qCC_io/ui_globalShiftAndScaleAboutDlg.h D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/globalShiftAndScaleAboutDlg.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/globalShiftAndScaleAboutDlg.ui;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ui_templates\globalShiftAndScaleAboutDlg.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\ui_globalShiftAndScaleAboutDlg.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Generating ui_globalShiftAndScaleAboutDlg.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\uic.exe -o D:/captainT/project_13/ImageMultiView/Build/libs/qCC_io/ui_globalShiftAndScaleAboutDlg.h D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/globalShiftAndScaleAboutDlg.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/globalShiftAndScaleAboutDlg.ui;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ui_templates\globalShiftAndScaleAboutDlg.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\ui_globalShiftAndScaleAboutDlg.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ui_templates\globalShiftAndScaleDlg.ui">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating ui_globalShiftAndScaleDlg.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\uic.exe -o D:/captainT/project_13/ImageMultiView/Build/libs/qCC_io/ui_globalShiftAndScaleDlg.h D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/globalShiftAndScaleDlg.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/globalShiftAndScaleDlg.ui;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ui_templates\globalShiftAndScaleDlg.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\ui_globalShiftAndScaleDlg.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating ui_globalShiftAndScaleDlg.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\uic.exe -o D:/captainT/project_13/ImageMultiView/Build/libs/qCC_io/ui_globalShiftAndScaleDlg.h D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/globalShiftAndScaleDlg.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/globalShiftAndScaleDlg.ui;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ui_templates\globalShiftAndScaleDlg.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\ui_globalShiftAndScaleDlg.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Generating ui_globalShiftAndScaleDlg.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\uic.exe -o D:/captainT/project_13/ImageMultiView/Build/libs/qCC_io/ui_globalShiftAndScaleDlg.h D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/globalShiftAndScaleDlg.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/globalShiftAndScaleDlg.ui;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ui_templates\globalShiftAndScaleDlg.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\ui_globalShiftAndScaleDlg.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Generating ui_globalShiftAndScaleDlg.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\uic.exe -o D:/captainT/project_13/ImageMultiView/Build/libs/qCC_io/ui_globalShiftAndScaleDlg.h D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/globalShiftAndScaleDlg.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/globalShiftAndScaleDlg.ui;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ui_templates\globalShiftAndScaleDlg.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\ui_globalShiftAndScaleDlg.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ui_templates\importDBFFieldDlg.ui">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating ui_importDBFFieldDlg.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\uic.exe -o D:/captainT/project_13/ImageMultiView/Build/libs/qCC_io/ui_importDBFFieldDlg.h D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/importDBFFieldDlg.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/importDBFFieldDlg.ui;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ui_templates\importDBFFieldDlg.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\ui_importDBFFieldDlg.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating ui_importDBFFieldDlg.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\uic.exe -o D:/captainT/project_13/ImageMultiView/Build/libs/qCC_io/ui_importDBFFieldDlg.h D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/importDBFFieldDlg.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/importDBFFieldDlg.ui;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ui_templates\importDBFFieldDlg.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\ui_importDBFFieldDlg.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Generating ui_importDBFFieldDlg.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\uic.exe -o D:/captainT/project_13/ImageMultiView/Build/libs/qCC_io/ui_importDBFFieldDlg.h D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/importDBFFieldDlg.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/importDBFFieldDlg.ui;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ui_templates\importDBFFieldDlg.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\ui_importDBFFieldDlg.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Generating ui_importDBFFieldDlg.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\uic.exe -o D:/captainT/project_13/ImageMultiView/Build/libs/qCC_io/ui_importDBFFieldDlg.h D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/importDBFFieldDlg.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/importDBFFieldDlg.ui;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ui_templates\importDBFFieldDlg.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\ui_importDBFFieldDlg.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ui_templates\openAsciiFileDlg.ui">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating ui_openAsciiFileDlg.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\uic.exe -o D:/captainT/project_13/ImageMultiView/Build/libs/qCC_io/ui_openAsciiFileDlg.h D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/openAsciiFileDlg.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/openAsciiFileDlg.ui;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ui_templates\openAsciiFileDlg.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\ui_openAsciiFileDlg.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating ui_openAsciiFileDlg.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\uic.exe -o D:/captainT/project_13/ImageMultiView/Build/libs/qCC_io/ui_openAsciiFileDlg.h D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/openAsciiFileDlg.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/openAsciiFileDlg.ui;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ui_templates\openAsciiFileDlg.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\ui_openAsciiFileDlg.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Generating ui_openAsciiFileDlg.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\uic.exe -o D:/captainT/project_13/ImageMultiView/Build/libs/qCC_io/ui_openAsciiFileDlg.h D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/openAsciiFileDlg.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/openAsciiFileDlg.ui;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ui_templates\openAsciiFileDlg.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\ui_openAsciiFileDlg.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Generating ui_openAsciiFileDlg.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\uic.exe -o D:/captainT/project_13/ImageMultiView/Build/libs/qCC_io/ui_openAsciiFileDlg.h D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/openAsciiFileDlg.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/openAsciiFileDlg.ui;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ui_templates\openAsciiFileDlg.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\ui_openAsciiFileDlg.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ui_templates\openBundlerFileDlg.ui">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating ui_openBundlerFileDlg.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\uic.exe -o D:/captainT/project_13/ImageMultiView/Build/libs/qCC_io/ui_openBundlerFileDlg.h D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/openBundlerFileDlg.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/openBundlerFileDlg.ui;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ui_templates\openBundlerFileDlg.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\ui_openBundlerFileDlg.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating ui_openBundlerFileDlg.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\uic.exe -o D:/captainT/project_13/ImageMultiView/Build/libs/qCC_io/ui_openBundlerFileDlg.h D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/openBundlerFileDlg.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/openBundlerFileDlg.ui;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ui_templates\openBundlerFileDlg.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\ui_openBundlerFileDlg.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Generating ui_openBundlerFileDlg.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\uic.exe -o D:/captainT/project_13/ImageMultiView/Build/libs/qCC_io/ui_openBundlerFileDlg.h D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/openBundlerFileDlg.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/openBundlerFileDlg.ui;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ui_templates\openBundlerFileDlg.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\ui_openBundlerFileDlg.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Generating ui_openBundlerFileDlg.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\uic.exe -o D:/captainT/project_13/ImageMultiView/Build/libs/qCC_io/ui_openBundlerFileDlg.h D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/openBundlerFileDlg.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/openBundlerFileDlg.ui;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ui_templates\openBundlerFileDlg.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\ui_openBundlerFileDlg.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ui_templates\openLASFileDlg.ui">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating ui_openLASFileDlg.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\uic.exe -o D:/captainT/project_13/ImageMultiView/Build/libs/qCC_io/ui_openLASFileDlg.h D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/openLASFileDlg.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/openLASFileDlg.ui;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ui_templates\openLASFileDlg.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\ui_openLASFileDlg.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating ui_openLASFileDlg.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\uic.exe -o D:/captainT/project_13/ImageMultiView/Build/libs/qCC_io/ui_openLASFileDlg.h D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/openLASFileDlg.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/openLASFileDlg.ui;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ui_templates\openLASFileDlg.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\ui_openLASFileDlg.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Generating ui_openLASFileDlg.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\uic.exe -o D:/captainT/project_13/ImageMultiView/Build/libs/qCC_io/ui_openLASFileDlg.h D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/openLASFileDlg.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/openLASFileDlg.ui;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ui_templates\openLASFileDlg.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\ui_openLASFileDlg.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Generating ui_openLASFileDlg.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\uic.exe -o D:/captainT/project_13/ImageMultiView/Build/libs/qCC_io/ui_openLASFileDlg.h D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/openLASFileDlg.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/openLASFileDlg.ui;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ui_templates\openLASFileDlg.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\ui_openLASFileDlg.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ui_templates\openPlyFileDlg.ui">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating ui_openPlyFileDlg.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\uic.exe -o D:/captainT/project_13/ImageMultiView/Build/libs/qCC_io/ui_openPlyFileDlg.h D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/openPlyFileDlg.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/openPlyFileDlg.ui;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ui_templates\openPlyFileDlg.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\ui_openPlyFileDlg.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating ui_openPlyFileDlg.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\uic.exe -o D:/captainT/project_13/ImageMultiView/Build/libs/qCC_io/ui_openPlyFileDlg.h D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/openPlyFileDlg.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/openPlyFileDlg.ui;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ui_templates\openPlyFileDlg.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\ui_openPlyFileDlg.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Generating ui_openPlyFileDlg.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\uic.exe -o D:/captainT/project_13/ImageMultiView/Build/libs/qCC_io/ui_openPlyFileDlg.h D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/openPlyFileDlg.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/openPlyFileDlg.ui;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ui_templates\openPlyFileDlg.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\ui_openPlyFileDlg.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Generating ui_openPlyFileDlg.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\uic.exe -o D:/captainT/project_13/ImageMultiView/Build/libs/qCC_io/ui_openPlyFileDlg.h D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/openPlyFileDlg.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/openPlyFileDlg.ui;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ui_templates\openPlyFileDlg.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\ui_openPlyFileDlg.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ui_templates\saveAsciiFileDlg.ui">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating ui_saveAsciiFileDlg.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\uic.exe -o D:/captainT/project_13/ImageMultiView/Build/libs/qCC_io/ui_saveAsciiFileDlg.h D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/saveAsciiFileDlg.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/saveAsciiFileDlg.ui;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ui_templates\saveAsciiFileDlg.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\ui_saveAsciiFileDlg.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating ui_saveAsciiFileDlg.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\uic.exe -o D:/captainT/project_13/ImageMultiView/Build/libs/qCC_io/ui_saveAsciiFileDlg.h D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/saveAsciiFileDlg.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/saveAsciiFileDlg.ui;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ui_templates\saveAsciiFileDlg.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\ui_saveAsciiFileDlg.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Generating ui_saveAsciiFileDlg.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\uic.exe -o D:/captainT/project_13/ImageMultiView/Build/libs/qCC_io/ui_saveAsciiFileDlg.h D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/saveAsciiFileDlg.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/saveAsciiFileDlg.ui;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ui_templates\saveAsciiFileDlg.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\ui_saveAsciiFileDlg.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Generating ui_saveAsciiFileDlg.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\uic.exe -o D:/captainT/project_13/ImageMultiView/Build/libs/qCC_io/ui_saveAsciiFileDlg.h D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/saveAsciiFileDlg.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/saveAsciiFileDlg.ui;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ui_templates\saveAsciiFileDlg.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\ui_saveAsciiFileDlg.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ui_templates\saveLASFileDlg.ui">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating ui_saveLASFileDlg.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\uic.exe -o D:/captainT/project_13/ImageMultiView/Build/libs/qCC_io/ui_saveLASFileDlg.h D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/saveLASFileDlg.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/saveLASFileDlg.ui;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ui_templates\saveLASFileDlg.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\ui_saveLASFileDlg.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating ui_saveLASFileDlg.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\uic.exe -o D:/captainT/project_13/ImageMultiView/Build/libs/qCC_io/ui_saveLASFileDlg.h D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/saveLASFileDlg.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/saveLASFileDlg.ui;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ui_templates\saveLASFileDlg.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\ui_saveLASFileDlg.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Generating ui_saveLASFileDlg.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\uic.exe -o D:/captainT/project_13/ImageMultiView/Build/libs/qCC_io/ui_saveLASFileDlg.h D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/saveLASFileDlg.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/saveLASFileDlg.ui;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ui_templates\saveLASFileDlg.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\ui_saveLASFileDlg.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Generating ui_saveLASFileDlg.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\uic.exe -o D:/captainT/project_13/ImageMultiView/Build/libs/qCC_io/ui_saveLASFileDlg.h D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/saveLASFileDlg.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/saveLASFileDlg.ui;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ui_templates\saveLASFileDlg.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\ui_saveLASFileDlg.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ui_templates\saveMascaretFileDlg.ui">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating ui_saveMascaretFileDlg.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\uic.exe -o D:/captainT/project_13/ImageMultiView/Build/libs/qCC_io/ui_saveMascaretFileDlg.h D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/saveMascaretFileDlg.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/saveMascaretFileDlg.ui;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ui_templates\saveMascaretFileDlg.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\ui_saveMascaretFileDlg.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating ui_saveMascaretFileDlg.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\uic.exe -o D:/captainT/project_13/ImageMultiView/Build/libs/qCC_io/ui_saveMascaretFileDlg.h D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/saveMascaretFileDlg.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/saveMascaretFileDlg.ui;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ui_templates\saveMascaretFileDlg.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\ui_saveMascaretFileDlg.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Generating ui_saveMascaretFileDlg.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\uic.exe -o D:/captainT/project_13/ImageMultiView/Build/libs/qCC_io/ui_saveMascaretFileDlg.h D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/saveMascaretFileDlg.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/saveMascaretFileDlg.ui;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ui_templates\saveMascaretFileDlg.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\ui_saveMascaretFileDlg.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Generating ui_saveMascaretFileDlg.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\uic.exe -o D:/captainT/project_13/ImageMultiView/Build/libs/qCC_io/ui_saveMascaretFileDlg.h D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/saveMascaretFileDlg.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/saveMascaretFileDlg.ui;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ui_templates\saveMascaretFileDlg.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\ui_saveMascaretFileDlg.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ui_templates\saveSHPFileDlg.ui">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating ui_saveSHPFileDlg.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\uic.exe -o D:/captainT/project_13/ImageMultiView/Build/libs/qCC_io/ui_saveSHPFileDlg.h D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/saveSHPFileDlg.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/saveSHPFileDlg.ui;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ui_templates\saveSHPFileDlg.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\ui_saveSHPFileDlg.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating ui_saveSHPFileDlg.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\uic.exe -o D:/captainT/project_13/ImageMultiView/Build/libs/qCC_io/ui_saveSHPFileDlg.h D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/saveSHPFileDlg.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/saveSHPFileDlg.ui;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ui_templates\saveSHPFileDlg.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\ui_saveSHPFileDlg.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Generating ui_saveSHPFileDlg.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\uic.exe -o D:/captainT/project_13/ImageMultiView/Build/libs/qCC_io/ui_saveSHPFileDlg.h D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/saveSHPFileDlg.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/saveSHPFileDlg.ui;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ui_templates\saveSHPFileDlg.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\ui_saveSHPFileDlg.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Generating ui_saveSHPFileDlg.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+D:\Qt\Qt5.5.1\5.5\msvc2013_64\bin\uic.exe -o D:/captainT/project_13/ImageMultiView/Build/libs/qCC_io/ui_saveSHPFileDlg.h D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/saveSHPFileDlg.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:/captainT/project_13/ImageMultiView/trunk-master/libs/qCC_io/ui_templates/saveSHPFileDlg.ui;D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ui_templates\saveSHPFileDlg.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\ui_saveSHPFileDlg.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\AsciiFilter.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\AsciiOpenDlg.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\AsciiSaveDlg.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\BinFilter.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\BundlerFilter.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\BundlerImportDlg.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ccGlobalShiftManager.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ccShiftAndScaleCloudDlg.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\DepthMapFileFilter.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\DxfFilter.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\E57Filter.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\E57Header.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\FBXFilter.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\FileIOFilter.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\HeightProfileFilter.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\IcmFilter.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ImageFileFilter.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\LASFilter.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\LASOpenDlg.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\MAFilter.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\MascaretFilter.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ObjFilter.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\OFFFilter.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\PlyFilter.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\PlyOpenDlg.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\PNFilter.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\PovFilter.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\PTXFilter.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\PVFilter.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\qCC_io.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\RasterGridFilter.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\rply.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\SalomeHydroFilter.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ShpFilter.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\SinusxFilter.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\SoiFilter.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\STLFilter.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\VTKFilter.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\ui_globalShiftAndScaleAboutDlg.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\ui_globalShiftAndScaleDlg.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\ui_importDBFFieldDlg.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\ui_openAsciiFileDlg.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\ui_openBundlerFileDlg.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\ui_openLASFileDlg.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\ui_openPlyFileDlg.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\ui_saveAsciiFileDlg.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\ui_saveLASFileDlg.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\ui_saveMascaretFileDlg.h" />
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\ui_saveSHPFileDlg.h" />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\AsciiFilter.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\AsciiOpenDlg.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\AsciiSaveDlg.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\BinFilter.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\BundlerFilter.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\BundlerImportDlg.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ccGlobalShiftManager.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ccShiftAndScaleCloudDlg.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\DepthMapFileFilter.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\DxfFilter.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\E57Filter.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\FBXFilter.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\FileIOFilter.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\HeightProfileFilter.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\IcmFilter.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ImageFileFilter.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\LASFilter.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\LASOpenDlg.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\MAFilter.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\MascaretFilter.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ObjFilter.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\OFFFilter.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\PlyFilter.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\PlyOpenDlg.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\PNFilter.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\PovFilter.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\PTXFilter.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\PVFilter.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\RasterGridFilter.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\SalomeHydroFilter.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ShpFilter.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\SinusxFilter.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\SoiFilter.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\STLFilter.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\VTKFilter.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\rply.c" >
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\QCC_IO_LIB_automoc.cpp"  />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="D:/captainT/project_13/ImageMultiView/Build/CC/CC_CORE_LIB.vcxproj">
+      <Project>CE011146-3E0F-4637-B926-B77C47382EE1</Project>
+    </ProjectReference>
+    <ProjectReference Include="D:/captainT/project_13/ImageMultiView/Build/libs/CCFbo/CC_FBO_LIB.vcxproj">
+      <Project>BCB7B66D-1DDD-4962-B4F0-92FB78D24EEF</Project>
+    </ProjectReference>
+    <ProjectReference Include="D:/captainT/project_13/ImageMultiView/Build/libs/qCC_db/QCC_DB_LIB.vcxproj">
+      <Project>6C398E3D-9157-4B7B-B48A-F19EC8BAE954</Project>
+    </ProjectReference>
+    <ProjectReference Include="D:/captainT/project_13/ImageMultiView/Build/ZERO_CHECK.vcxproj">
+      <Project>C6C6C8DF-FB71-4BB2-922B-C8C7B108A514</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

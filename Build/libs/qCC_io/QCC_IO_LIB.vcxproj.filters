@@ -1,0 +1,287 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\AsciiFilter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\AsciiOpenDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\AsciiSaveDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\BinFilter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\BundlerFilter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\BundlerImportDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ccGlobalShiftManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ccShiftAndScaleCloudDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\DepthMapFileFilter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\DxfFilter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\E57Filter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\FBXFilter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\FileIOFilter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\HeightProfileFilter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\IcmFilter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ImageFileFilter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\LASFilter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\LASOpenDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\MAFilter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\MascaretFilter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ObjFilter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\OFFFilter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\PlyFilter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\PlyOpenDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\PNFilter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\PovFilter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\PTXFilter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\PVFilter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\RasterGridFilter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\SalomeHydroFilter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ShpFilter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\SinusxFilter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\SoiFilter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\STLFilter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\VTKFilter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\rply.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\QCC_IO_LIB_automoc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\AsciiFilter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\AsciiOpenDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\AsciiSaveDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\BinFilter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\BundlerFilter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\BundlerImportDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ccGlobalShiftManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ccShiftAndScaleCloudDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\DepthMapFileFilter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\DxfFilter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\E57Filter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\E57Header.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\FBXFilter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\FileIOFilter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\HeightProfileFilter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\IcmFilter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ImageFileFilter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\LASFilter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\LASOpenDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\MAFilter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\MascaretFilter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ObjFilter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\OFFFilter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\PlyFilter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\PlyOpenDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\PNFilter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\PovFilter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\PTXFilter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\PVFilter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\qCC_io.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\RasterGridFilter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\rply.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\SalomeHydroFilter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ShpFilter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\SinusxFilter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\SoiFilter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\STLFilter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\VTKFilter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\ui_globalShiftAndScaleAboutDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\ui_globalShiftAndScaleDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\ui_importDBFFieldDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\ui_openAsciiFileDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\ui_openBundlerFileDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\ui_openLASFileDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\ui_openPlyFileDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\ui_saveAsciiFileDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\ui_saveLASFileDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\ui_saveMascaretFileDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\libs\qCC_io\ui_saveSHPFileDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\CMakeLists.txt" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ui_templates\globalShiftAndScaleAboutDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ui_templates\globalShiftAndScaleDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ui_templates\importDBFFieldDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ui_templates\openAsciiFileDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ui_templates\openBundlerFileDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ui_templates\openLASFileDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ui_templates\openPlyFileDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ui_templates\saveAsciiFileDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ui_templates\saveLASFileDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ui_templates\saveMascaretFileDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\libs\qCC_io\ui_templates\saveSHPFileDlg.ui" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{53D89DA7-C9DF-4E8C-8EE4-6CDBEB0EC659}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{D63269BA-2614-43E6-AA77-4E3FE4A92BA6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

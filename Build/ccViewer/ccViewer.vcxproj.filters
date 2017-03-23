@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\ccViewer\ccviewer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\ccViewer\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccOverlayDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccCameraParamEditDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccDisplayOptionsDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccStereoModeDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\Build\ccViewer\qrc_icones.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\Build\ccViewer\ccViewer_automoc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\ccViewer\ccviewer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\ccViewer\ccviewerlog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccOverlayDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccCameraParamEditDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccDisplayOptionsDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ccStereoModeDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\ccViewer\ui_ccviewer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\ccViewer\ui_ccviewerAbout.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\ccViewer\ui_cameraParamDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\ccViewer\ui_displayOptionsDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\ccViewer\ui_stereoModeDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\ccViewer\CMakeLists.txt" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\ccViewer\ui_templates\ccviewer.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\ccViewer\ui_templates\ccviewerAbout.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\cameraParamDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\displayOptionsDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\ui_templates\stereoModeDlg.ui" />
+    <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\icones.qrc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\ccViewer\images\icon\cc_viewer_icon.rc">
+      <Filter>Source Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{53D89DA7-C9DF-4E8C-8EE4-6CDBEB0EC659}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{D63269BA-2614-43E6-AA77-4E3FE4A92BA6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
