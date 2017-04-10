@@ -12,6 +12,8 @@ cameraPara::cameraPara(){
 	width = 1280;
 	height = 720;
 #endif
+
+#if 0
 	//for kinect data
 	angleOfView = 31.3633 * 2;//angle not radian
 	focalLength = 35.0;
@@ -19,6 +21,15 @@ cameraPara::cameraPara(){
 	farPlane = 3000.0;
 	width = 640;
 	height = 480;
+#endif
+
+	//for MicroWorld data
+	angleOfView = 40.42648;//angle not radian
+	focalLength = 35.0;
+	nearPlane = 960 + 0.987432;
+	farPlane = 960 + 851.166600;
+	width = 1920;
+	height = 1088;
 
 	screenRatio = 1.0* width / height;
 	//cal vertical fov

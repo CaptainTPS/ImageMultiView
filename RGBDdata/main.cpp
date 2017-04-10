@@ -843,12 +843,123 @@ void outDepthImage(){
 	cv::imwrite("D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\in\\scene3depth.png", outDepth);
 }
 
+void readYUV(string imgPath, string depthPath, int frameN){
+	int imgWidth = 1920;
+	int imgHeight = 1088;
+
+	int cnt = imgWidth * (imgHeight + imgHeight / 2);//bytes
+	char* data = new char[cnt+2];
+	char* ddata = new char[cnt + 2];
+	ifstream input(imgPath, ios_base::binary);
+	ifstream dinput(depthPath, ios_base::binary);
+	int frame = 0;
+	cv::Mat re;
+	cv::Mat re_d;
+	while (!input.eof()||!dinput.eof())
+	{
+		cout << frame++ << endl;
+		input.read(data, cnt);
+		dinput.read(ddata, cnt);
+		cv::Mat myuv(imgHeight + imgHeight / 2, imgWidth, CV_8UC1, data);
+		cv::Mat mbgr(imgHeight, imgWidth, CV_8UC3);
+		cv::cvtColor(myuv, mbgr, CV_YUV2BGR_IYUV);
+
+		cv::Mat myuvd(imgHeight + imgHeight / 2, imgWidth, CV_8UC1, ddata);
+		cv::Mat mbgrd(imgHeight, imgWidth, CV_8UC3);
+		cv::cvtColor(myuvd, mbgrd, CV_YUV2BGR_IYUV);
+
+		//cv::imshow("test", mbgrd);
+		//cv::waitKey(10);
+		if (frame == frameN)
+		{
+			re = mbgr.clone();
+			re_d = mbgrd.clone();
+			break;
+		}
+	}
+	if (input.eof() || dinput.eof())
+	{
+		cout << "no such frame!" << endl;
+		return;
+	}
+
+	cv::imwrite("D:\\captainT\\project_13\\ImageMultiView\\RGBDdata\\data\\imgOut\\color.png", re);
+	cv::imwrite("D:\\captainT\\project_13\\ImageMultiView\\RGBDdata\\data\\imgOut\\depth.png", re_d);
+
+	//recover the point cloud
+	float inM[9] = {
+		2607.339177	,0.000000	,960.000000,
+		0.000000	,2607.339177	,544.000000,
+		0.000000	,0.000000	,1.000000
+	};
+	cv::Mat intriMatrix(3, 3, CV_32F,inM);
+	cv::Mat inv_intri = intriMatrix.inv();
+	float z_range[2] = { 0.987432,	851.166600 };//265 frame only
+	float cshift = 960;
+
+	float X[3];
+	X[2] = 1;
+
+	//test
+	/*ofstream out("D:\\captainT\\project_13\\ImageMultiView\\RGBDdata\\data\\imgOut\\points1.obj");
+
+	for (int row = 0; row < re.rows; row++)
+	{
+		for (int col = 0; col < re.cols; col++)
+		{
+			cv::Vec3b color = re.at<cv::Vec3b>(row, col);
+
+			float depth = re_d.at<cv::Vec3b>(row, col)[0];
+			depth = (1.0 - depth / 255.0) * (z_range[1] - z_range[0]) + z_range[0] + cshift;
+
+			X[0] = col;
+			X[1] = row;
+			cv::Mat imagePos(3, 1, CV_32F, X);
+			cv::Mat worldPos = inv_intri * imagePos;
+
+			worldPos = worldPos * (depth / worldPos.at<float>(2, 0));
+
+			out << "v " << worldPos.at<float>(0, 0) << " " << worldPos.at<float>(1, 0) << " " << worldPos.at<float>(2, 0) << " " << (int)color[2] << " " << (int)color[1] << " " << (int)color[0] << " " << endl;
+		}
+	}
+	out.close();*/
+
+	//output new depth data
+	cv::Mat outD(re_d.rows, re_d.cols, CV_8UC3);
+	for (int row = 0; row < re_d.rows; row++)
+	{
+		for (int col = 0; col < re_d.cols; col++)
+		{
+			float depth = re_d.at<cv::Vec3b>(row, col)[0];
+			depth = (1.0 - depth / 255.0);
+			if (depth > 0.9999999)
+			{
+				depth = 0.9999999;
+			}
+			int r, g, b;
+			DepthtoRGB(depth, &r, &g, &b);
+			outD.at<cv::Vec3b>(row, col) = cv::Vec3b(r,g,b);
+		}
+	}
+	cv::imwrite("D:\\captainT\\project_13\\ImageMultiView\\RGBDdata\\data\\imgOut\\color_depth.png", outD);
+
+	cout << "done" << endl;
+	delete[] data;
+	delete[] ddata;
+	input.close();
+}
+
 int main(){
 	//oni_test();
 	//kinect_test();
 	
 	//testData();
-	outDepthImage();
+	//outDepthImage();
+
+	string path = "F:\\MicroWorld\\MicroWorld_1\\MicroWorld_1.yuv";
+	string depthPath = "F:\\MicroWorld\\depth_MicroWorld_1\\depth_MicroWorld_1.yuv";
+	int frameN = 265;
+	readYUV(path, depthPath, frameN);
 	return 0;
 	
 }

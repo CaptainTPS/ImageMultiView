@@ -85,6 +85,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "openglGetDepth", "..\opengl
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RGBDdata", "..\RGBDdata\RGBDdata.vcxproj", "{077347E3-D28A-4283-A6FD-58A118BFD743}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PatchInpainting", "..\PatchInpainting\PatchInpainting.vcxproj", "{57ED79F1-05BF-4FCA-A599-3EEC90E83048}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Mixed Platforms = Debug|Mixed Platforms
@@ -359,6 +361,27 @@ Global
 		{077347E3-D28A-4283-A6FD-58A118BFD743}.RelWithDebInfo|Win32.ActiveCfg = Release|Win32
 		{077347E3-D28A-4283-A6FD-58A118BFD743}.RelWithDebInfo|Win32.Build.0 = Release|Win32
 		{077347E3-D28A-4283-A6FD-58A118BFD743}.RelWithDebInfo|x64.ActiveCfg = Release|Win32
+		{57ED79F1-05BF-4FCA-A599-3EEC90E83048}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{57ED79F1-05BF-4FCA-A599-3EEC90E83048}.Debug|Mixed Platforms.Build.0 = Debug|Win32
+		{57ED79F1-05BF-4FCA-A599-3EEC90E83048}.Debug|Win32.ActiveCfg = Debug|Win32
+		{57ED79F1-05BF-4FCA-A599-3EEC90E83048}.Debug|Win32.Build.0 = Debug|Win32
+		{57ED79F1-05BF-4FCA-A599-3EEC90E83048}.Debug|x64.ActiveCfg = Debug|x64
+		{57ED79F1-05BF-4FCA-A599-3EEC90E83048}.Debug|x64.Build.0 = Debug|x64
+		{57ED79F1-05BF-4FCA-A599-3EEC90E83048}.MinSizeRel|Mixed Platforms.ActiveCfg = Release|Win32
+		{57ED79F1-05BF-4FCA-A599-3EEC90E83048}.MinSizeRel|Mixed Platforms.Build.0 = Release|Win32
+		{57ED79F1-05BF-4FCA-A599-3EEC90E83048}.MinSizeRel|Win32.ActiveCfg = Release|Win32
+		{57ED79F1-05BF-4FCA-A599-3EEC90E83048}.MinSizeRel|Win32.Build.0 = Release|Win32
+		{57ED79F1-05BF-4FCA-A599-3EEC90E83048}.MinSizeRel|x64.ActiveCfg = Release|Win32
+		{57ED79F1-05BF-4FCA-A599-3EEC90E83048}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{57ED79F1-05BF-4FCA-A599-3EEC90E83048}.Release|Mixed Platforms.Build.0 = Release|Win32
+		{57ED79F1-05BF-4FCA-A599-3EEC90E83048}.Release|Win32.ActiveCfg = Release|Win32
+		{57ED79F1-05BF-4FCA-A599-3EEC90E83048}.Release|Win32.Build.0 = Release|Win32
+		{57ED79F1-05BF-4FCA-A599-3EEC90E83048}.Release|x64.ActiveCfg = Release|Win32
+		{57ED79F1-05BF-4FCA-A599-3EEC90E83048}.RelWithDebInfo|Mixed Platforms.ActiveCfg = Release|Win32
+		{57ED79F1-05BF-4FCA-A599-3EEC90E83048}.RelWithDebInfo|Mixed Platforms.Build.0 = Release|Win32
+		{57ED79F1-05BF-4FCA-A599-3EEC90E83048}.RelWithDebInfo|Win32.ActiveCfg = Release|Win32
+		{57ED79F1-05BF-4FCA-A599-3EEC90E83048}.RelWithDebInfo|Win32.Build.0 = Release|Win32
+		{57ED79F1-05BF-4FCA-A599-3EEC90E83048}.RelWithDebInfo|x64.ActiveCfg = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

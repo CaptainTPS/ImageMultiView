@@ -717,7 +717,7 @@ void DealDepthDlg::doMarchingCube(ccImage* nview, double lengthPerPixel, cameraP
 	size_ddd[1] = size_temp;
 	size_ddd[2] = size_temp;
 	// don't care about the margin
-	as.initSpheres((pic.height() - 2) * (pic.width() - 2));
+	as.initSpheres((pic.height()) * (pic.width()));
 	as.setVolumeSize(size_ddd[0], size_ddd[1], size_ddd[2]);
 
 #if 1
@@ -811,7 +811,6 @@ void DealDepthDlg::doMarchingCube(ccImage* nview, double lengthPerPixel, cameraP
 			patch.clearData();
 
 			addAroundPoints(m_cam, patch, depth, j, i, lengthPerPixel, gapThreshold);
-
 			//test
 			int in = as.getSphereNum();
 			if (i/*y axis*/ == 200 && j/*x axis*/ == 250)
@@ -843,8 +842,6 @@ void DealDepthDlg::doMarchingCube(ccImage* nview, double lengthPerPixel, cameraP
 				dtof[t] = patch.u[t];
 			}
 			as.setSphere(dtof, pt, index);
-
-			
 
 			//test
 			/*bufferp[countmark * 3] = pt.px;
@@ -1092,7 +1089,7 @@ void DealDepthDlg::getMultiView(){
 		result->setName(QString::number(i));
 		t->addChild(result);
 		cout << "now to frame: " << i << endl;
-
+		
 		//save
 		result->data().save("D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\video_out_scene3\\"+ QString::number(i) + ".png");
 
@@ -1245,7 +1242,7 @@ float openglReadDataToDepth(float data, cameraPara &cam){
 
 
 void fillHoles(QImage &newImg, QImage &depth, QImage &mask, cameraPara &cam, vector<AlgebraicSurface::point3> &vertex){
-	float depth_threshold = 0.02;
+	float depth_threshold = 0.05;
 
 	//do not effect the main window
 	vector<float> depth_data;
@@ -1329,9 +1326,25 @@ void fillHoles(QImage &newImg, QImage &depth, QImage &mask, cameraPara &cam, vec
 		cout << "max depth: " << maxd << endl;
 		cout << "min depth: " << mind << endl;
 	} while (!pos.empty());
+	////test out put depth
+	//QImage tempd(depth.width(),depth.height(),QImage::Format_RGB32);
+	////cout << tempd.save("D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\tempdepth1.png") << endl;
+
+	//tempd.fill(QColor(0,0,0));//maybe wrong
+	//for (int i = 0; i < depth.width(); i++)
+	//{
+	//	for (int j = 0; j < depth.height(); j++)
+	//	{
+	//		QRgb t = depth.pixel(i, j);
+	//		float dt;
+	//		RGBtoDepth(t, &dt);
+	//		tempd.setPixel(i, j, qRgb(int(255 * dt), int(255 * dt), int(255 * dt)));
+	//	}
+	//}
+	//cout << tempd.save("D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\tempdepth.png") << endl;
 
 	//test
-	newImg.save("img.png");
+	cout << newImg.save("img.png") << endl;
 	depth.save("depth.png");
 	mask.save("mask.png");
 }
