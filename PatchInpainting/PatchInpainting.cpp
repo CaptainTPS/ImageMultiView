@@ -24,27 +24,44 @@ cv::Point2f operator/(cv::Point2f p, double d){
 */
 void loadInpaintingImages(
 	const std::string& colorFilename,
+	const std::string& depthFilename,
 	const std::string& maskFilename,
 	cv::Mat& colorMat,
 	cv::Mat& maskMat,
-	cv::Mat& grayMat)
+	cv::Mat& grayMat,
+	cv::Mat& depthMat)
 {
 	assert(colorFilename.length() && maskFilename.length());
 
 	colorMat = cv::imread(colorFilename, 1); // color
 	maskMat = cv::imread(maskFilename, 0);  // grayscale
+	depthMat = cv::imread(depthFilename, cv::IMREAD_GRAYSCALE);
 
-	assert(colorMat.size() == maskMat.size());
-	assert(!colorMat.empty() && !maskMat.empty());
+	assert(colorMat.size() == maskMat.size()&&colorMat.size()== depthMat.size());
+	assert(!colorMat.empty() && !maskMat.empty()&& !depthMat.empty());
 
 	// convert colorMat to depth CV_32F for colorspace conversions
 	colorMat.convertTo(colorMat, CV_32F);
 	colorMat /= 255.0f;
 
+	depthMat.convertTo(depthMat, CV_32F);
+	depthMat /= 255.0f;
+
 	// add border around colorMat
 	cv::copyMakeBorder(
 		colorMat,
 		colorMat,
+		RADIUS,
+		RADIUS,
+		RADIUS,
+		RADIUS,
+		cv::BORDER_CONSTANT,
+		cv::Scalar_<float>(0, 0, 0)
+		);
+	//to depthMat
+	cv::copyMakeBorder(
+		depthMat,
+		depthMat,
 		RADIUS,
 		RADIUS,
 		RADIUS,
@@ -195,16 +212,18 @@ double computeConfidence(const cv::Mat& confidencePatch)
 * Iterate over every contour point in contours and compute the
 * priority of path centered at point using grayMat and confidenceMat
 */
-void computePriority(const contours_t& contours, const cv::Mat& grayMat, const cv::Mat& confidenceMat, cv::Mat& priorityMat)
+void computePriority(const contours_t& contours, const cv::Mat& grayMat, const cv::Mat& confidenceMat, const cv::Mat& depthMat, cv::Mat& priorityMat)
 {
 	assert(grayMat.type() == CV_32FC1 &&
 		priorityMat.type() == CV_32FC1 &&
-		confidenceMat.type() == CV_32FC1
+		confidenceMat.type() == CV_32FC1 &&
+		depthMat.type() == CV_32FC1
 		);
 
 	// define some patches
 	cv::Mat confidencePatch;
 	cv::Mat magnitudePatch;
+	cv::Mat regPatch;
 
 	cv::Point2f normal;
 	cv::Point maxPoint;
@@ -253,8 +272,16 @@ void computePriority(const contours_t& contours, const cv::Mat& grayMat, const c
 				getPatch(dx, point).ptr<float>(maxPoint.y)[maxPoint.x]
 				);
 
+			// get level regularity term
+			regPatch = getPatch(depthMat, point).clone();
+			float zp = regPatch.total();
+			float z_mean = cv::mean(regPatch)[0];
+			cv::pow(regPatch - z_mean, 2, regPatch);
+			float var = cv::sum(regPatch)[0];
+			float lre = zp / (zp + var);
+
 			// set the priority in priorityMat
-			priorityMat.ptr<float>(point.y)[point.x] = std::abs((float)confidence * gradient.dot(normal));
+			priorityMat.ptr<float>(point.y)[point.x] = std::abs((float)confidence * gradient.dot(normal) * lre);
 			assert(priorityMat.ptr<float>(point.y)[point.x] >= 0);
 		}
 	}
@@ -281,11 +308,13 @@ void transferPatch(const cv::Point& psiHatQ, const cv::Point& psiHatP, cv::Mat& 
 * Resulting Mat is stored in result.
 *
 */
-cv::Mat computeSSD(const cv::Mat& tmplate, const cv::Mat& source, const cv::Mat& tmplateMask)
+cv::Mat computeSSD(const cv::Mat& tmplate, const cv::Mat& source, const cv::Mat& depthtemp, const cv::Mat& depthSrc, cv::Mat& tmplateMask)
 {
 	assert(tmplate.type() == CV_32FC3 && source.type() == CV_32FC3);
 	assert(tmplate.rows <= source.rows && tmplate.cols <= source.cols);
 	assert(tmplateMask.size() == tmplate.size() && tmplate.type() == tmplateMask.type());
+
+	float belta = 1;
 
 	cv::Mat result(source.rows - tmplate.rows + 1, source.cols - tmplate.cols + 1, CV_32F, 0.0f);
 
@@ -295,20 +324,56 @@ cv::Mat computeSSD(const cv::Mat& tmplate, const cv::Mat& source, const cv::Mat&
 		CV_TM_SQDIFF,
 		tmplateMask
 		);
+
+	cv::Mat result2(depthSrc.rows - depthtemp.rows + 1, depthSrc.cols - depthtemp.cols + 1, CV_32F, 0.0f);
+	cv::Mat tpMask[3];
+	cv::split(tmplateMask, tpMask);
+	cv::matchTemplate(depthSrc,
+		depthtemp,
+		result2,
+		CV_TM_SQDIFF
+		/*tpMask[0]*/
+		);
+	result = result + belta * result2;
+
 	cv::normalize(result, result, 0, 1, cv::NORM_MINMAX);
 	cv::copyMakeBorder(result, result, RADIUS, RADIUS, RADIUS, RADIUS, cv::BORDER_CONSTANT, 1.1f);
 
 	return result;
 }
 
-void PatchInpaint::mainLoop(std::string colorPath, std::string maskPath){
+std::string type2str(int type) {
+	std::string r;
 
-	std::string colorFilename, maskFilename;
+	uchar depth = type & CV_MAT_DEPTH_MASK;
+	uchar chans = 1 + (type >> CV_CN_SHIFT);
+
+	switch (depth) {
+	case CV_8U:  r = "8U"; break;
+	case CV_8S:  r = "8S"; break;
+	case CV_16U: r = "16U"; break;
+	case CV_16S: r = "16S"; break;
+	case CV_32S: r = "32S"; break;
+	case CV_32F: r = "32F"; break;
+	case CV_64F: r = "64F"; break;
+	default:     r = "User"; break;
+	}
+
+	r += "C";
+	r += (chans + '0');
+
+	return r;
+}
+
+void PatchInpaint::mainLoop(std::string colorPath, std::string maskPath, std::string depthPath){
+
+	std::string colorFilename, maskFilename, depthFilename;
 
 	colorFilename = colorPath;
 	//"D:\\captainT\\project_13\\ImageMultiView\\PatchInpainting\\data\\test_color.png";
 	maskFilename = maskPath;
 	//"D:\\captainT\\project_13\\ImageMultiView\\PatchInpainting\\data\\test_mask.png";
+	depthFilename = depthPath;
 
 	/*if (argc == 3) {
 	colorFilename = argv[1];
@@ -323,13 +388,15 @@ void PatchInpaint::mainLoop(std::string colorPath, std::string maskPath){
 	// colorMat     - color picture + border
 	// maskMat      - mask picture + border
 	// grayMat      - gray picture + border
-	cv::Mat colorMat, maskMat, grayMat;
+	cv::Mat colorMat, maskMat, grayMat, depthMat;
 	loadInpaintingImages(
 		colorFilename,
+		depthFilename,
 		maskFilename,
 		colorMat,
 		maskMat,
-		grayMat
+		grayMat,
+		depthMat
 		);
 
 	//cv::imshow("color", colorMat);
@@ -342,6 +409,8 @@ void PatchInpaint::mainLoop(std::string colorPath, std::string maskPath){
 	maskMat.convertTo(confidenceMat, CV_32F);
 	confidenceMat /= 255.0f;
 
+	
+
 	// add borders around maskMat and confidenceMat
 	cv::copyMakeBorder(maskMat, maskMat,
 		RADIUS, RADIUS, RADIUS, RADIUS,
@@ -349,7 +418,6 @@ void PatchInpaint::mainLoop(std::string colorPath, std::string maskPath){
 	cv::copyMakeBorder(confidenceMat, confidenceMat,
 		RADIUS, RADIUS, RADIUS, RADIUS,
 		cv::BORDER_CONSTANT, 0.0001f);
-
 	// ---------------- start the algorithm -----------------
 
 	contours_t contours;            // mask contours
@@ -375,6 +443,8 @@ void PatchInpaint::mainLoop(std::string colorPath, std::string maskPath){
 	cv::Mat psiHatPConfidence;  // confidence patch around psiHatP
 	double confidence;          // confidence of psiHatPConfidence
 
+	cv::Mat psiHatPDepth;  // depth patch around psiHatP
+
 	cv::Point psiHatQ;          // psiHatQ - point of closest patch
 
 	cv::Mat result;             // holds result from template matching
@@ -399,6 +469,7 @@ void PatchInpaint::mainLoop(std::string colorPath, std::string maskPath){
 			t2 = clock();
 			std::cout << ((float)(t2 - t1)) / CLOCKS_PER_SEC << " : loop " << loop << std::endl;
 		}
+		
 		// set priority matrix to -.1, lower than 0 so that border area is never selected
 		priorityMat.setTo(-0.1f);
 
@@ -410,12 +481,13 @@ void PatchInpaint::mainLoop(std::string colorPath, std::string maskPath){
 		}
 
 		// compute the priority for all contour points
-		computePriority(contours, grayMat, confidenceMat, priorityMat);
+		computePriority(contours, grayMat, confidenceMat, depthMat, priorityMat);
 
 		// get the patch with the greatest priority
 		cv::minMaxLoc(priorityMat, NULL, NULL, NULL, &psiHatP);
 		psiHatPColor = getPatch(colorMat, psiHatP);
 		psiHatPConfidence = getPatch(confidenceMat, psiHatP);
+		psiHatPDepth = getPatch(depthMat, psiHatP);
 
 		cv::Mat confInv = (psiHatPConfidence != 0.0f);
 		confInv.convertTo(confInv, CV_32F);
@@ -423,7 +495,7 @@ void PatchInpaint::mainLoop(std::string colorPath, std::string maskPath){
 		// get the patch in source with least distance to psiHatPColor wrt source of psiHatP
 		cv::Mat mergeArrays[3] = { confInv, confInv, confInv };
 		cv::merge(mergeArrays, 3, templateMask);
-		result = computeSSD(psiHatPColor, colorMat, templateMask);
+		result = computeSSD(psiHatPColor, colorMat, psiHatPDepth, depthMat, templateMask);
 
 		// set all target regions to 1.1, which is over the maximum value possilbe
 		// from SSD
@@ -433,11 +505,7 @@ void PatchInpaint::mainLoop(std::string colorPath, std::string maskPath){
 
 		assert(psiHatQ != psiHatP);
 
-		/*if (DEBUG) {
-			cv::rectangle(drawMat, psiHatP - cv::Point(RADIUS, RADIUS), psiHatP + cv::Point(RADIUS + 1, RADIUS + 1), cv::Scalar(255, 0, 0));
-			cv::rectangle(drawMat, psiHatQ - cv::Point(RADIUS, RADIUS), psiHatQ + cv::Point(RADIUS + 1, RADIUS + 1), cv::Scalar(0, 0, 255));
-			showMat("red - psiHatQ", drawMat);
-		}*/
+		
 		// updates
 		// copy from psiHatQ to psiHatP for each colorspace
 		transferPatch(psiHatQ, psiHatP, grayMat, (maskMat == 0));
@@ -450,7 +518,22 @@ void PatchInpaint::mainLoop(std::string colorPath, std::string maskPath){
 		psiHatPConfidence.setTo(confidence, (psiHatPConfidence == 0.0f));
 		// update maskMat
 		maskMat = (confidenceMat != 0.0f);
+		/*if (DEBUG) {
+			std::cout << loop << std::endl;
+			cv::rectangle(drawMat, psiHatP - cv::Point(RADIUS, RADIUS), psiHatP + cv::Point(RADIUS + 1, RADIUS + 1), cv::Scalar(255, 0, 0));
+			cv::rectangle(drawMat, psiHatQ - cv::Point(RADIUS, RADIUS), psiHatQ + cv::Point(RADIUS + 1, RADIUS + 1), cv::Scalar(0, 0, 255));
+			cv::imshow("mask", maskMat);
+			showMat("red - psiHatQ", drawMat, 0);
+			cv::destroyWindow("mask");
+		}*/
 	}
+	//store result
+	cv::Rect boundR(RADIUS, RADIUS, colorMat.cols - 2 * RADIUS, colorMat.rows - 2 * RADIUS);
+	cv::Mat colorMatcopy = colorMat(boundR);
+	//std::cout<<type2str(colorMatcopy.type());//32FC3
+	colorMatcopy.convertTo(colorMatcopy, CV_8UC3, 255);
+	//showMat("test", colorMatcopy, 0);
+	cv::imwrite("D:\\captainT\\project_13\\ImageMultiView\\PatchInpainting\\data\\output.png",colorMatcopy);
 
 	showMat("final result", colorMat, 0);
 }

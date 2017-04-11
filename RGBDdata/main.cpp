@@ -956,9 +956,9 @@ int main(){
 	//testData();
 	//outDepthImage();
 
-	string path = "F:\\MicroWorld\\MicroWorld_1\\MicroWorld_1.yuv";
+	string path = "F:\\Shark\\Shark_1\\Shark_1.yuv";
 	string depthPath = "F:\\MicroWorld\\depth_MicroWorld_1\\depth_MicroWorld_1.yuv";
-	int frameN = 265;
+	int frameN = -1;
 	readYUV(path, depthPath, frameN);
 	return 0;
 	

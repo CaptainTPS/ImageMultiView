@@ -22,7 +22,7 @@ class PatchInpaint
 {
 public:
 
-	void mainLoop(std::string colorPath, std::string maskPath);
+	void mainLoop(std::string colorPath, std::string maskPath, std::string depthPath);
 
 private:
 
@@ -37,10 +37,12 @@ int mod(int a, int b);
 
 void loadInpaintingImages(
 	const std::string& colorFilename,
+	const std::string& depthFilename,
 	const std::string& maskFilename,
 	cv::Mat& colorMat,
 	cv::Mat& maskMat,
-	cv::Mat& grayMat);
+	cv::Mat& grayMat,
+	cv::Mat& depthMat);
 
 void showMat(const cv::String& winname, const cv::Mat& mat, int time = 5);
 
@@ -54,10 +56,10 @@ void getDerivatives(const cv::Mat& grayMat, cv::Mat& dx, cv::Mat& dy);
 
 cv::Point2f getNormal(const contour_t& contour, const cv::Point& point);
 
-void computePriority(const contours_t& contours, const cv::Mat& grayMat, const cv::Mat& confidenceMat, cv::Mat& priorityMat);
+void computePriority(const contours_t& contours, const cv::Mat& grayMat, const cv::Mat& confidenceMat, const cv::Mat& depthMat, cv::Mat& priorityMat);
 
 void transferPatch(const cv::Point& psiHatQ, const cv::Point& psiHatP, cv::Mat& mat, const cv::Mat& maskMat);
 
-cv::Mat computeSSD(const cv::Mat& tmplate, const cv::Mat& source, const cv::Mat& tmplateMask);
+cv::Mat computeSSD(const cv::Mat& tmplate, const cv::Mat& source, const cv::Mat& depthtemp, const cv::Mat& depthSrc, const cv::Mat& tmplateMask);
 
 #endif

@@ -24,11 +24,11 @@
 
 int main(int argc, char** argv) {
 	// --------------- read filename strings ------------------
-	std::string colorFilename, maskFilename;
+	std::string colorFilename, maskFilename, depthf;
 
 	colorFilename = "D:\\captainT\\project_13\\ImageMultiView\\PatchInpainting\\data\\test_color.png";
 	maskFilename = "D:\\captainT\\project_13\\ImageMultiView\\PatchInpainting\\data\\test_mask.png";
-
+	depthf = "D:\\captainT\\project_13\\ImageMultiView\\PatchInpainting\\data\\test_depth.png";
 	PatchInpaint pi;
-	pi.mainLoop(colorFilename, maskFilename);
+	pi.mainLoop(colorFilename, maskFilename, depthf);
 }
