@@ -31,4 +31,6 @@ int main(int argc, char** argv) {
 	depthf = "D:\\captainT\\project_13\\ImageMultiView\\PatchInpainting\\data\\test_depth.png";
 	PatchInpaint pi;
 	pi.mainLoop(colorFilename, maskFilename, depthf);
+
+	return 0;
 }

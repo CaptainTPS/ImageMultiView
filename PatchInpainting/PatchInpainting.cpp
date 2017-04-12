@@ -292,15 +292,30 @@ void computePriority(const contours_t& contours, const cv::Mat& grayMat, const c
 * Transfer the values from patch centered at psiHatQ to patch centered at psiHatP in
 * mat according to maskMat.
 */
-void transferPatch(const cv::Point& psiHatQ, const cv::Point& psiHatP, cv::Mat& mat, const cv::Mat& maskMat)
+void transferPatch(const cv::Point& psiHatQ, const cv::Point& psiHatP, cv::Mat& mat, cv::Mat& depthMat, const cv::Mat& maskMat, cv::Mat& outputMask)
 {
 	assert(maskMat.type() == CV_8U);
 	assert(mat.size() == maskMat.size());
 	assert(RADIUS <= psiHatQ.x && psiHatQ.x < mat.cols - RADIUS && RADIUS <= psiHatQ.y && psiHatQ.y < mat.rows - RADIUS);
 	assert(RADIUS <= psiHatP.x && psiHatP.x < mat.cols - RADIUS && RADIUS <= psiHatP.y && psiHatP.y < mat.rows - RADIUS);
 
+	//redesign mask base on depth
+	outputMask = getPatch(maskMat, psiHatP);
+	cv::Mat depth_base = getPatch(depthMat, psiHatP);
+	cv::Mat depthMask = getPatch(depthMat, psiHatQ);
+	for (int i = 0; i < outputMask.cols; i++)
+	{
+		for (int j = 0; j < outputMask.rows; j++)
+		{
+			if (abs(depthMask.at<float>(j, i) - depth_base.at<float>(j, i)) > DEPTH_THRESHOLD)
+			{
+				outputMask.at<uchar>(j, i) = 0;
+			}
+		}
+	}
+
 	// copy contents of psiHatQ to psiHatP with mask
-	getPatch(mat, psiHatQ).copyTo(getPatch(mat, psiHatP), getPatch(maskMat, psiHatP));
+	getPatch(mat, psiHatQ).copyTo(getPatch(mat, psiHatP), outputMask);
 }
 
 /*
@@ -508,14 +523,15 @@ void PatchInpaint::mainLoop(std::string colorPath, std::string maskPath, std::st
 		
 		// updates
 		// copy from psiHatQ to psiHatP for each colorspace
-		transferPatch(psiHatQ, psiHatP, grayMat, (maskMat == 0));
-		transferPatch(psiHatQ, psiHatP, colorMat, (maskMat == 0));
+		cv::Mat outputMask;// not 0 stands for have been inpainted
+		transferPatch(psiHatQ, psiHatP, grayMat, depthMat, (maskMat == 0), outputMask);
+		transferPatch(psiHatQ, psiHatP, colorMat, depthMat, (maskMat == 0), outputMask);
 
 		// fill in confidenceMat with confidences C(pixel) = C(psiHatP)
 		confidence = computeConfidence(psiHatPConfidence);
 		assert(0 <= confidence && confidence <= 1.0f);
 		// update confidence
-		psiHatPConfidence.setTo(confidence, (psiHatPConfidence == 0.0f));
+		psiHatPConfidence.setTo(confidence, outputMask);
 		// update maskMat
 		maskMat = (confidenceMat != 0.0f);
 		/*if (DEBUG) {

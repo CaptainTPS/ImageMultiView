@@ -33,6 +33,8 @@ private:
 // The maximum number of pixels around a specified point on the target outline
 #define BORDER_RADIUS 4
 
+#define DEPTH_THRESHOLD 0.1
+
 int mod(int a, int b);
 
 void loadInpaintingImages(
@@ -58,7 +60,7 @@ cv::Point2f getNormal(const contour_t& contour, const cv::Point& point);
 
 void computePriority(const contours_t& contours, const cv::Mat& grayMat, const cv::Mat& confidenceMat, const cv::Mat& depthMat, cv::Mat& priorityMat);
 
-void transferPatch(const cv::Point& psiHatQ, const cv::Point& psiHatP, cv::Mat& mat, const cv::Mat& maskMat);
+void transferPatch(const cv::Point& psiHatQ, const cv::Point& psiHatP, cv::Mat& mat, cv::Mat& depthMat, const cv::Mat& maskMat, cv::Mat& outputMask);
 
 cv::Mat computeSSD(const cv::Mat& tmplate, const cv::Mat& source, const cv::Mat& depthtemp, const cv::Mat& depthSrc, const cv::Mat& tmplateMask);
 
