@@ -1,10 +1,12 @@
 #include <windows.h>
 
+#include <stdio.h>
 #include <cstdlib>
 #include <string>
 #include <iostream>
 #include <sstream>
 #include <fstream>
+#include <algorithm>
 
 #include "OpenNI.h"
 
@@ -16,6 +18,8 @@
 #include "opencv2\imgproc\imgproc.hpp"
 
 #include "math.h"
+
+#include "mat.h"
 
 #include "D:\captainT\project_13\ImageMultiView\openglGetDepth\mydata.h"
 
@@ -949,17 +953,175 @@ void readYUV(string imgPath, string depthPath, int frameN){
 	input.close();
 }
 
-int main(){
-	//oni_test();
-	//kinect_test();
-	
-	//testData();
-	//outDepthImage();
+int readMatlab(string path){
+	MATFile *pmat;
+	const char **dir;
+	const char *name;
+	int	  ndir;
+	int	  i;
+	mxArray *pa;
 
+	const char* file = path.c_str();
+
+	printf("Reading file %s...\n\n", file);
+
+	/*
+	* Open file to get directory
+	*/
+	pmat = matOpen(file, "r");
+	if (pmat == NULL) {
+		printf("Error opening file %s\n", file);
+		return(1);
+	}
+
+	/*
+	* get directory of MAT-file
+	*/
+	dir = (const char **)matGetDir(pmat, &ndir);
+	if (dir == NULL) {
+		printf("Error reading directory of file %s\n", file);
+		return(1);
+	}
+	else {
+		printf("Directory of %s:\n", file);
+		for (i = 0; i < ndir; i++)
+			printf("%s\n", dir[i]);
+	}
+	mxFree(dir);
+
+	/* In order to use matGetNextXXX correctly, reopen file to read in headers. */
+	if (matClose(pmat) != 0) {
+		printf("Error closing file %s\n", file);
+		return(1);
+	}
+	pmat = matOpen(file, "r");
+	if (pmat == NULL) {
+		printf("Error reopening file %s\n", file);
+		return(1);
+	}
+
+	/* Get headers of all variables */
+	printf("\nExamining the header for each variable:\n");
+	for (i = 0; i < ndir; i++) {
+		pa = matGetNextVariableInfo(pmat, &name);
+		if (pa == NULL) {
+			printf("Error reading in file %s\n", file);
+			return(1);
+		}
+		/* Diagnose header pa */
+		printf("According to its header, array %s has %d dimensions\n",
+			name, mxGetNumberOfDimensions(pa));
+		if (mxIsFromGlobalWS(pa))
+			printf("  and was a global variable when saved\n");
+		else
+			printf("  and was a local variable when saved\n");
+		mxDestroyArray(pa);
+	}
+
+	/* Reopen file to read in actual arrays. */
+	if (matClose(pmat) != 0) {
+		printf("Error closing file %s\n", file);
+		return(1);
+	}
+	pmat = matOpen(file, "r");
+	if (pmat == NULL) {
+		printf("Error reopening file %s\n", file);
+		return(1);
+	}
+
+	/* Read in each array. */
+	printf("\nReading in the actual array contents:\n");
+	for (i = 0; i<ndir; i++) {
+		pa = matGetNextVariable(pmat, &name);
+		if (pa == NULL) {
+			printf("Error reading in file %s\n", file);
+			return(1);
+		}
+		/*
+		* Diagnose array pa
+		*/
+		printf("According to its contents, array %s has %d dimensions\n",
+			name, mxGetNumberOfDimensions(pa));
+		if (mxIsFromGlobalWS(pa))
+			printf("  and was a global variable when saved\n");
+		else
+			printf("  and was a local variable when saved\n");
+
+		//read data out
+		if (string("depths").compare(name) == 0)
+		{
+			float* dataPtr = (float*)mxGetData(pa);//col major
+			const size_t* dimen_range = mxGetDimensions(pa);
+			int cnt = mxGetNumberOfDimensions(pa);
+			int width = dimen_range[0];
+			int height = dimen_range[1];
+			int size_per_slide = dimen_range[0] * dimen_range[1];
+
+			float* data_container = new float[width * height];
+			
+
+			for (int i = 0; i < dimen_range[2]; i++)
+			{
+				float* ptr_now = dataPtr + i * size_per_slide;
+				for (int w = 0; w < width; w++)
+				{
+					for (int h = 0; h < height; h++)
+					{
+						data_container[width * h + w ] = ptr_now[height * w + h];//wrong
+					}
+					
+				}
+
+				cv::Mat depth_now(width, height, CV_32F, data_container);
+				cv::normalize(depth_now, depth_now, 0, 1, cv::NORM_MINMAX);
+				cv::imshow("test", depth_now);
+				cv::waitKey(0);
+			}
+
+			int test = 0;
+		}
+		
+
+		mxDestroyArray(pa);
+	}
+
+
+	if (matClose(pmat) != 0) {
+		printf("Error closing file %s\n", file);
+		return(1);
+	}
+	printf("Done\n");
+	return(0);
+}
+
+int main(){
+
+#ifdef ONI_TEST
+	oni_test();
+#endif
+
+#ifdef KINECT_TEST
+	kinect_test();
+#endif
+
+#ifdef DATA_TRANSFORM
+	testData();
+	outDepthImage();
+#endif
+
+#ifdef YUV_DATA
 	string path = "F:\\Shark\\Shark_1\\Shark_1.yuv";
 	string depthPath = "F:\\MicroWorld\\depth_MicroWorld_1\\depth_MicroWorld_1.yuv";
 	int frameN = -1;
 	readYUV(path, depthPath, frameN);
+#endif
+
+#define MATLAB_DATA
+#ifdef MATLAB_DATA
+	string path = "F:\\tempData\\nyu_depth_data_labeled.mat";
+	readMatlab(path);
+#endif
+
 	return 0;
 	
 }

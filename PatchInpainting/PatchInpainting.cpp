@@ -329,7 +329,7 @@ cv::Mat computeSSD(const cv::Mat& tmplate, const cv::Mat& source, const cv::Mat&
 	assert(tmplate.rows <= source.rows && tmplate.cols <= source.cols);
 	assert(tmplateMask.size() == tmplate.size() && tmplate.type() == tmplateMask.type());
 
-	float belta = 1;
+	float belta = 20;
 
 	cv::Mat result(source.rows - tmplate.rows + 1, source.cols - tmplate.cols + 1, CV_32F, 0.0f);
 
@@ -349,12 +349,36 @@ cv::Mat computeSSD(const cv::Mat& tmplate, const cv::Mat& source, const cv::Mat&
 		CV_TM_SQDIFF
 		/*tpMask[0]*/
 		);
+	/*double min1;
+	double max1;
+	cv::minMaxLoc(result, &min1, &max1, NULL,NULL);
+	double min2;
+	double max2;
+	cv::minMaxLoc(result2, &min2, &max2, NULL, NULL);*/
 	result = result + belta * result2;
 
 	cv::normalize(result, result, 0, 1, cv::NORM_MINMAX);
 	cv::copyMakeBorder(result, result, RADIUS, RADIUS, RADIUS, RADIUS, cv::BORDER_CONSTANT, 1.1f);
 
 	return result;
+}
+
+cv::Point getMatchPoint(const cv::Point& now, cv::Mat& result, cv::Mat erodedMask, const cv::Mat& depthMat){
+	cv::Point q;
+	// set all target regions to 1.1, which is over the maximum value possilbe
+	// from SSD
+	result.setTo(1.1f, erodedMask == 0);
+	// get minimum point of SSD between psiHatPColor and colorMat
+	float dnow, dq;
+	dnow = depthMat.at<float>(now);
+	do
+	{
+		cv::minMaxLoc(result, NULL, NULL, &q);
+		dq = depthMat.at<float>(q); 
+		result.at<float>(q) = 1.1;
+	} while (abs(dnow - dq) > DEPTH_THRESHOLD);
+
+	return q;
 }
 
 std::string type2str(int type) {
@@ -480,8 +504,12 @@ void PatchInpaint::mainLoop(std::string colorPath, std::string maskPath, std::st
 
 	while (cv::countNonZero(maskMat) != area)   // end when target is filled
 	{
+		if (DEBUG) {
+			drawMat = colorMat.clone();
+		}
 		if (DEBUG && (loop++)%100 == 0 ) {
 			t2 = clock();
+			float seconds = ((float)(t2 - t1)) / CLOCKS_PER_SEC;
 			std::cout << ((float)(t2 - t1)) / CLOCKS_PER_SEC << " : loop " << loop << std::endl;
 		}
 		
@@ -491,9 +519,7 @@ void PatchInpaint::mainLoop(std::string colorPath, std::string maskPath, std::st
 		// get the contours of mask
 		getContours((maskMat == 0), contours, hierarchy);
 
-		if (DEBUG) {
-			drawMat = colorMat.clone();
-		}
+		
 
 		// compute the priority for all contour points
 		computePriority(contours, grayMat, confidenceMat, depthMat, priorityMat);
@@ -514,10 +540,10 @@ void PatchInpaint::mainLoop(std::string colorPath, std::string maskPath, std::st
 
 		// set all target regions to 1.1, which is over the maximum value possilbe
 		// from SSD
-		result.setTo(1.1f, erodedMask == 0);
+		//result.setTo(1.1f, erodedMask == 0);
 		// get minimum point of SSD between psiHatPColor and colorMat
-		cv::minMaxLoc(result, NULL, NULL, &psiHatQ);
-
+		//cv::minMaxLoc(result, NULL, NULL, &psiHatQ);
+		psiHatQ = getMatchPoint(psiHatP,result,erodedMask,depthMat);
 		assert(psiHatQ != psiHatP);
 
 		
@@ -534,14 +560,13 @@ void PatchInpaint::mainLoop(std::string colorPath, std::string maskPath, std::st
 		psiHatPConfidence.setTo(confidence, outputMask);
 		// update maskMat
 		maskMat = (confidenceMat != 0.0f);
-		/*if (DEBUG) {
-			std::cout << loop << std::endl;
+		if (DEBUG && (loop) % 100 == 0) {
 			cv::rectangle(drawMat, psiHatP - cv::Point(RADIUS, RADIUS), psiHatP + cv::Point(RADIUS + 1, RADIUS + 1), cv::Scalar(255, 0, 0));
 			cv::rectangle(drawMat, psiHatQ - cv::Point(RADIUS, RADIUS), psiHatQ + cv::Point(RADIUS + 1, RADIUS + 1), cv::Scalar(0, 0, 255));
 			cv::imshow("mask", maskMat);
 			showMat("red - psiHatQ", drawMat, 0);
 			cv::destroyWindow("mask");
-		}*/
+		}
 	}
 	//store result
 	cv::Rect boundR(RADIUS, RADIUS, colorMat.cols - 2 * RADIUS, colorMat.rows - 2 * RADIUS);
