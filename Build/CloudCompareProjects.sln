@@ -376,7 +376,7 @@ Global
 		{57ED79F1-05BF-4FCA-A599-3EEC90E83048}.Release|Mixed Platforms.Build.0 = Release|Win32
 		{57ED79F1-05BF-4FCA-A599-3EEC90E83048}.Release|Win32.ActiveCfg = Release|Win32
 		{57ED79F1-05BF-4FCA-A599-3EEC90E83048}.Release|Win32.Build.0 = Release|Win32
-		{57ED79F1-05BF-4FCA-A599-3EEC90E83048}.Release|x64.ActiveCfg = Release|Win32
+		{57ED79F1-05BF-4FCA-A599-3EEC90E83048}.Release|x64.ActiveCfg = Release|x64
 		{57ED79F1-05BF-4FCA-A599-3EEC90E83048}.RelWithDebInfo|Mixed Platforms.ActiveCfg = Release|Win32
 		{57ED79F1-05BF-4FCA-A599-3EEC90E83048}.RelWithDebInfo|Mixed Platforms.Build.0 = Release|Win32
 		{57ED79F1-05BF-4FCA-A599-3EEC90E83048}.RelWithDebInfo|Win32.ActiveCfg = Release|Win32

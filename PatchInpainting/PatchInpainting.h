@@ -23,6 +23,7 @@ class PatchInpaint
 public:
 
 	void mainLoop(std::string colorPath, std::string maskPath, std::string depthPath);
+	void mainLoop(cv::Mat& colorMat, cv::Mat& maskMat, cv::Mat& depthMat, cv::Mat& outColor);
 
 private:
 
@@ -41,6 +42,11 @@ void loadInpaintingImages(
 	const std::string& colorFilename,
 	const std::string& depthFilename,
 	const std::string& maskFilename,
+	cv::Mat& colorMat,
+	cv::Mat& maskMat,
+	cv::Mat& depthMat);
+
+void loadInpaintingImages(
 	cv::Mat& colorMat,
 	cv::Mat& maskMat,
 	cv::Mat& grayMat,

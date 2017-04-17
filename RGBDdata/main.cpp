@@ -1048,13 +1048,18 @@ int readMatlab(string path){
 			printf("  and was a local variable when saved\n");
 
 		//read data out
+#if 0
 		if (string("depths").compare(name) == 0)
 		{
+			ofstream infoOut("F:\\tempData\\nyu_v1\\depth\\info.txt");
+			infoOut << "#near and far distance (in meters)" << endl;
+			string path = "F:\\tempData\\nyu_v1\\depth\\";
+
 			float* dataPtr = (float*)mxGetData(pa);//col major
 			const size_t* dimen_range = mxGetDimensions(pa);
 			int cnt = mxGetNumberOfDimensions(pa);
-			int width = dimen_range[0];
-			int height = dimen_range[1];
+			int height = dimen_range[0];
+			int width = dimen_range[1];
 			int size_per_slide = dimen_range[0] * dimen_range[1];
 
 			float* data_container = new float[width * height];
@@ -1067,20 +1072,82 @@ int readMatlab(string path){
 				{
 					for (int h = 0; h < height; h++)
 					{
-						data_container[width * h + w ] = ptr_now[height * w + h];//wrong
+						data_container[width * h + w ] = ptr_now[height * w + h];
 					}
 					
 				}
 
-				cv::Mat depth_now(width, height, CV_32F, data_container);
-				cv::normalize(depth_now, depth_now, 0, 1, cv::NORM_MINMAX);
-				cv::imshow("test", depth_now);
-				cv::waitKey(0);
+				cv::Mat depth_now(height, width, CV_32F, data_container);
+				double minV, maxV;
+				cv::minMaxLoc(depth_now, &minV, &maxV);
+				infoOut << minV << " " << maxV << endl;
+
+				depth_now = (depth_now - minV) / (maxV - minV);
+				cv::Mat depth_out(height, width, CV_8UC3);
+				for (int w = 0; w < width; w++)
+				{
+					for (int h = 0; h < height; h++)
+					{
+						float d = depth_now.at<float>(h, w);
+						int r, g, b;
+						DepthtoRGB(d, &r, &g, &b);
+						depth_out.at<cv::Vec3b>(h, w) = cv::Vec3b(b, g, r);
+					}
+				}
+				stringstream ss;
+				ss << i << ".png";
+				string temp = ss.str();
+				cv::imwrite(path + temp, depth_out);
+
+				//cv::normalize(depth_now, depth_now, 0, 1, cv::NORM_MINMAX);
+				//cv::imshow("test", depth_now);
+				//cv::waitKey(0);
 			}
 
-			int test = 0;
+			infoOut.close();
 		}
-		
+#endif
+
+		if (string("images").compare(name) == 0)
+		{
+
+			string path = "F:\\tempData\\nyu_v1\\imgs\\";
+
+			char* dataPtr = (char*)mxGetData(pa);//col major
+			const size_t* dimen_range = mxGetDimensions(pa);
+			int cnt = mxGetNumberOfDimensions(pa);
+			int height = dimen_range[0];
+			int width = dimen_range[1];
+			int channel = dimen_range[2];//3
+			int size_per_slide = width * height * channel;
+
+			char* data_container = new char[channel * width * height];
+
+
+			for (int i = 0; i < dimen_range[3]; i++)
+			{
+				char* ptr_now = dataPtr + i * size_per_slide;
+				for (int w = 0; w < width; w++)
+				{
+					for (int h = 0; h < height; h++)
+					{
+						for (int c = 0; c < channel; c++)
+						{
+							data_container[width * channel * h + w * channel + c] = ptr_now[width * height * (channel - c - 1) + height * w + h];//not right
+						}
+					}
+				}
+
+				cv::Mat img_now(height, width, CV_8UC3, data_container);//bgr
+				stringstream ss;
+				ss << i << ".png";
+				string temp = ss.str();
+				cv::imwrite(path + temp, img_now);
+
+				//cv::imshow("test", img_now);
+				//cv::waitKey(0);
+			}
+		}
 
 		mxDestroyArray(pa);
 	}

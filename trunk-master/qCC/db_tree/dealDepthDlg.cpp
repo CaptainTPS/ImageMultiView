@@ -1,8 +1,12 @@
+
 #include <fstream>
 #include <vector>
 #include <iostream>
+#include "PatchInpainting.h"
 #include <QThread>
+
 #include "dealDepthDlg.h"
+
 
 #include <ccHObjectCaster.h>
 #include <qsettings.h>
@@ -13,7 +17,8 @@
 #include <BinFilter.h>
 #include <qoffscreensurface.h>
 
-
+//#include "opencv2/imgproc/imgproc.hpp"
+//#include "opencv2/highgui/highgui.hpp"
 //#include "GL\glew.h"
 //#include "glut.h"
 
@@ -214,7 +219,7 @@ void DealDepthDlg::playVideo(){
 	}
 	frame += frameflag;
 	frame = (frame + n) % (n);
-	cout << frame << endl;
+	std::cout << frame << std::endl;
 	f = video->getChild(frame);
 	ccGenericGLDisplay* test = video->getDisplay();
 	if (test == NULL)
@@ -1088,7 +1093,7 @@ void DealDepthDlg::getMultiView(){
 		getNewView(*result);
 		result->setName(QString::number(i));
 		t->addChild(result);
-		cout << "now to frame: " << i << endl;
+		std::cout << "now to frame: " << i << std::endl;
 		
 		//save
 		result->data().save("D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\video_out_scene3\\"+ QString::number(i) + ".png");
@@ -1240,6 +1245,38 @@ float openglReadDataToDepth(float data, cameraPara &cam){
 	return Z_scale;
 }
 
+//void QImageToMat(QImage& qimg, cv::Mat& output){
+//	assert(qimg.width() == output.cols && qimg.height() == output.rows);
+//	assert(output.tpye() == CV_8UC3);
+//	for (int w = 0; w < qimg.width(); w++)
+//	{
+//		for (int h = 0; h < qimg.height(); h++)
+//		{
+//			QRgb f = qimg.pixel(w, h);
+//			int r = qRed(f);
+//			int g = qGreen(f);
+//			int b = qBlue(f);
+//			output.at<cv::Vec3b>(h,w) = cv::Vec3b(b, g, r);
+//		}
+//	}
+//}
+//
+//void depthDataToMat(vector<float>& depthData, cv::Mat depth){
+//	//depth is [0,1];
+//	assert(depthData.size() == (depth.cols * depth.rows));
+//	assert(depth.type() == CV_8UC1);
+//	int width = depth.cols;
+//	int height = depth.rows;
+//	for (int w = 0; w < width; w++)
+//	{
+//		for (int h = 0; h < height; h++)
+//		{
+//			float d = getDepth(depthData, w, h, width, height);
+//			depth.at<char>(h, w) = (int)(d * 255);
+//		}
+//	}
+//
+//}
 
 void fillHoles(QImage &newImg, QImage &depth, QImage &mask, cameraPara &cam, vector<AlgebraicSurface::point3> &vertex){
 	float depth_threshold = 0.05;
@@ -1265,6 +1302,30 @@ void fillHoles(QImage &newImg, QImage &depth, QImage &mask, cameraPara &cam, vec
 	renderMesh(vertex, cam, depth_data);
 	delete[] pSurface;
 	delete[] m_pCtx;
+	
+#if 1
+	//doing inpainting
+	int w = mask.width();//here mask white for inpainting
+	int h = mask.height();
+	//QImage to opencv mat
+	//cv::Mat colorMat(h,w,CV_8UC3), maskMat(h,w,CV_8UC3), depthMat(h,w,CV_8UC1);//depth 0 for near, not sure
+	//QImageToMat(newImg, colorMat);
+	//QImageToMat(mask, maskMat);
+	//depthDataToMat(depth_data,depthMat);
+	////deal mask
+	//cv::cvtColor(maskMat, maskMat, CV_RGB2GRAY);
+	//maskMat = (maskMat != 255);
+	//cv::imwrite("D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\maskout.png", maskMat);
+	//cv::Mat outColor;
+	//PatchInpaint pi;
+	//pi.mainLoop(colorMat, maskMat, depthMat, outColor);//mask black for inpainting
+
+
+#endif
+
+#if 0 
+	//simple pixel copy
+
 	//y axis in depth_data is different from that in the image
 	int w = mask.width();
 	int h = mask.height();
@@ -1342,9 +1403,9 @@ void fillHoles(QImage &newImg, QImage &depth, QImage &mask, cameraPara &cam, vec
 	//	}
 	//}
 	//cout << tempd.save("D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\tempdepth.png") << endl;
-
+#endif
 	//test
-	cout << newImg.save("img.png") << endl;
+	std::cout << newImg.save("img.png") << endl;
 	depth.save("depth.png");
 	mask.save("mask.png");
 }
@@ -1355,7 +1416,7 @@ void testReadin(string path, vector<AlgebraicSurface::point3> &vertex){
 	ifstream input(filepath);
 	if (!input.is_open())
 	{
-		cout << "cannot open obj file!" << endl;
+		std::cout << "cannot open obj file!" << endl;
 	}
 	char c;
 	float x, y, z;
@@ -1363,7 +1424,7 @@ void testReadin(string path, vector<AlgebraicSurface::point3> &vertex){
 
 	//vector<point3> vertex;
 	vector<int> face;
-	cout << "start read in..." << endl;
+	std::cout << "start read in..." << std::endl;
 	char bb[100];
 	while (!input.eof())
 	{
@@ -1415,7 +1476,7 @@ void DealDepthDlg::dealHoles(ccImage* nview, QImage &newImage, QImage &depthImg,
 	//string filepath = "D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\mesh_input_2.obj";
 	//testReadin(filepath, as.allVertex);
 
-	fillHoles(newImage, depthImg, maskImg, m_cam, as.allVertex);
+	fillHoles(newImage, depthImg, maskImg, m_cam, as.allVertex);//mask white for empty needed to inpainting
 
 	//add to root
 	ccImage* tempdi = new ccImage(newImage);

@@ -28,7 +28,6 @@ void loadInpaintingImages(
 	const std::string& maskFilename,
 	cv::Mat& colorMat,
 	cv::Mat& maskMat,
-	cv::Mat& grayMat,
 	cv::Mat& depthMat)
 {
 	assert(colorFilename.length() && maskFilename.length());
@@ -36,9 +35,16 @@ void loadInpaintingImages(
 	colorMat = cv::imread(colorFilename, 1); // color
 	maskMat = cv::imread(maskFilename, 0);  // grayscale
 	depthMat = cv::imread(depthFilename, cv::IMREAD_GRAYSCALE);
+}
 
-	assert(colorMat.size() == maskMat.size()&&colorMat.size()== depthMat.size());
-	assert(!colorMat.empty() && !maskMat.empty()&& !depthMat.empty());
+void loadInpaintingImages(
+	cv::Mat& colorMat,
+	cv::Mat& maskMat,
+	cv::Mat& grayMat,
+	cv::Mat& depthMat)
+{
+	assert(colorMat.size() == maskMat.size() && colorMat.size() == depthMat.size());
+	assert(!colorMat.empty() && !maskMat.empty() && !depthMat.empty());
 
 	// convert colorMat to depth CV_32F for colorspace conversions
 	colorMat.convertTo(colorMat, CV_32F);
@@ -427,11 +433,26 @@ void PatchInpaint::mainLoop(std::string colorPath, std::string maskPath, std::st
 	// colorMat     - color picture + border
 	// maskMat      - mask picture + border
 	// grayMat      - gray picture + border
-	cv::Mat colorMat, maskMat, grayMat, depthMat;
+	cv::Mat colorMat, maskMat, depthMat, outColor;
 	loadInpaintingImages(
 		colorFilename,
 		depthFilename,
 		maskFilename,
+		colorMat,
+		maskMat,
+		depthMat
+		);
+	mainLoop(colorMat, maskMat, depthMat, outColor);
+}
+
+void PatchInpaint::mainLoop(cv::Mat& colorMat, cv::Mat& maskMat, cv::Mat& depthMat, cv::Mat& outColor){
+
+	// ---------------- read the images ------------------------
+	// colorMat     - color picture + border
+	// maskMat      - mask picture + border
+	// grayMat      - gray picture + border
+	cv::Mat grayMat;
+	loadInpaintingImages(
 		colorMat,
 		maskMat,
 		grayMat,
@@ -448,7 +469,7 @@ void PatchInpaint::mainLoop(std::string colorPath, std::string maskPath, std::st
 	maskMat.convertTo(confidenceMat, CV_32F);
 	confidenceMat /= 255.0f;
 
-	
+
 
 	// add borders around maskMat and confidenceMat
 	cv::copyMakeBorder(maskMat, maskMat,
@@ -507,19 +528,19 @@ void PatchInpaint::mainLoop(std::string colorPath, std::string maskPath, std::st
 		if (DEBUG) {
 			drawMat = colorMat.clone();
 		}
-		if (DEBUG && (loop++)%100 == 0 ) {
+		if (DEBUG && (loop++) % 100 == 0) {
 			t2 = clock();
 			float seconds = ((float)(t2 - t1)) / CLOCKS_PER_SEC;
 			std::cout << ((float)(t2 - t1)) / CLOCKS_PER_SEC << " : loop " << loop << std::endl;
 		}
-		
+
 		// set priority matrix to -.1, lower than 0 so that border area is never selected
 		priorityMat.setTo(-0.1f);
 
 		// get the contours of mask
 		getContours((maskMat == 0), contours, hierarchy);
 
-		
+
 
 		// compute the priority for all contour points
 		computePriority(contours, grayMat, confidenceMat, depthMat, priorityMat);
@@ -543,10 +564,10 @@ void PatchInpaint::mainLoop(std::string colorPath, std::string maskPath, std::st
 		//result.setTo(1.1f, erodedMask == 0);
 		// get minimum point of SSD between psiHatPColor and colorMat
 		//cv::minMaxLoc(result, NULL, NULL, &psiHatQ);
-		psiHatQ = getMatchPoint(psiHatP,result,erodedMask,depthMat);
+		psiHatQ = getMatchPoint(psiHatP, result, erodedMask, depthMat);
 		assert(psiHatQ != psiHatP);
 
-		
+
 		// updates
 		// copy from psiHatQ to psiHatP for each colorspace
 		cv::Mat outputMask;// not 0 stands for have been inpainted
@@ -570,11 +591,11 @@ void PatchInpaint::mainLoop(std::string colorPath, std::string maskPath, std::st
 	}
 	//store result
 	cv::Rect boundR(RADIUS, RADIUS, colorMat.cols - 2 * RADIUS, colorMat.rows - 2 * RADIUS);
-	cv::Mat colorMatcopy = colorMat(boundR);
+	outColor = colorMat(boundR).clone();
 	//std::cout<<type2str(colorMatcopy.type());//32FC3
-	colorMatcopy.convertTo(colorMatcopy, CV_8UC3, 255);
+	outColor.convertTo(outColor, CV_8UC3, 255);
 	//showMat("test", colorMatcopy, 0);
-	cv::imwrite("D:\\captainT\\project_13\\ImageMultiView\\PatchInpainting\\data\\output.png",colorMatcopy);
+	cv::imwrite("D:\\captainT\\project_13\\ImageMultiView\\PatchInpainting\\data\\output.png", outColor);
 
 	showMat("final result", colorMat, 0);
 }

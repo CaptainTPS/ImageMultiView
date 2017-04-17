@@ -262,6 +262,9 @@
     <ClCompile Include="..\..\trunk-master\qCC\db_tree\videoThread.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\PatchInpainting\PatchInpainting.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\cc2.5DimEditor.h">
@@ -745,6 +748,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\trunk-master\qCC\db_tree\newPatchDealer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PatchInpainting\PatchInpainting.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
