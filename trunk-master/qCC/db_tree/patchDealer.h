@@ -8,7 +8,7 @@
 #define MINVALUE 1e-4
 #endif
 
-#define MY_DEBUG
+//#define MY_DEBUG
 
 #ifdef MY_DEBUG
 	#include <iostream>

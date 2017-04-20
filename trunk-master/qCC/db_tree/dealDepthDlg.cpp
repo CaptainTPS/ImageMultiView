@@ -1,8 +1,7 @@
-
 #include <fstream>
 #include <vector>
 #include <iostream>
-#include "PatchInpainting.h"
+
 #include <QThread>
 
 #include "dealDepthDlg.h"
@@ -25,6 +24,7 @@
 
 //#include "patchDealer.h"
 #include "newPatchDealer.h"
+#include "PIheader.h"
 #include "apss.h"
 #include "MeshRender.h" 
 //#include "MeshRenderQt.h"//this is not used cannot get depth out
@@ -34,11 +34,14 @@
 
 #define DEBUG_TEST
 
+#define USE_APSS
+
 
 //default 'All files' file filter
 static const QString s_allFilesFilter("All (*.*)");
 //default file filter separator
 static const QString s_fileFilterSeparator(";;");
+
 
 //whether it is proper to put it here?
 AlgebraicSurface as;
@@ -241,8 +244,21 @@ void RGBtoDepth(QRgb rgb, float *depth){
 	RGBtoDepth(r, g, b, depth);
 }
 
-QRgb DepthtoRGB(float depth, int *r, int *g, int *b){
+QRgb DepthtoRGB(float depth, int *r = NULL, int *g = NULL, int *b = NULL){
 	int d = depth * 16777216;
+	int r_, g_, b_;
+	if (r == NULL)
+	{
+		r = &r_;
+	}
+	if (g == NULL )
+	{
+		g = &g_;
+	}
+	if (b == NULL)
+	{
+		b = &b_;
+	}
 	*r = (d >> 16);
 	*g = (d - ((*r) << 16)) >> 8;
 	*b = d - ((*r) << 16) - ((*g) << 8);
@@ -953,7 +969,7 @@ void DealDepthDlg::doMarchingCube(ccImage* nview, double lengthPerPixel, cameraP
 	as.calVolumeSig(z_depth, m_cam.focalLength, lengthPerPixel, dilateVoxelNum);
 
 	//test
-	/*ofstream sptOut("D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\spt_sig.obj");
+	ofstream sptOut("D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\spt_sig.obj");
 	for (int i = 0; i < as.getSphereNum(); i++)
 	{
 	AlgebraicSurface::point3 pt = as.getSpherePoint(i);
@@ -961,7 +977,7 @@ void DealDepthDlg::doMarchingCube(ccImage* nview, double lengthPerPixel, cameraP
 	}
 	sptOut.close();
 
-
+	/*
 	ofstream vsigOut("D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\vsig.obj");
 	for (int x = 0; x < size_ddd[0]; x++)
 	{
@@ -1077,10 +1093,10 @@ void DealDepthDlg::getMultiView(){
 	double lengthPerPixel = width_notpixel / width_pixel;
 
 	//use depth to simplify the volume calculation
-	int dilateVoxelNum = 2;
-
+	int dilateVoxelNum = 4;
+#ifdef USE_APSS
 	doMarchingCube(rgbdi, lengthPerPixel, m_cam, dilateVoxelNum);
-
+#endif
 	for (int i = 0; i < viewNum; i++){
 		ccImage *result = new ccImage;
 		double bd = bdstart + i * (bdend - bdstart) / (viewNum -1);
@@ -1155,7 +1171,7 @@ void DealDepthDlg::getNewView(ccImage &result){
 		double lengthPerPixel = width_notpixel / width_pixel;
 		ccLog::Print("start deal holes.");
 		//dealHoles(nview, lengthPerPixel);
-
+		std::cout << objImg.save("img.png") << endl;
 		dealHoles(rgbdi, objImg, objDepth,objMask, lengthPerPixel, result);
 	}
 }
@@ -1245,42 +1261,150 @@ float openglReadDataToDepth(float data, cameraPara &cam){
 	return Z_scale;
 }
 
-//void QImageToMat(QImage& qimg, cv::Mat& output){
-//	assert(qimg.width() == output.cols && qimg.height() == output.rows);
-//	assert(output.tpye() == CV_8UC3);
-//	for (int w = 0; w < qimg.width(); w++)
-//	{
-//		for (int h = 0; h < qimg.height(); h++)
-//		{
-//			QRgb f = qimg.pixel(w, h);
-//			int r = qRed(f);
-//			int g = qGreen(f);
-//			int b = qBlue(f);
-//			output.at<cv::Vec3b>(h,w) = cv::Vec3b(b, g, r);
-//		}
-//	}
-//}
-//
-//void depthDataToMat(vector<float>& depthData, cv::Mat depth){
-//	//depth is [0,1];
-//	assert(depthData.size() == (depth.cols * depth.rows));
-//	assert(depth.type() == CV_8UC1);
-//	int width = depth.cols;
-//	int height = depth.rows;
-//	for (int w = 0; w < width; w++)
-//	{
-//		for (int h = 0; h < height; h++)
-//		{
-//			float d = getDepth(depthData, w, h, width, height);
-//			depth.at<char>(h, w) = (int)(d * 255);
-//		}
-//	}
-//
-//}
+void QImageToData(QImage& qimg, char* output, int width, int height, int channel){
+	assert(qimg.width() == width && qimg.height() == height);
+	assert(channel == 1 || channel == 3);
+	int mark = 0;
+	for (int h = 0; h < qimg.height(); h++)
+	{
+		for (int w = 0; w < qimg.width(); w++)
+		{
+			if (channel == 3)
+			{
+				QRgb f = qimg.pixel(w, h);
+				int r = qRed(f);
+				int g = qGreen(f);
+				int b = qBlue(f);
+				output[mark++] = b;
+				output[mark++] = g; 
+				output[mark++] = r;
+			}
+			else if (channel == 1)
+			{
+				QRgb f = qimg.pixel(w, h);
+				int r = qRed(f);
+				output[mark++] = r;
+			}
+		}
+	}
+}
+
+void depthDataToData(vector<float>& depthData, char* depth, int width, int height, int channel){
+	//depth is [0,1];
+	assert(channel == 1);
+	assert(depthData.size() == (width * height));
+
+	int mark = 0;
+	for (int h = 0; h < height; h++)
+	{
+		for (int w = 0; w < width; w++)
+		{
+			float d = getDepth(depthData, w, h, width, height);
+			depth[mark++] = (int)(d * 255);
+		}
+	}
+}
+
+void depthDataToData(QImage& depthData, char* depth, int width, int height, int channel){
+	//depth is [0,1];
+	assert(channel == 1);
+	assert(depthData.size() == (width * height));
+
+	int mark = 0;
+	for (int h = 0; h < height; h++)
+	{
+		for (int w = 0; w < width; w++)
+		{
+			float d;
+			RGBtoDepth(depthData.pixel(w, h), &d);
+			depth[mark++] = (int)(d * 255);
+		}
+	}
+}
+
+void DataToQImage(QImage& out, char* input, int width, int height, int channel){
+	assert(out.height() == height && out.width() == width);
+	assert(channel == 3);
+	
+	int mark = 0;
+	for (int h = 0; h < out.height(); h++)
+	{
+		for (int w = 0; w < out.width(); w++)
+		{
+			int b = input[mark++];
+			int g = input[mark++];
+			int r = input[mark++];
+			out.setPixel(w, h, qRgb(r, g, b));
+		}
+	}
+}
+
+void fillDepth(QImage& depth){
+	//qrgb(255,255,255) for empty
+	for (int y = 0; y < depth.height(); y++)
+	{
+		for (int x = 0; x < depth.width(); x++)
+		{
+			QRgb temp = depth.pixel(x, y);
+			if (temp == qRgb(255,255,255))
+			{
+				//need to fill
+				int left = x, right = x;
+				while (left>=0)
+				{
+					if (depth.pixel(left, y) != qRgb(255, 255, 255))
+					{
+						break;
+					}
+					left--;
+				}
+				while (right < depth.width())
+				{
+					if (depth.pixel(right, y) != qRgb(255, 255, 255))
+					{
+						break;
+					}
+					right++;
+				}
+				//judge if both side is valid
+				if (left >=0 &&right < depth.width())
+				{
+					float aall = right - left;
+					float a1 = x - left;
+					float a2 = right - x;
+					float d1;
+					RGBtoDepth(depth.pixel(left, y), &d1);
+					float d2;
+					RGBtoDepth(depth.pixel(left, y), &d1);
+					float resultd = (d1 * a1 + d2 * a2) / aall;
+					depth.setPixel(x, y, DepthtoRGB(resultd));
+				}
+				else
+				{
+					if (left >= 0)
+					{
+						depth.setPixel(x, y, depth.pixel(left, y));
+					}else if (right < depth.width())
+					{
+						depth.setPixel(x, y, depth.pixel(right, y));
+					}
+					else
+					{
+						//still remaining holes in depth
+					}
+				}
+			}
+		}
+	}
+
+}
 
 void fillHoles(QImage &newImg, QImage &depth, QImage &mask, cameraPara &cam, vector<AlgebraicSurface::point3> &vertex){
 	float depth_threshold = 0.05;
-
+	int w = mask.width();//here mask white for inpainting
+	int h = mask.height();
+	char *depthPtr;
+#ifdef USE_APSS
 	//do not effect the main window
 	vector<float> depth_data;
 	QOpenGLContext *m_pCtx = new QOpenGLContext;
@@ -1303,24 +1427,39 @@ void fillHoles(QImage &newImg, QImage &depth, QImage &mask, cameraPara &cam, vec
 	delete[] pSurface;
 	delete[] m_pCtx;
 	
+	depthDataToData(depth_data, depthPtr, w, h, 1);
+#else
+	//just fill depth
+	fillDepth(depth);
+	depthDataToData(depth, depthPtr, w, h, 1);
+#endif
 #if 1
 	//doing inpainting
-	int w = mask.width();//here mask white for inpainting
-	int h = mask.height();
-	//QImage to opencv mat
-	//cv::Mat colorMat(h,w,CV_8UC3), maskMat(h,w,CV_8UC3), depthMat(h,w,CV_8UC1);//depth 0 for near, not sure
-	//QImageToMat(newImg, colorMat);
-	//QImageToMat(mask, maskMat);
-	//depthDataToMat(depth_data,depthMat);
-	////deal mask
-	//cv::cvtColor(maskMat, maskMat, CV_RGB2GRAY);
-	//maskMat = (maskMat != 255);
-	//cv::imwrite("D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\maskout.png", maskMat);
-	//cv::Mat outColor;
-	//PatchInpaint pi;
-	//pi.mainLoop(colorMat, maskMat, depthMat, outColor);//mask black for inpainting
+	
+	//QImage to data
+	//colorMat(h, w, CV_8UC3); maskMat(h, w, CV_8UC1); depthMat(h, w, CV_8UC1)//depth 0 for near, not sure
+	char *colorPtr, *maskPtr, *depthPtr, *outPtr;
+	colorPtr = new char[w*h * 3];
+	maskPtr = new char[w*h];
+	depthPtr = new char[w*h];
+	outPtr = new char[w*h * 3];
+	QImageToData(newImg, colorPtr, w, h, 3);
+	QImageToData(mask, maskPtr, w, h, 1);
+	
+	//deal mask
+	for (int i = 0; i < w*h; i++)
+	{
+		maskPtr[i] = maskPtr[i] == 255 ? 0 : 255;
+	}
+	std::cout << newImg.save("img.png") << endl;
+	PatchInpaint pi;
+	pi.mainLoop(colorPtr, maskPtr, depthPtr, outPtr, w, h);//mask black for inpainting
 
-
+	DataToQImage(newImg, outPtr, w, h, 1);
+	delete[] colorPtr;
+	delete[] maskPtr;
+	delete[] depthPtr;
+	delete[] outPtr;
 #endif
 
 #if 0 
@@ -1405,9 +1544,9 @@ void fillHoles(QImage &newImg, QImage &depth, QImage &mask, cameraPara &cam, vec
 	//cout << tempd.save("D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\tempdepth.png") << endl;
 #endif
 	//test
-	std::cout << newImg.save("img.png") << endl;
-	depth.save("depth.png");
-	mask.save("mask.png");
+	std::cout << newImg.save("img.png") << endl;//not right
+	//depth.save("depth.png");
+	//mask.save("mask.png");
 }
 
 void testReadin(string path, vector<AlgebraicSurface::point3> &vertex){
@@ -1482,12 +1621,6 @@ void DealDepthDlg::dealHoles(ccImage* nview, QImage &newImage, QImage &depthImg,
 	ccImage* tempdi = new ccImage(newImage);
 	result = *tempdi;
 	tempdi->setName("FinalImg");
-	ccImage* tempdd = new ccImage(depthImg);
-	tempdd->setName("depth");
-	tempdi->addChild(tempdd);
-	ccImage* tempdm = new ccImage(maskImg);
-	tempdm->setName("mask");
-	tempdi->addChild(tempdm);
 
 	nview->addChild(tempdi);
 	ccLog::Print("finish filling the holes.");

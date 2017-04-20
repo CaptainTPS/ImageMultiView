@@ -12,6 +12,7 @@
 #include <string>
 
 #include "PatchInpainting.h"
+#include "PIheader.h"
 
 /*
 * Note: This program uses C assert() statements, define NDEBUG marco to

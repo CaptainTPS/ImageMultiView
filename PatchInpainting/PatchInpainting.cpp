@@ -1,6 +1,7 @@
 #include <time.h>
 
 #include "PatchInpainting.h"
+#include "PIheader.h"
 
 #ifndef DEBUG
 #define DEBUG 1
@@ -37,7 +38,7 @@ void loadInpaintingImages(
 	depthMat = cv::imread(depthFilename, cv::IMREAD_GRAYSCALE);
 }
 
-void loadInpaintingImages(
+void initInpaintingImages(
 	cv::Mat& colorMat,
 	cv::Mat& maskMat,
 	cv::Mat& grayMat,
@@ -410,49 +411,16 @@ std::string type2str(int type) {
 	return r;
 }
 
-void PatchInpaint::mainLoop(std::string colorPath, std::string maskPath, std::string depthPath){
 
-	std::string colorFilename, maskFilename, depthFilename;
 
-	colorFilename = colorPath;
-	//"D:\\captainT\\project_13\\ImageMultiView\\PatchInpainting\\data\\test_color.png";
-	maskFilename = maskPath;
-	//"D:\\captainT\\project_13\\ImageMultiView\\PatchInpainting\\data\\test_mask.png";
-	depthFilename = depthPath;
-
-	/*if (argc == 3) {
-	colorFilename = argv[1];
-	maskFilename = argv[2];
-	}
-	else {
-	std::cerr << "Usage: ./inpainting colorImageFile maskImageFile" << std::endl;
-	return -1;
-	}*/
-
-	// ---------------- read the images ------------------------
-	// colorMat     - color picture + border
-	// maskMat      - mask picture + border
-	// grayMat      - gray picture + border
-	cv::Mat colorMat, maskMat, depthMat, outColor;
-	loadInpaintingImages(
-		colorFilename,
-		depthFilename,
-		maskFilename,
-		colorMat,
-		maskMat,
-		depthMat
-		);
-	mainLoop(colorMat, maskMat, depthMat, outColor);
-}
-
-void PatchInpaint::mainLoop(cv::Mat& colorMat, cv::Mat& maskMat, cv::Mat& depthMat, cv::Mat& outColor){
+void InnerMainLoop(cv::Mat& colorMat, cv::Mat& maskMat, cv::Mat& depthMat, cv::Mat& outColor){
 
 	// ---------------- read the images ------------------------
 	// colorMat     - color picture + border
 	// maskMat      - mask picture + border
 	// grayMat      - gray picture + border
 	cv::Mat grayMat;
-	loadInpaintingImages(
+	initInpaintingImages(
 		colorMat,
 		maskMat,
 		grayMat,
@@ -597,5 +565,49 @@ void PatchInpaint::mainLoop(cv::Mat& colorMat, cv::Mat& maskMat, cv::Mat& depthM
 	//showMat("test", colorMatcopy, 0);
 	cv::imwrite("D:\\captainT\\project_13\\ImageMultiView\\PatchInpainting\\data\\output.png", outColor);
 
-	showMat("final result", colorMat, 0);
+	showMat("final result", outColor, 0);
+}
+
+void PatchInpaint::mainLoop(std::string colorPath, std::string maskPath, std::string depthPath){
+
+	std::string colorFilename, maskFilename, depthFilename;
+
+	colorFilename = colorPath;
+	//"D:\\captainT\\project_13\\ImageMultiView\\PatchInpainting\\data\\test_color.png";
+	maskFilename = maskPath;
+	//"D:\\captainT\\project_13\\ImageMultiView\\PatchInpainting\\data\\test_mask.png";
+	depthFilename = depthPath;
+
+	/*if (argc == 3) {
+	colorFilename = argv[1];
+	maskFilename = argv[2];
+	}
+	else {
+	std::cerr << "Usage: ./inpainting colorImageFile maskImageFile" << std::endl;
+	return -1;
+	}*/
+
+	// ---------------- read the images ------------------------
+	// colorMat     - color picture + border
+	// maskMat      - mask picture + border
+	// grayMat      - gray picture + border
+	cv::Mat colorMat, maskMat, depthMat, outColor;
+	loadInpaintingImages(
+		colorFilename,
+		depthFilename,
+		maskFilename,
+		colorMat,
+		maskMat,
+		depthMat
+		);
+	InnerMainLoop(colorMat, maskMat, depthMat, outColor);
+}
+
+void PatchInpaint::mainLoop(char* color, char* mask, char* depth, char* out, int width, int height){
+	cv::Mat colorMat(height, width, CV_8UC3, color);
+	cv::Mat maskMat(height, width, CV_8UC1, mask);
+	cv::Mat depthMat(height, width, CV_8UC1, depth);
+	cv::Mat outColor(height, width, CV_8UC3, out);
+
+	InnerMainLoop(colorMat, maskMat, depthMat, outColor);
 }

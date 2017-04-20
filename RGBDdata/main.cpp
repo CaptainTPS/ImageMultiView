@@ -1161,6 +1161,37 @@ int readMatlab(string path){
 	return(0);
 }
 
+void getPointCloud(string imgPath, string depthPath, string output){
+	cameraPara m_cam;
+	double width_pixel = m_cam.width;
+	double width_notpixel = 2.0 * m_cam.focalLength * tan(m_cam.angleOfView / 2 * M_PI / 180.0);
+	double lengthPerPixel = width_notpixel / width_pixel;
+	float dnear = m_cam.nearPlane;
+	float dfar = m_cam.farPlane;
+	cv::Mat img = cv::imread(imgPath);
+	cv::Mat dep = cv::imread(depthPath);
+
+	ofstream outfile(output);
+
+	for (int h = 0; h < img.rows; h++)
+	{
+		for (int w = 0; w < img.cols; w++)
+		{
+			float d;
+			cv::Vec3b t = dep.at<cv::Vec3b>(h, w);
+			RGBtoDepth((int)t[2], (int)t[1], (int)t[0], &d);
+			float reald = d * (dfar - dnear) + dnear;
+			reald *= -1.0;
+			double x = (w - m_cam.width / 2)*lengthPerPixel *(reald / m_cam.focalLength);
+			double y = (m_cam.height / 2 - h)*lengthPerPixel *(reald / m_cam.focalLength);
+
+			t = img.at<cv::Vec3b>(h, w);
+			outfile << "v " << x << " " << y << " " << reald << " " << (int)t[2] << " " << (int)t[1] << " " << (int)t[0] << endl;
+		}
+	}
+	outfile.close();
+}
+
 int main(){
 
 #ifdef ONI_TEST
@@ -1183,10 +1214,17 @@ int main(){
 	readYUV(path, depthPath, frameN);
 #endif
 
-#define MATLAB_DATA
 #ifdef MATLAB_DATA
 	string path = "F:\\tempData\\nyu_depth_data_labeled.mat";
 	readMatlab(path);
+#endif
+
+#define POINT_CLOUD	
+#ifdef POINT_CLOUD
+	string img = "D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\in\\113color.png";
+	string depth = "D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\in\\113depth.png";
+	string output = "D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\pCloud.obj";
+	getPointCloud(img, depth, output);
 #endif
 
 	return 0;

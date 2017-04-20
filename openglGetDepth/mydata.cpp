@@ -23,6 +23,7 @@ cameraPara::cameraPara(){
 	height = 480;
 #endif
 
+#if 0
 	//for MicroWorld data
 	angleOfView = 40.42648;//angle not radian
 	focalLength = 35.0;
@@ -30,6 +31,15 @@ cameraPara::cameraPara(){
 	farPlane = 960 + 851.166600;
 	width = 1920;
 	height = 1088;
+#endif
+	//for nyu_v1 data (length should be mm)
+	angleOfView = 40.42648;//angle not radian
+	focalLength = 35.0;
+	nearPlane = 1013.85;
+	farPlane = 4703.46;
+	width = 640;
+	height = 480;
+
 
 	screenRatio = 1.0* width / height;
 	//cal vertical fov

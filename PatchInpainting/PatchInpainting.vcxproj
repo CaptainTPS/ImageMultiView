@@ -125,6 +125,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="PatchInpainting.h" />
+    <ClInclude Include="PIheader.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PatchInpainting.cpp" />

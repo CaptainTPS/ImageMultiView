@@ -1,9 +1,5 @@
 #ifndef PATCH_INPAITING_H_
 #define PATCH_INPAITING_H_
-
-#include "opencv2/imgproc/imgproc.hpp"
-#include "opencv2/highgui/highgui.hpp"
-
 #include <assert.h>
 #include <stdio.h>
 
@@ -12,22 +8,13 @@
 #include <string>
 #include <iostream>
 #include <cmath>
+#include "opencv2/imgproc/imgproc.hpp"
+#include "opencv2/highgui/highgui.hpp"
 
 typedef std::vector<std::vector<cv::Point>> contours_t;
 typedef std::vector<cv::Vec4i> hierarchy_t;
 typedef std::vector<cv::Point> contour_t;
 
-
-class PatchInpaint
-{
-public:
-
-	void mainLoop(std::string colorPath, std::string maskPath, std::string depthPath);
-	void mainLoop(cv::Mat& colorMat, cv::Mat& maskMat, cv::Mat& depthMat, cv::Mat& outColor);
-
-private:
-
-};
 
 // Patch raduius
 #define RADIUS 4
