@@ -294,6 +294,24 @@ void computePriority(const contours_t& contours, const cv::Mat& grayMat, const c
 	}
 }
 
+/*
+ignore the empty part in src image
+*/
+void CopyWithMask(cv::Mat& mat, const cv::Point& psiHatQ, const cv::Point& psiHatP, const cv::Mat& maskMat, cv::Mat& outputMask){
+	cv::Mat srcMask = getPatch(maskMat, psiHatQ).clone();
+	for (int h = 0; h < srcMask.rows; h++)
+	{
+		for (int w = 0; w < srcMask.cols; w++)
+		{
+			if (srcMask.at<unsigned char>(h,w) != 0)
+			{
+				outputMask.at<uchar>(h, w) = 0;
+			}
+		}
+	}
+	// copy contents of psiHatQ to psiHatP with mask
+	getPatch(mat, psiHatQ).copyTo(getPatch(mat, psiHatP), outputMask);
+}
 
 /*
 * Transfer the values from patch centered at psiHatQ to patch centered at psiHatP in
@@ -321,8 +339,7 @@ void transferPatch(const cv::Point& psiHatQ, const cv::Point& psiHatP, cv::Mat& 
 		}
 	}
 
-	// copy contents of psiHatQ to psiHatP with mask
-	getPatch(mat, psiHatQ).copyTo(getPatch(mat, psiHatP), outputMask);
+	CopyWithMask(mat, psiHatQ, psiHatP, maskMat, outputMask);
 }
 
 /*
@@ -362,6 +379,7 @@ cv::Mat computeSSD(const cv::Mat& tmplate, const cv::Mat& source, const cv::Mat&
 	double min2;
 	double max2;
 	cv::minMaxLoc(result2, &min2, &max2, NULL, NULL);*/
+
 	result = result + belta * result2;
 
 	cv::normalize(result, result, 0, 1, cv::NORM_MINMAX);
@@ -496,7 +514,7 @@ void InnerMainLoop(cv::Mat& colorMat, cv::Mat& maskMat, cv::Mat& depthMat, cv::M
 		if (DEBUG) {
 			drawMat = colorMat.clone();
 		}
-		if (DEBUG && (loop++) % 100 == 0) {
+		if (DEBUG && (loop++) % 50 == 0) {
 			t2 = clock();
 			float seconds = ((float)(t2 - t1)) / CLOCKS_PER_SEC;
 			std::cout << ((float)(t2 - t1)) / CLOCKS_PER_SEC << " : loop " << loop << std::endl;
@@ -532,7 +550,9 @@ void InnerMainLoop(cv::Mat& colorMat, cv::Mat& maskMat, cv::Mat& depthMat, cv::M
 		//result.setTo(1.1f, erodedMask == 0);
 		// get minimum point of SSD between psiHatPColor and colorMat
 		//cv::minMaxLoc(result, NULL, NULL, &psiHatQ);
-		psiHatQ = getMatchPoint(psiHatP, result, erodedMask, depthMat);
+
+		//psiHatQ = getMatchPoint(psiHatP, result, erodedMask, depthMat);
+		psiHatQ = getMatchPoint(psiHatP, result, maskMat, depthMat);//try not use erode
 		assert(psiHatQ != psiHatP);
 
 
@@ -549,7 +569,7 @@ void InnerMainLoop(cv::Mat& colorMat, cv::Mat& maskMat, cv::Mat& depthMat, cv::M
 		psiHatPConfidence.setTo(confidence, outputMask);
 		// update maskMat
 		maskMat = (confidenceMat != 0.0f);
-		if (DEBUG && (loop) % 100 == 0) {
+		if (DEBUG && (loop) % 500 == 0) {
 			cv::rectangle(drawMat, psiHatP - cv::Point(RADIUS, RADIUS), psiHatP + cv::Point(RADIUS + 1, RADIUS + 1), cv::Scalar(255, 0, 0));
 			cv::rectangle(drawMat, psiHatQ - cv::Point(RADIUS, RADIUS), psiHatQ + cv::Point(RADIUS + 1, RADIUS + 1), cv::Scalar(0, 0, 255));
 			cv::imshow("mask", maskMat);
@@ -603,11 +623,20 @@ void PatchInpaint::mainLoop(std::string colorPath, std::string maskPath, std::st
 	InnerMainLoop(colorMat, maskMat, depthMat, outColor);
 }
 
-void PatchInpaint::mainLoop(char* color, char* mask, char* depth, char* out, int width, int height){
+void PatchInpaint::mainLoop(unsigned char* color, unsigned char* mask, unsigned char* depth, unsigned char* out, int width, int height){
 	cv::Mat colorMat(height, width, CV_8UC3, color);
 	cv::Mat maskMat(height, width, CV_8UC1, mask);
 	cv::Mat depthMat(height, width, CV_8UC1, depth);
 	cv::Mat outColor(height, width, CV_8UC3, out);
 
-	InnerMainLoop(colorMat, maskMat, depthMat, outColor);
+	//test
+	cv::String localPath = "D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\";
+	cv::imwrite(localPath + "colorMat.png", colorMat);
+	cv::imwrite(localPath + "maskMat.png", maskMat);
+	cv::imwrite(localPath + "depthMat.png", depthMat);
+	cv::Mat nDepthMat(depthMat.size(), depthMat.type());
+	cv::bilateralFilter(depthMat, nDepthMat, 5, 50, 50);
+	cv::imwrite(localPath + "outMat.png", nDepthMat);
+
+	InnerMainLoop(colorMat, maskMat, nDepthMat, outColor);
 }

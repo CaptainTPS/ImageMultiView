@@ -34,7 +34,7 @@
 
 #define DEBUG_TEST
 
-#define USE_APSS
+//#define USE_APSS
 
 
 //default 'All files' file filter
@@ -619,7 +619,7 @@ void eliminateCracks(QImage &srcImg, QImage &srcDepth, QImage &objImg, QImage &o
 
 //paper Free-viewpoint depth image based rendering
 void forwardMappingDepthImageBase(QImage &srcImg, QImage &srcDepth, QImage &objImg, QImage &objDepth, QImage &objMask, cameraPara &cam){
-	float contourThreshold = 0.05;
+	float contourThreshold = 0.1;
 	QImage contourMask(srcDepth.width(),srcDepth.height(),QImage::Format_MonoLSB);// less significant bit (LSB) first
 	contourMask.fill(0);
 	//contourMask.setPixel(0, 0, 1);
@@ -1261,7 +1261,7 @@ float openglReadDataToDepth(float data, cameraPara &cam){
 	return Z_scale;
 }
 
-void QImageToData(QImage& qimg, char* output, int width, int height, int channel){
+void QImageToData(QImage& qimg, unsigned char* output, int width, int height, int channel){
 	assert(qimg.width() == width && qimg.height() == height);
 	assert(channel == 1 || channel == 3);
 	int mark = 0;
@@ -1283,13 +1283,13 @@ void QImageToData(QImage& qimg, char* output, int width, int height, int channel
 			{
 				QRgb f = qimg.pixel(w, h);
 				int r = qRed(f);
-				output[mark++] = r;
+				output[mark++] = (unsigned char)r;
 			}
 		}
 	}
 }
 
-void depthDataToData(vector<float>& depthData, char* depth, int width, int height, int channel){
+void depthDataToData(vector<float>& depthData, unsigned char* depth, int width, int height, int channel){
 	//depth is [0,1];
 	assert(channel == 1);
 	assert(depthData.size() == (width * height));
@@ -1305,10 +1305,10 @@ void depthDataToData(vector<float>& depthData, char* depth, int width, int heigh
 	}
 }
 
-void depthDataToData(QImage& depthData, char* depth, int width, int height, int channel){
+void depthDataToData(QImage& depthData, unsigned char* depth, int width, int height, int channel){
 	//depth is [0,1];
 	assert(channel == 1);
-	assert(depthData.size() == (width * height));
+	assert(depthData.width() * depthData.height() == (width * height));
 
 	int mark = 0;
 	for (int h = 0; h < height; h++)
@@ -1322,7 +1322,7 @@ void depthDataToData(QImage& depthData, char* depth, int width, int height, int 
 	}
 }
 
-void DataToQImage(QImage& out, char* input, int width, int height, int channel){
+void DataToQImage(QImage& out, unsigned char* input, int width, int height, int channel){
 	assert(out.height() == height && out.width() == width);
 	assert(channel == 3);
 	
@@ -1375,7 +1375,7 @@ void fillDepth(QImage& depth){
 					float d1;
 					RGBtoDepth(depth.pixel(left, y), &d1);
 					float d2;
-					RGBtoDepth(depth.pixel(left, y), &d1);
+					RGBtoDepth(depth.pixel(right, y), &d2);
 					float resultd = (d1 * a1 + d2 * a2) / aall;
 					depth.setPixel(x, y, DepthtoRGB(resultd));
 				}
@@ -1403,7 +1403,8 @@ void fillHoles(QImage &newImg, QImage &depth, QImage &mask, cameraPara &cam, vec
 	float depth_threshold = 0.05;
 	int w = mask.width();//here mask white for inpainting
 	int h = mask.height();
-	char *depthPtr;
+	unsigned char *depthPtr;
+	depthPtr = new unsigned char[w*h];
 #ifdef USE_APSS
 	//do not effect the main window
 	vector<float> depth_data;
@@ -1429,8 +1430,11 @@ void fillHoles(QImage &newImg, QImage &depth, QImage &mask, cameraPara &cam, vec
 	
 	depthDataToData(depth_data, depthPtr, w, h, 1);
 #else
+	QString localPath = "D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\";
 	//just fill depth
+	//depth.save(localPath + "depout.png");
 	fillDepth(depth);
+	//depth.save(localPath + "depout.png");
 	depthDataToData(depth, depthPtr, w, h, 1);
 #endif
 #if 1
@@ -1438,13 +1442,13 @@ void fillHoles(QImage &newImg, QImage &depth, QImage &mask, cameraPara &cam, vec
 	
 	//QImage to data
 	//colorMat(h, w, CV_8UC3); maskMat(h, w, CV_8UC1); depthMat(h, w, CV_8UC1)//depth 0 for near, not sure
-	char *colorPtr, *maskPtr, *depthPtr, *outPtr;
-	colorPtr = new char[w*h * 3];
-	maskPtr = new char[w*h];
-	depthPtr = new char[w*h];
-	outPtr = new char[w*h * 3];
+	unsigned char *colorPtr, *maskPtr, *outPtr;
+	colorPtr = new unsigned char[w*h * 3];
+	maskPtr = new unsigned char[w*h];
+	outPtr = new unsigned char[w*h * 3];
 	QImageToData(newImg, colorPtr, w, h, 3);
 	QImageToData(mask, maskPtr, w, h, 1);
+	mask.save(localPath + "maskout.png");
 	
 	//deal mask
 	for (int i = 0; i < w*h; i++)
@@ -1455,7 +1459,7 @@ void fillHoles(QImage &newImg, QImage &depth, QImage &mask, cameraPara &cam, vec
 	PatchInpaint pi;
 	pi.mainLoop(colorPtr, maskPtr, depthPtr, outPtr, w, h);//mask black for inpainting
 
-	DataToQImage(newImg, outPtr, w, h, 1);
+	DataToQImage(newImg, outPtr, w, h, 1);// abort ?
 	delete[] colorPtr;
 	delete[] maskPtr;
 	delete[] depthPtr;

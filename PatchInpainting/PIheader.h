@@ -12,7 +12,7 @@ public:
 
 	void mainLoop(std::string colorPath, std::string maskPath, std::string depthPath);
 	//color is C3, mask and depth are C1
-	void mainLoop(char* colorMat, char* maskMat, char* depthMat, char* outColor, int width, int height);
+	void mainLoop(unsigned char* colorMat, unsigned char* maskMat, unsigned char* depthMat, unsigned char* outColor, int width, int height);
 
 private:
 

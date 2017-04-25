@@ -17,9 +17,9 @@ typedef std::vector<cv::Point> contour_t;
 
 
 // Patch raduius
-#define RADIUS 4
+#define RADIUS 9
 // The maximum number of pixels around a specified point on the target outline
-#define BORDER_RADIUS 4
+#define BORDER_RADIUS 9
 
 #define DEPTH_THRESHOLD 0.1
 
