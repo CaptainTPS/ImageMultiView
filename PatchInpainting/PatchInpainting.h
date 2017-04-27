@@ -17,9 +17,9 @@ typedef std::vector<cv::Point> contour_t;
 
 
 // Patch raduius
-#define RADIUS 9
+#define RADIUS 4
 // The maximum number of pixels around a specified point on the target outline
-#define BORDER_RADIUS 9
+#define BORDER_RADIUS 4
 
 #define DEPTH_THRESHOLD 0.1
 
@@ -41,7 +41,7 @@ void loadInpaintingImages(
 
 void showMat(const cv::String& winname, const cv::Mat& mat, int time = 5);
 
-void getContours(const cv::Mat& mask, contours_t& contours, hierarchy_t& hierarchy);
+void getContours(cv::Mat& mask, contours_t& contours, hierarchy_t& hierarchy);
 
 double computeConfidence(const cv::Mat& confidencePatch);
 

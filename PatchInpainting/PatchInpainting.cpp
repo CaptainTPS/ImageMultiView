@@ -7,6 +7,11 @@
 #define DEBUG 1
 #endif
 
+#ifdef DEBUG
+using std::cout;
+using std::endl;
+#endif
+
 /*
 * Return a % b where % is the mathematical modulus operator.
 */
@@ -97,12 +102,23 @@ void showMat(const cv::String& winname, const cv::Mat& mat, int time/*= 5*/)
 /*
 * Extract closed boundary from mask.
 */
-void getContours(const cv::Mat& mask,
+void getContours(cv::Mat& mask,
 	contours_t& contours,
 	hierarchy_t& hierarchy
 	)
 {
 	assert(mask.type() == CV_8UC1);
+	//add boarder
+	cv::copyMakeBorder(
+		mask,
+		mask,
+		RADIUS,
+		RADIUS,
+		RADIUS,
+		RADIUS,
+		cv::BORDER_CONSTANT,
+		cv::Scalar_<float>(0)
+		);
 	cv::findContours(mask, contours, hierarchy, CV_RETR_TREE, CV_CHAIN_APPROX_NONE);
 }
 
@@ -393,6 +409,13 @@ cv::Point getMatchPoint(const cv::Point& now, cv::Mat& result, cv::Mat erodedMas
 	// set all target regions to 1.1, which is over the maximum value possilbe
 	// from SSD
 	result.setTo(1.1f, erodedMask == 0);
+
+#if 0
+	//set the p patch to 1.1, to avoid being used
+	cv::Mat pPatch = result.colRange(cv::Range(now.x - RADIUS, now.x + RADIUS + 1)).rowRange(cv::Range(now.y - RADIUS, now.y + RADIUS + 1));
+	pPatch.setTo(1.1f);
+#endif
+
 	// get minimum point of SSD between psiHatPColor and colorMat
 	float dnow, dq;
 	dnow = depthMat.at<float>(now);
@@ -432,7 +455,6 @@ std::string type2str(int type) {
 
 
 void InnerMainLoop(cv::Mat& colorMat, cv::Mat& maskMat, cv::Mat& depthMat, cv::Mat& outColor){
-
 	// ---------------- read the images ------------------------
 	// colorMat     - color picture + border
 	// maskMat      - mask picture + border
@@ -460,10 +482,10 @@ void InnerMainLoop(cv::Mat& colorMat, cv::Mat& maskMat, cv::Mat& depthMat, cv::M
 	// add borders around maskMat and confidenceMat
 	cv::copyMakeBorder(maskMat, maskMat,
 		RADIUS, RADIUS, RADIUS, RADIUS,
-		cv::BORDER_CONSTANT, 255);
+		cv::BORDER_CONSTANT, 0);//border part should be removed from mask in main loop
 	cv::copyMakeBorder(confidenceMat, confidenceMat,
 		RADIUS, RADIUS, RADIUS, RADIUS,
-		cv::BORDER_CONSTANT, 0.0001f);
+		cv::BORDER_CONSTANT, 0.0f);//border part have no confidence
 	// ---------------- start the algorithm -----------------
 
 	contours_t contours;            // mask contours
@@ -507,9 +529,11 @@ void InnerMainLoop(cv::Mat& colorMat, cv::Mat& maskMat, cv::Mat& depthMat, cv::M
 	clock_t t2;
 	int loop = 0;
 	// main loop
-	const size_t area = maskMat.total();
+	cv::Rect boundMask(RADIUS, RADIUS, colorMat.cols - 2 * RADIUS, colorMat.rows - 2 * RADIUS);
+	cv::Mat roiMask = maskMat(boundMask);
+	const size_t area = roiMask.total();
 
-	while (cv::countNonZero(maskMat) != area)   // end when target is filled
+	while (cv::countNonZero(roiMask) != area)   // end when target is filled
 	{
 		if (DEBUG) {
 			drawMat = colorMat.clone();
@@ -519,18 +543,42 @@ void InnerMainLoop(cv::Mat& colorMat, cv::Mat& maskMat, cv::Mat& depthMat, cv::M
 			float seconds = ((float)(t2 - t1)) / CLOCKS_PER_SEC;
 			std::cout << ((float)(t2 - t1)) / CLOCKS_PER_SEC << " : loop " << loop << std::endl;
 		}
+		if (DEBUG)
+		{
+			//test
+			int cnt = 0;
+			cv::Vec3f match = cv::Vec3f(0, 0, 0);
+			for (int i = 0; i < drawMat.rows; i++)
+			{
+				for (int j = 0; j < drawMat.cols; j++)
+				{
+					cv::Vec3f t1 = drawMat.at<cv::Vec3f>(i, j);
+					uchar t2 = maskMat.at<uchar>(i, j);
+					if (t2 != 0 && t1 == match)
+					{
+						cnt++;
+						drawMat.at<cv::Vec3f>(i, j) = cv::Vec3f(0, 0, 1);
+					}
+				}
+			}
+			/*if (cnt > 11)
+			{
+				cout << type2str(drawMat.type()) << endl;
+				cout << cnt << endl;
+				cout << "detected: "<<loop << endl;
+				showMat("test", drawMat, 0);
+			}*/
+		}
 
 		// set priority matrix to -.1, lower than 0 so that border area is never selected
 		priorityMat.setTo(-0.1f);
-
+		
 		// get the contours of mask
-		getContours((maskMat == 0), contours, hierarchy);
-
-
+		getContours(cv::Mat(roiMask == 0), contours, hierarchy);
 
 		// compute the priority for all contour points
 		computePriority(contours, grayMat, confidenceMat, depthMat, priorityMat);
-
+		
 		// get the patch with the greatest priority
 		cv::minMaxLoc(priorityMat, NULL, NULL, NULL, &psiHatP);
 		psiHatPColor = getPatch(colorMat, psiHatP);
@@ -555,6 +603,11 @@ void InnerMainLoop(cv::Mat& colorMat, cv::Mat& maskMat, cv::Mat& depthMat, cv::M
 		psiHatQ = getMatchPoint(psiHatP, result, maskMat, depthMat);//try not use erode
 		assert(psiHatQ != psiHatP);
 
+		if (loop == 1278)
+		{
+			std::cout << "3" << std::endl;
+			std::cout << psiHatQ << std::endl;
+		}
 
 		// updates
 		// copy from psiHatQ to psiHatP for each colorspace
@@ -564,18 +617,48 @@ void InnerMainLoop(cv::Mat& colorMat, cv::Mat& maskMat, cv::Mat& depthMat, cv::M
 
 		// fill in confidenceMat with confidences C(pixel) = C(psiHatP)
 		confidence = computeConfidence(psiHatPConfidence);
+
+		if (loop == 1278)
+		{
+			std::cout << "4" << std::endl;
+			std::cout << confidence << std::endl;
+		}
+
 		assert(0 <= confidence && confidence <= 1.0f);
 		// update confidence
 		psiHatPConfidence.setTo(confidence, outputMask);
 		// update maskMat
 		maskMat = (confidenceMat != 0.0f);
-		if (DEBUG && (loop) % 500 == 0) {
+		
+		//test
+		/*if (DEBUG && loop % 50 ==0)
+		{
+			cv::Mat testM = colorMat.clone();
+			for (int i = 0; i < maskMat.rows; i++)
+			{
+				for (int j = 0; j < maskMat.cols; j++)
+				{
+					if (maskMat.at<uchar>(i, j) == 0)
+					{
+						testM.at<cv::Vec3f>(i, j) = cv::Vec3f(0, 0, 1);
+					}
+				}
+			}
+			showMat("testm", testM, 0);
+		}*/
+
+		/*if (DEBUG && maskMat.at<uchar>(354, 236) != 0)
+		{
+			std::cout << "special: " << loop << std::endl;
+		}*/
+		if (DEBUG && (loop) %500 == 0) {
 			cv::rectangle(drawMat, psiHatP - cv::Point(RADIUS, RADIUS), psiHatP + cv::Point(RADIUS + 1, RADIUS + 1), cv::Scalar(255, 0, 0));
 			cv::rectangle(drawMat, psiHatQ - cv::Point(RADIUS, RADIUS), psiHatQ + cv::Point(RADIUS + 1, RADIUS + 1), cv::Scalar(0, 0, 255));
 			cv::imshow("mask", maskMat);
 			showMat("red - psiHatQ", drawMat, 0);
 			cv::destroyWindow("mask");
 		}
+		
 	}
 	//store result
 	cv::Rect boundR(RADIUS, RADIUS, colorMat.cols - 2 * RADIUS, colorMat.rows - 2 * RADIUS);
@@ -583,7 +666,7 @@ void InnerMainLoop(cv::Mat& colorMat, cv::Mat& maskMat, cv::Mat& depthMat, cv::M
 	//std::cout<<type2str(colorMatcopy.type());//32FC3
 	outColor.convertTo(outColor, CV_8UC3, 255);
 	//showMat("test", colorMatcopy, 0);
-	cv::imwrite("D:\\captainT\\project_13\\ImageMultiView\\PatchInpainting\\data\\output.png", outColor);
+	cv::imwrite("D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\output.png", outColor);
 
 	showMat("final result", outColor, 0);
 }
@@ -638,5 +721,29 @@ void PatchInpaint::mainLoop(unsigned char* color, unsigned char* mask, unsigned 
 	cv::bilateralFilter(depthMat, nDepthMat, 5, 50, 50);
 	cv::imwrite(localPath + "outMat.png", nDepthMat);
 
+	//test
+	int cnt = 0;
+	cv::Vec3b match = cv::Vec3b(0, 0, 0);
+	for (int i = 0; i < height; i++)
+	{
+		for (int j = 0; j < width; j++)
+		{
+			cv::Vec3b t1 = colorMat.at<cv::Vec3b>(i, j);
+			uchar t2 = maskMat.at<uchar>(i, j);
+			if (t2 != 0 && t1 == match)
+			{
+				cnt++;
+				
+			}
+		}
+	}
+	cout << cnt << endl;
+
 	InnerMainLoop(colorMat, maskMat, nDepthMat, outColor);
+	cv::imwrite(localPath + "output2.png", outColor);
+	unsigned char* ptr = outColor.data;
+	for (int i = 0; i < outColor.cols * outColor.rows * outColor.channels(); i++)
+	{
+		out[i] = ptr[i];
+	}
 }

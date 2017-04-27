@@ -1334,6 +1334,8 @@ void DataToQImage(QImage& out, unsigned char* input, int width, int height, int 
 			int b = input[mark++];
 			int g = input[mark++];
 			int r = input[mark++];
+			if (mark < 10)
+				std::cout << b << " " << g << " " << r << std::endl;
 			out.setPixel(w, h, qRgb(r, g, b));
 		}
 	}
@@ -1459,7 +1461,10 @@ void fillHoles(QImage &newImg, QImage &depth, QImage &mask, cameraPara &cam, vec
 	PatchInpaint pi;
 	pi.mainLoop(colorPtr, maskPtr, depthPtr, outPtr, w, h);//mask black for inpainting
 
-	DataToQImage(newImg, outPtr, w, h, 1);// abort ?
+	std::cout << (int)outPtr[0] << " " << (int)outPtr[1] << std::endl;
+	int m = outPtr[0];
+	std::cout << m << std::endl;
+	DataToQImage(newImg, outPtr, w, h, 3);
 	delete[] colorPtr;
 	delete[] maskPtr;
 	delete[] depthPtr;
