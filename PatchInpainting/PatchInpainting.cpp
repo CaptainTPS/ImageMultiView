@@ -533,6 +533,12 @@ void InnerMainLoop(cv::Mat& colorMat, cv::Mat& maskMat, cv::Mat& depthMat, cv::M
 	cv::Mat roiMask = maskMat(boundMask);
 	const size_t area = roiMask.total();
 
+#ifdef DEBUG
+		std::string videoPath = "D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\process.avi";
+		cv::VideoWriter vw(videoPath, cv::VideoWriter::fourcc('M', 'J', 'P', 'G'), 20, colorMat.size());
+		std::cout << "vw: " << vw.isOpened() << std::endl;
+#endif
+
 	while (cv::countNonZero(roiMask) != area)   // end when target is filled
 	{
 		if (DEBUG) {
@@ -546,7 +552,7 @@ void InnerMainLoop(cv::Mat& colorMat, cv::Mat& maskMat, cv::Mat& depthMat, cv::M
 		if (DEBUG)
 		{
 			//test
-			int cnt = 0;
+			/*int cnt = 0;
 			cv::Vec3f match = cv::Vec3f(0, 0, 0);
 			for (int i = 0; i < drawMat.rows; i++)
 			{
@@ -560,7 +566,7 @@ void InnerMainLoop(cv::Mat& colorMat, cv::Mat& maskMat, cv::Mat& depthMat, cv::M
 						drawMat.at<cv::Vec3f>(i, j) = cv::Vec3f(0, 0, 1);
 					}
 				}
-			}
+			}*/
 			/*if (cnt > 11)
 			{
 				cout << type2str(drawMat.type()) << endl;
@@ -651,15 +657,36 @@ void InnerMainLoop(cv::Mat& colorMat, cv::Mat& maskMat, cv::Mat& depthMat, cv::M
 		{
 			std::cout << "special: " << loop << std::endl;
 		}*/
-		if (DEBUG && (loop) %500 == 0) {
+		if (DEBUG /*&& (loop) %500 == 0*/) {
+			//change mask part into red
+			cv::Vec3f match = cv::Vec3f(0, 0, 0);
+			for (int i = 0; i < drawMat.rows; i++)
+			{
+				for (int j = 0; j < drawMat.cols; j++)
+				{
+					cv::Vec3f t1 = drawMat.at<cv::Vec3f>(i, j);
+					uchar t2 = maskMat.at<uchar>(i, j);
+					if (t2 == 0)
+					{
+						drawMat.at<cv::Vec3f>(i, j) = cv::Vec3f(0, 0, 1);
+					}
+				}
+			}
+
 			cv::rectangle(drawMat, psiHatP - cv::Point(RADIUS, RADIUS), psiHatP + cv::Point(RADIUS + 1, RADIUS + 1), cv::Scalar(255, 0, 0));
 			cv::rectangle(drawMat, psiHatQ - cv::Point(RADIUS, RADIUS), psiHatQ + cv::Point(RADIUS + 1, RADIUS + 1), cv::Scalar(0, 0, 255));
-			cv::imshow("mask", maskMat);
-			showMat("red - psiHatQ", drawMat, 0);
-			cv::destroyWindow("mask");
+
+			drawMat.convertTo(drawMat, CV_8UC3, 255);
+			cv::putText(drawMat, std::to_string(loop), cv::Point(0, drawMat.rows - 1), cv::FONT_HERSHEY_SIMPLEX, 1, cv::Scalar(255, 0, 0));
+			vw << drawMat;
+			//cv::imshow("mask", maskMat);
+			//showMat("red - psiHatQ", drawMat, 0);
+			//cv::destroyWindow("mask");
 		}
-		
 	}
+#ifdef DEBUG
+	vw.release();
+#endif
 	//store result
 	cv::Rect boundR(RADIUS, RADIUS, colorMat.cols - 2 * RADIUS, colorMat.rows - 2 * RADIUS);
 	outColor = colorMat(boundR).clone();
