@@ -314,17 +314,7 @@ void computePriority(const contours_t& contours, const cv::Mat& grayMat, const c
 ignore the empty part in src image
 */
 void CopyWithMask(cv::Mat& mat, const cv::Point& psiHatQ, const cv::Point& psiHatP, const cv::Mat& maskMat, cv::Mat& outputMask){
-	cv::Mat srcMask = getPatch(maskMat, psiHatQ).clone();
-	for (int h = 0; h < srcMask.rows; h++)
-	{
-		for (int w = 0; w < srcMask.cols; w++)
-		{
-			if (srcMask.at<unsigned char>(h,w) != 0)
-			{
-				outputMask.at<uchar>(h, w) = 0;
-			}
-		}
-	}
+	
 	// copy contents of psiHatQ to psiHatP with mask
 	getPatch(mat, psiHatQ).copyTo(getPatch(mat, psiHatP), outputMask);
 }
@@ -340,8 +330,22 @@ void transferPatch(const cv::Point& psiHatQ, const cv::Point& psiHatP, cv::Mat& 
 	assert(RADIUS <= psiHatQ.x && psiHatQ.x < mat.cols - RADIUS && RADIUS <= psiHatQ.y && psiHatQ.y < mat.rows - RADIUS);
 	assert(RADIUS <= psiHatP.x && psiHatP.x < mat.cols - RADIUS && RADIUS <= psiHatP.y && psiHatP.y < mat.rows - RADIUS);
 
-	//redesign mask base on depth
 	outputMask = getPatch(maskMat, psiHatP);
+
+	//empty parts in src cannnot be transfered
+	cv::Mat srcMask = getPatch(maskMat, psiHatQ).clone();
+	for (int h = 0; h < srcMask.rows; h++)
+	{
+		for (int w = 0; w < srcMask.cols; w++)
+		{
+			if (srcMask.at<unsigned char>(h, w) != 0)
+			{
+				outputMask.at<uchar>(h, w) = 0;
+			}
+		}
+	}
+
+	//redesign mask base on depth
 	cv::Mat depth_base = getPatch(depthMat, psiHatP);
 	cv::Mat depthMask = getPatch(depthMat, psiHatQ);
 	for (int i = 0; i < outputMask.cols; i++)
@@ -534,16 +538,14 @@ void InnerMainLoop(cv::Mat& colorMat, cv::Mat& maskMat, cv::Mat& depthMat, cv::M
 	const size_t area = roiMask.total();
 
 #ifdef DEBUG
-		std::string videoPath = "D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\process.avi";
+		std::string videoPath = "D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\process1.avi";
 		cv::VideoWriter vw(videoPath, cv::VideoWriter::fourcc('M', 'J', 'P', 'G'), 20, colorMat.size());
 		std::cout << "vw: " << vw.isOpened() << std::endl;
 #endif
 
 	while (cv::countNonZero(roiMask) != area)   // end when target is filled
 	{
-		if (DEBUG) {
-			drawMat = colorMat.clone();
-		}
+		
 		if (DEBUG && (loop++) % 50 == 0) {
 			t2 = clock();
 			float seconds = ((float)(t2 - t1)) / CLOCKS_PER_SEC;
@@ -609,10 +611,11 @@ void InnerMainLoop(cv::Mat& colorMat, cv::Mat& maskMat, cv::Mat& depthMat, cv::M
 		psiHatQ = getMatchPoint(psiHatP, result, maskMat, depthMat);//try not use erode
 		assert(psiHatQ != psiHatP);
 
-		if (loop == 1278)
+		if (loop == 100)
 		{
-			std::cout << "3" << std::endl;
+			std::cout << "Q and P: q to p" << std::endl;
 			std::cout << psiHatQ << std::endl;
+			std::cout << psiHatP << std::endl;
 		}
 
 		// updates
@@ -623,12 +626,6 @@ void InnerMainLoop(cv::Mat& colorMat, cv::Mat& maskMat, cv::Mat& depthMat, cv::M
 
 		// fill in confidenceMat with confidences C(pixel) = C(psiHatP)
 		confidence = computeConfidence(psiHatPConfidence);
-
-		if (loop == 1278)
-		{
-			std::cout << "4" << std::endl;
-			std::cout << confidence << std::endl;
-		}
 
 		assert(0 <= confidence && confidence <= 1.0f);
 		// update confidence
@@ -657,6 +654,10 @@ void InnerMainLoop(cv::Mat& colorMat, cv::Mat& maskMat, cv::Mat& depthMat, cv::M
 		{
 			std::cout << "special: " << loop << std::endl;
 		}*/
+
+		if (DEBUG) {
+			drawMat = colorMat.clone();
+		}
 		if (DEBUG /*&& (loop) %500 == 0*/) {
 			//change mask part into red
 			cv::Vec3f match = cv::Vec3f(0, 0, 0);
@@ -673,11 +674,22 @@ void InnerMainLoop(cv::Mat& colorMat, cv::Mat& maskMat, cv::Mat& depthMat, cv::M
 				}
 			}
 
+			if (loop == 99 || loop == 100)
+			{
+				cv::Rect boundR(RADIUS, RADIUS, colorMat.cols - 2 * RADIUS, colorMat.rows - 2 * RADIUS);
+				cv::Mat getout = drawMat(boundR).clone();
+				//std::cout<<type2str(colorMatcopy.type());//32FC3
+				getout.convertTo(getout, CV_8UC3, 255);
+				std::string ss("D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\getout");
+				cv::imwrite(ss+std::to_string(loop) +".png", getout);
+			}
+
 			cv::rectangle(drawMat, psiHatP - cv::Point(RADIUS, RADIUS), psiHatP + cv::Point(RADIUS + 1, RADIUS + 1), cv::Scalar(255, 0, 0));
 			cv::rectangle(drawMat, psiHatQ - cv::Point(RADIUS, RADIUS), psiHatQ + cv::Point(RADIUS + 1, RADIUS + 1), cv::Scalar(0, 0, 255));
 
 			drawMat.convertTo(drawMat, CV_8UC3, 255);
 			cv::putText(drawMat, std::to_string(loop), cv::Point(0, drawMat.rows - 1), cv::FONT_HERSHEY_SIMPLEX, 1, cv::Scalar(255, 0, 0));
+
 			vw << drawMat;
 			//cv::imshow("mask", maskMat);
 			//showMat("red - psiHatQ", drawMat, 0);

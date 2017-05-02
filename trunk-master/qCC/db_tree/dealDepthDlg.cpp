@@ -482,9 +482,9 @@ void findContour(QImage &srcDepth, QImage &contourMask, float contourThresh){
 			{
 				contourMask.setPixel(j, i, 1);//1 for the removing contour 
 				//expand one pixel
-				for (int m = -1; m < 2; m++)
+				for (int m = -1; m < 1; m++)
 				{
-					for (int n = -1; n < 2; n++)
+					for (int n = -1; n < 1; n++)
 					{
 						int x = j + n;
 						int y = i + m;
@@ -624,8 +624,9 @@ void forwardMappingDepthImageBase(QImage &srcImg, QImage &srcDepth, QImage &objI
 	contourMask.fill(0);
 	//contourMask.setPixel(0, 0, 1);
 	//bool n = (contourMask.pixel(0, 0)) & 1;
-	
+#if 1
 	findContour(srcDepth, contourMask, contourThreshold);
+#endif
 	//test contour
 	srcDepth.save("D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\depth.png");
 	contourMask.save("D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\contour.png");
@@ -1151,8 +1152,49 @@ void DealDepthDlg::getNewView(ccImage &result){
 #else
 		forwardMappingDepthImageBase(srcImg, depthImg, objImg, objDepth, objMask, m_cam);
 #endif
+
+#if 0
 		//test
-		objImg.save("D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\warp_img.png");
+		QImage outtest = objImg;
+		QRgb comp = qRgb(255, 255, 255);
+		QRgb newc = qRgb(255, 0, 0);
+		
+		for (int h = 0; h < objMask.height(); h++)
+		{
+			for (int w = 0; w < objMask.width(); w++)
+			{
+				QRgb rgb = objMask.pixel(w, h);
+				if (comp == rgb)
+				{
+					outtest.setPixel(w, h, qRgb(255, 0, 0));//screen has color aberration
+				}
+			}
+		}
+		outtest.save("D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\warp_img.png",0,100);
+		objMask.save("D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\warp_img_mask.png");
+		//read back to see if color is right
+		/*QImage inputtest;
+		inputtest.load("D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\warp_img.png");
+		for (int h = 0; h < inputtest.height(); h++)
+		{
+			for (int w = 0; w < inputtest.width(); w++)
+			{
+				QRgb rgb = objMask.pixel(w, h);
+				if (comp == rgb)
+				{
+					QRgb re = inputtest.pixel(w, h);
+					int r = qRed(re);
+					int g = qGreen(re);
+					int b = qBlue(re);
+					if (r!= 255 || g != 0 || b!=0)
+					{
+						std::cout << w << " " << h << " " << r << " " << g << " " << b << " " << std::endl;
+					}
+				}
+			}
+		}*/
+#endif
+
 
 		ccImage* tempdi = new ccImage(objImg);
 		tempdi->setName("newViewImg");
@@ -1378,7 +1420,10 @@ void fillDepth(QImage& depth){
 					RGBtoDepth(depth.pixel(left, y), &d1);
 					float d2;
 					RGBtoDepth(depth.pixel(right, y), &d2);
-					float resultd = (d1 * a1 + d2 * a2) / aall;
+					float resultd = (d1 * a2 + d2 * a1) / aall;
+
+					resultd = d1 > d2 ? d1 : d2;
+
 					depth.setPixel(x, y, DepthtoRGB(resultd));
 				}
 				else
@@ -1434,9 +1479,41 @@ void fillHoles(QImage &newImg, QImage &depth, QImage &mask, cameraPara &cam, vec
 #else
 	QString localPath = "D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\";
 	//just fill depth
-	//depth.save(localPath + "depout.png");
+	QImage outdepth(depth.size(), depth.format());
+	outdepth.fill(qRgb(255, 0, 0));
+	for (int i = 0; i < depth.height(); i++)
+	{
+		for (int j = 0; j < depth.width(); j++)
+		{
+			QRgb temp = depth.pixel(j, i);
+			if (temp == qRgb(255, 255, 255))
+				continue;
+			float re;
+			RGBtoDepth(temp, &re);
+			int inputre = 255 * re;
+			outdepth.setPixel(j, i, qRgb(inputre, inputre, inputre));
+		}
+	}
+	outdepth.save(localPath + "outdepth1.png");
+
 	fillDepth(depth);
-	//depth.save(localPath + "depout.png");
+
+	outdepth.fill(qRgb(255, 0, 0));
+	for (int i = 0; i < depth.height(); i++)
+	{
+		for (int j = 0; j < depth.width(); j++)
+		{
+			QRgb temp = depth.pixel(j, i);
+			if (temp == qRgb(255, 255, 255))
+				continue;
+			float re;
+			RGBtoDepth(temp, &re);
+			int inputre = 255 * re;
+			outdepth.setPixel(j, i, qRgb(inputre, inputre, inputre));
+		}
+	}
+	outdepth.save(localPath + "outdepth2.png");
+
 	depthDataToData(depth, depthPtr, w, h, 1);
 #endif
 #if 1
