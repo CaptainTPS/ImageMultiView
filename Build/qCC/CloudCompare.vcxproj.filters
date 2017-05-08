@@ -753,6 +753,9 @@
     <ClInclude Include="..\..\PatchInpainting\PatchInpainting.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\PatchInpainting\cudaFunctions.cuh">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\CMakeLists.txt" />
@@ -844,5 +847,10 @@
     <Filter Include="Header Files">
       <UniqueIdentifier>{D63269BA-2614-43E6-AA77-4E3FE4A92BA6}</UniqueIdentifier>
     </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <CudaCompile Include="..\..\PatchInpainting\cudaFunctions.cu">
+      <Filter>Source Files</Filter>
+    </CudaCompile>
   </ItemGroup>
 </Project>

@@ -1421,9 +1421,9 @@ void fillDepth(QImage& depth){
 					float d2;
 					RGBtoDepth(depth.pixel(right, y), &d2);
 					float resultd = (d1 * a2 + d2 * a1) / aall;
-
+#if 1
 					resultd = d1 > d2 ? d1 : d2;
-
+#endif
 					depth.setPixel(x, y, DepthtoRGB(resultd));
 				}
 				else

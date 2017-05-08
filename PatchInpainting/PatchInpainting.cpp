@@ -1,4 +1,6 @@
 #include <time.h>
+#include <fstream>
+#include "cudaFunctions.cuh"
 
 #include "PatchInpainting.h"
 #include "PIheader.h"
@@ -266,6 +268,9 @@ void computePriority(const contours_t& contours, const cv::Mat& grayMat, const c
 
 	assert(maskedMagnitude.type() == CV_32FC1);
 
+	//test
+	//cv::Mat testout(priorityMat.size(), CV_32F, 0.0f);
+
 	// for each point in contour
 	cv::Point point;
 
@@ -306,8 +311,13 @@ void computePriority(const contours_t& contours, const cv::Mat& grayMat, const c
 			// set the priority in priorityMat
 			priorityMat.ptr<float>(point.y)[point.x] = std::abs((float)confidence * gradient.dot(normal) * lre);
 			assert(priorityMat.ptr<float>(point.y)[point.x] >= 0);
+
+			//testout.ptr<float>(point.y)[point.x] = std::abs(gradient.dot(normal));
 		}
 	}
+	//cv::normalize(testout, testout, 0.0, 1.0, cv::NORM_MINMAX);
+	//testout.convertTo(testout, CV_8UC1, 255, 0);
+	//cv::imwrite("D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\isophote.png", testout);
 }
 
 /*
@@ -362,28 +372,65 @@ void transferPatch(const cv::Point& psiHatQ, const cv::Point& psiHatP, cv::Mat& 
 	CopyWithMask(mat, psiHatQ, psiHatP, maskMat, outputMask);
 }
 
+void DIYmatchTemplate_notuse(const cv::Mat& source, const cv::Mat& tmplate, cv::Mat& result, const cv::Mat& tmplateMask, const cv::Mat& srcMask){
+	//just use cv_tm_sqdiff method
+	for (int r = 0; r < result.rows; r++)
+	{
+		for (int c = 0; c < result.cols; c++)
+		{
+			float re = 0.0f;
+			bool flag = true;
+			for (int tx = 0; tx < tmplate.cols; tx++)
+			{
+				for (int ty = 0; ty < tmplate.rows; ty++)
+				{
+					for (int channel = 0; channel < tmplate.channels(); channel++)
+					{
+						if (tmplateMask.at<cv::Vec3f>(ty, tx)[channel] != 0 && srcMask.at<uchar>(r + ty, c + tx) != 0)
+						{
+							float temp = tmplate.at<cv::Vec3f>(ty, tx)[channel] - source.at<cv::Vec3f>(r + ty, c + tx)[channel];
+							re += temp * temp;
+							flag = false;
+						}
+					}
+					
+				}
+			}
+			if (flag)
+			{
+				re = 3.1f * tmplate.cols * tmplate.rows * tmplate.channels();//result above max to be 3
+			}
+
+			result.at<float>(r, c) = re;
+		}
+	}
+}
+
 /*
 * Runs template matching with tmplate and mask tmplateMask on source.
 * Resulting Mat is stored in result.
 *
 */
-cv::Mat computeSSD(const cv::Mat& tmplate, const cv::Mat& source, const cv::Mat& depthtemp, const cv::Mat& depthSrc, cv::Mat& tmplateMask)
+cv::Mat computeSSD(const cv::Mat& tmplate, const cv::Mat& source, const cv::Mat& depthtemp, const cv::Mat& depthSrc, cv::Mat& tmplateMask, const cv::Mat& srcMask)
 {
 	assert(tmplate.type() == CV_32FC3 && source.type() == CV_32FC3);
 	assert(tmplate.rows <= source.rows && tmplate.cols <= source.cols);
 	assert(tmplateMask.size() == tmplate.size() && tmplate.type() == tmplateMask.type());
 
-	float belta = 20;
+	float belta = 10;
 
 	cv::Mat result(source.rows - tmplate.rows + 1, source.cols - tmplate.cols + 1, CV_32F, 0.0f);
 
+#if 0
 	cv::matchTemplate(source,
 		tmplate,
 		result,
 		CV_TM_SQDIFF,
 		tmplateMask
 		);
-
+#else
+	DIYmatchTemplate(source, tmplate, result, tmplateMask, srcMask);
+#endif
 	cv::Mat result2(depthSrc.rows - depthtemp.rows + 1, depthSrc.cols - depthtemp.cols + 1, CV_32F, 0.0f);
 	cv::Mat tpMask[3];
 	cv::split(tmplateMask, tpMask);
@@ -408,7 +455,7 @@ cv::Mat computeSSD(const cv::Mat& tmplate, const cv::Mat& source, const cv::Mat&
 	return result;
 }
 
-cv::Point getMatchPoint(const cv::Point& now, cv::Mat& result, cv::Mat erodedMask, const cv::Mat& depthMat){
+cv::Point getMatchPoint(const cv::Point& now, cv::Mat& result, cv::Mat erodedMask, const cv::Mat& depthMat, int selectTopNum = 1){
 	cv::Point q;
 	// set all target regions to 1.1, which is over the maximum value possilbe
 	// from SSD
@@ -426,11 +473,30 @@ cv::Point getMatchPoint(const cv::Point& now, cv::Mat& result, cv::Mat erodedMas
 	do
 	{
 		cv::minMaxLoc(result, NULL, NULL, &q);
-		dq = depthMat.at<float>(q); 
+		dq = depthMat.at<float>(q);
 		result.at<float>(q) = 1.1;
 	} while (abs(dnow - dq) > DEPTH_THRESHOLD);
 
-	return q;
+	//from top N find the nearest one
+	cv::Point qreturn = q;
+	float distance = (q - now).x * (q - now).x + (q - now).y * (q - now).y;
+	for (int i = 1; i < selectTopNum; i++)
+	{
+		do
+		{
+			cv::minMaxLoc(result, NULL, NULL, &q);
+			dq = depthMat.at<float>(q);
+			result.at<float>(q) = 1.1;
+		} while (abs(dnow - dq) > DEPTH_THRESHOLD);
+		float d = (q - now).x * (q - now).x + (q - now).y * (q - now).y;
+		if (d < distance)
+		{
+			qreturn = q;
+			distance = d;
+		}
+	}
+
+	return qreturn;
 }
 
 std::string type2str(int type) {
@@ -524,6 +590,8 @@ void InnerMainLoop(cv::Mat& colorMat, cv::Mat& maskMat, cv::Mat& depthMat, cv::M
 
 	cv::Mat templateMask;       // mask for template match (3 channel)
 
+	cv::Mat srcMask;
+
 	// eroded mask is used to ensure that psiHatQ is not overlapping with target
 	cv::erode(maskMat, erodedMask, cv::Mat(), cv::Point(-1, -1), RADIUS);
 
@@ -538,9 +606,11 @@ void InnerMainLoop(cv::Mat& colorMat, cv::Mat& maskMat, cv::Mat& depthMat, cv::M
 	const size_t area = roiMask.total();
 
 #ifdef DEBUG
-		std::string videoPath = "D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\process1.avi";
-		cv::VideoWriter vw(videoPath, cv::VideoWriter::fourcc('M', 'J', 'P', 'G'), 20, colorMat.size());
-		std::cout << "vw: " << vw.isOpened() << std::endl;
+	std::string videoPath = "D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\process_b";
+	videoPath += std::to_string(RADIUS);
+	videoPath += ".avi";
+	cv::VideoWriter vw(videoPath, cv::VideoWriter::fourcc('M', 'J', 'P', 'G'), 20, colorMat.size());
+	std::cout << "vw: " << vw.isOpened() << std::endl;
 #endif
 
 	while (cv::countNonZero(roiMask) != area)   // end when target is filled
@@ -599,23 +669,44 @@ void InnerMainLoop(cv::Mat& colorMat, cv::Mat& maskMat, cv::Mat& depthMat, cv::M
 		// get the patch in source with least distance to psiHatPColor wrt source of psiHatP
 		cv::Mat mergeArrays[3] = { confInv, confInv, confInv };
 		cv::merge(mergeArrays, 3, templateMask);
-		result = computeSSD(psiHatPColor, colorMat, psiHatPDepth, depthMat, templateMask);
+
+		cv::Mat allConfInv = (confidenceMat != 0.0f);
+		allConfInv.convertTo(allConfInv, CV_32F);
+		allConfInv /= 255.0f;
+		cv::Mat mergeArr[3] = { allConfInv, allConfInv, allConfInv };
+		cv::merge(mergeArr, 3, srcMask);
+
+		result = computeSSD(psiHatPColor, colorMat, psiHatPDepth, depthMat, templateMask, srcMask);
 
 		// set all target regions to 1.1, which is over the maximum value possilbe
 		// from SSD
 		//result.setTo(1.1f, erodedMask == 0);
 		// get minimum point of SSD between psiHatPColor and colorMat
 		//cv::minMaxLoc(result, NULL, NULL, &psiHatQ);
-
+		cv::Mat reCopy;
+		if (loop == 150){
+			reCopy = result.clone();
+		}
 		//psiHatQ = getMatchPoint(psiHatP, result, erodedMask, depthMat);
-		psiHatQ = getMatchPoint(psiHatP, result, maskMat, depthMat);//try not use erode
+		int topN = 3;
+		psiHatQ = getMatchPoint(psiHatP, result, maskMat, depthMat, topN);//try not use erode
 		assert(psiHatQ != psiHatP);
 
-		if (loop == 100)
-		{
-			std::cout << "Q and P: q to p" << std::endl;
-			std::cout << psiHatQ << std::endl;
-			std::cout << psiHatP << std::endl;
+		if (0 && loop == 150){
+			std::string ss150("D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\");
+			std::ofstream fo(ss150 + "data150.txt");
+			cv::Mat cp = getPatch(colorMat, psiHatP).clone();
+			cv::Mat cq = getPatch(colorMat, psiHatQ).clone();
+
+			cv::Mat mp = getPatch(maskMat, psiHatP).clone();
+			cv::Mat mq = getPatch(maskMat, psiHatQ).clone();
+
+			fo << "cp: " << std::endl << cp << std::endl << std::endl;
+			fo << "cq: " << std::endl << cq << std::endl << std::endl;
+			fo << "mp: " << std::endl << mp << std::endl << std::endl;
+			fo << "mq: " << std::endl << mq << std::endl << std::endl;
+			fo << "150result: " << reCopy.at<float>(psiHatQ) << std::endl;
+			fo.close();
 		}
 
 		// updates
@@ -674,8 +765,13 @@ void InnerMainLoop(cv::Mat& colorMat, cv::Mat& maskMat, cv::Mat& depthMat, cv::M
 				}
 			}
 
-			if (loop == 99 || loop == 100)
+			if (0 && loop >= 146 && loop <= 152)
 			{
+				std::cout << "loop: " << loop << std::endl;
+				std::cout << "Q and P: q to p" << std::endl;
+				std::cout << psiHatQ << std::endl;
+				std::cout << psiHatP << std::endl;
+
 				cv::Rect boundR(RADIUS, RADIUS, colorMat.cols - 2 * RADIUS, colorMat.rows - 2 * RADIUS);
 				cv::Mat getout = drawMat(boundR).clone();
 				//std::cout<<type2str(colorMatcopy.type());//32FC3
@@ -685,7 +781,7 @@ void InnerMainLoop(cv::Mat& colorMat, cv::Mat& maskMat, cv::Mat& depthMat, cv::M
 			}
 
 			cv::rectangle(drawMat, psiHatP - cv::Point(RADIUS, RADIUS), psiHatP + cv::Point(RADIUS + 1, RADIUS + 1), cv::Scalar(255, 0, 0));
-			cv::rectangle(drawMat, psiHatQ - cv::Point(RADIUS, RADIUS), psiHatQ + cv::Point(RADIUS + 1, RADIUS + 1), cv::Scalar(0, 0, 255));
+			cv::rectangle(drawMat, psiHatQ - cv::Point(RADIUS, RADIUS), psiHatQ + cv::Point(RADIUS + 1, RADIUS + 1), cv::Scalar(0, 255, 0));
 
 			drawMat.convertTo(drawMat, CV_8UC3, 255);
 			cv::putText(drawMat, std::to_string(loop), cv::Point(0, drawMat.rows - 1), cv::FONT_HERSHEY_SIMPLEX, 1, cv::Scalar(255, 0, 0));
@@ -705,7 +801,10 @@ void InnerMainLoop(cv::Mat& colorMat, cv::Mat& maskMat, cv::Mat& depthMat, cv::M
 	//std::cout<<type2str(colorMatcopy.type());//32FC3
 	outColor.convertTo(outColor, CV_8UC3, 255);
 	//showMat("test", colorMatcopy, 0);
-	cv::imwrite("D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\output.png", outColor);
+	std::string spath = "D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\output_b";
+	spath += std::to_string(RADIUS);
+	spath += ".png";
+	cv::imwrite(spath, outColor);
 
 	showMat("final result", outColor, 0);
 }

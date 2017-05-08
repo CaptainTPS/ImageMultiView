@@ -21,6 +21,9 @@
     <ClInclude Include="PIheader.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="cudaFunctions.cuh">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PImain.cpp">
@@ -29,5 +32,10 @@
     <ClCompile Include="PatchInpainting.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cudaFunctions.cu">
+      <Filter>Source Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

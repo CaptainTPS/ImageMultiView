@@ -55,6 +55,6 @@ void computePriority(const contours_t& contours, const cv::Mat& grayMat, const c
 
 void transferPatch(const cv::Point& psiHatQ, const cv::Point& psiHatP, cv::Mat& mat, cv::Mat& depthMat, const cv::Mat& maskMat, cv::Mat& outputMask);
 
-cv::Mat computeSSD(const cv::Mat& tmplate, const cv::Mat& source, const cv::Mat& depthtemp, const cv::Mat& depthSrc, const cv::Mat& tmplateMask);
+cv::Mat computeSSD(const cv::Mat& tmplate, const cv::Mat& source, const cv::Mat& depthtemp, const cv::Mat& depthSrc, const cv::Mat& tmplateMask, const cv::Mat& srcMask);
 
 #endif
