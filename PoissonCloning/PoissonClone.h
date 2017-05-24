@@ -27,6 +27,8 @@ namespace pc
 		void seamlessClone(cv::InputArray src, cv::InputArray dst, cv::InputArray mask, cv::Point p,
 			cv::OutputArray blend, int flags);
 
+		void patchClone(cv::Mat& dest, cv::Mat& patch, cv::Mat& mask);
+
 	protected:
 
 		void initVariables(const cv::Mat &destination, const cv::Mat &binaryMask);
@@ -54,6 +56,11 @@ namespace pc
 		cv::Mat binaryMaskFloat, binaryMaskFloatInverted;
 
 		std::vector<float> filter_X, filter_Y;
+
+		//added TPS
+		cv::Mat dest_dx, dest_dy;
+		cv::Mat patch_dx, patch_dy;
+		cv::Mat dx, dy;
 	};
 }
 #endif

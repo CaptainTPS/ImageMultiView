@@ -101,6 +101,7 @@
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;QT_OPENGL_LIB;QT_PRINTSUPPORT_LIB;CC_USE_AS_DLL;QCC_DB_USE_AS_DLL;QCC_IO_USE_AS_DLL;NOMINMAX;_CRT_SECURE_NO_WARNINGS;__STDC_LIMIT_MACROS;QT_USE_QSTRINGBUILDER;QT_OPENGLEXTENSIONS_LIB;QT_CONCURRENT_LIB;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
+      <BrowseInformation>true</BrowseInformation>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;QT_OPENGL_LIB;QT_PRINTSUPPORT_LIB;CC_USE_AS_DLL;QCC_DB_USE_AS_DLL;QCC_IO_USE_AS_DLL;NOMINMAX;_CRT_SECURE_NO_WARNINGS;__STDC_LIMIT_MACROS;QT_USE_QSTRINGBUILDER;QT_OPENGLEXTENSIONS_LIB;QT_CONCURRENT_LIB;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -145,6 +146,9 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ProjectReference>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
     </ProjectReference>
+    <Bscmake>
+      <PreserveSbr>true</PreserveSbr>
+    </Bscmake>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -4308,6 +4312,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\PatchInpainting\PatchInpainting.h" />
+    <ClInclude Include="..\..\PoissonCloning\PoissonClone.h" />
     <ClInclude Include="..\..\trunk-master\qCC\db_tree\apss.h" />
     <ClInclude Include="..\..\trunk-master\qCC\db_tree\dealDepthDlg.h">
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\..\moc_%(Filename).cpp"</Command>
@@ -4474,6 +4479,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="D:\captainT\project_13\ImageMultiView\Build\qCC\ui_waveDlg.h" />
     <ClCompile Include="..\..\openglGetDepth\mydata.cpp" />
     <ClCompile Include="..\..\PatchInpainting\PatchInpainting.cpp" />
+    <ClCompile Include="..\..\PoissonCloning\PoissonClone.cpp" />
     <ClCompile Include="..\..\trunk-master\qCC\db_tree\apss.cpp" />
     <ClCompile Include="..\..\trunk-master\qCC\db_tree\dealDepthDlg.cpp" />
     <ClCompile Include="..\..\trunk-master\qCC\db_tree\MeshRender.cpp" />

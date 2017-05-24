@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|x64">
@@ -56,33 +56,33 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-    <PropertyGroup>
-      <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-      <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\captainT\project_13\ImageMultiView\Build\CC\Debug\</OutDir>
-      <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CC_CORE_LIB.dir\Debug\</IntDir>
-      <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CC_CORE_LIBd</TargetName>
-      <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.dll</TargetExt>
-      <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
-      <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
-      <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\captainT\project_13\ImageMultiView\Build\CC\Release\</OutDir>
-      <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CC_CORE_LIB.dir\Release\</IntDir>
-      <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CC_CORE_LIB</TargetName>
-      <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.dll</TargetExt>
-      <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
-      <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
-      <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\captainT\project_13\ImageMultiView\Build\CC\MinSizeRel\</OutDir>
-      <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CC_CORE_LIB.dir\MinSizeRel\</IntDir>
-      <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CC_CORE_LIB</TargetName>
-      <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.dll</TargetExt>
-      <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
-      <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
-      <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\captainT\project_13\ImageMultiView\Build\CC\RelWithDebInfo\</OutDir>
-      <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CC_CORE_LIB.dir\RelWithDebInfo\</IntDir>
-      <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CC_CORE_LIB</TargetName>
-      <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.dll</TargetExt>
-      <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</LinkIncremental>
-      <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</GenerateManifest>
-    </PropertyGroup>
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\captainT\project_13\ImageMultiView\Build\CC\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CC_CORE_LIB.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CC_CORE_LIBd</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\captainT\project_13\ImageMultiView\Build\CC\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CC_CORE_LIB.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CC_CORE_LIB</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\captainT\project_13\ImageMultiView\Build\CC\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CC_CORE_LIB.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CC_CORE_LIB</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\captainT\project_13\ImageMultiView\Build\CC\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CC_CORE_LIB.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CC_CORE_LIB</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</GenerateManifest>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>D:\captainT\project_13\ImageMultiView\Build\CC;D:\captainT\project_13\ImageMultiView\trunk-master\CC;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtOpenGL;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtWidgets;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtGui;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtCore;D:\Qt\Qt5.5.1\5.5\msvc2013_64\.\mkspecs\win32-msvc2013;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtConcurrent;D:\Qt\Qt5.5.1\5.5\msvc2013_64\include\QtPrintSupport;D:\captainT\project_13\ImageMultiView\trunk-master\CC\include;D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -100,6 +100,7 @@
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;QT_CORE_LIB;QT_WIDGETS_LIB;QT_GUI_LIB;QT_CONCURRENT_LIB;USE_QT;CC_USE_AS_DLL;_CRT_SECURE_NO_WARNINGS;NOMINMAX;__STDC_LIMIT_MACROS;QT_USE_QSTRINGBUILDER;CMAKE_INTDIR="Debug";CC_CORE_LIB_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
+      <BrowseInformation>true</BrowseInformation>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;QT_CORE_LIB;QT_WIDGETS_LIB;QT_GUI_LIB;QT_CONCURRENT_LIB;USE_QT;CC_USE_AS_DLL;_CRT_SECURE_NO_WARNINGS;NOMINMAX;__STDC_LIMIT_MACROS;QT_USE_QSTRINGBUILDER;CMAKE_INTDIR=\"Debug\";CC_CORE_LIB_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -138,11 +139,15 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <ImportLibrary>D:/captainT/project_13/ImageMultiView/Build/CC/Debug/CC_CORE_LIBd.lib</ImportLibrary>
       <ProgramDataBaseFile>D:/captainT/project_13/ImageMultiView/Build/CC/Debug/CC_CORE_LIBd.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
-      <Version></Version>
+      <Version>
+      </Version>
     </Link>
     <ProjectReference>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
     </ProjectReference>
+    <Bscmake>
+      <PreserveSbr>true</PreserveSbr>
+    </Bscmake>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -159,7 +164,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_SECURE_SCL=0;QT_CORE_LIB;QT_WIDGETS_LIB;QT_GUI_LIB;QT_CONCURRENT_LIB;USE_QT;CC_USE_AS_DLL;_CRT_SECURE_NO_WARNINGS;NOMINMAX;__STDC_LIMIT_MACROS;QT_USE_QSTRINGBUILDER;QT_NO_DEBUG;CMAKE_INTDIR="Release";CC_CORE_LIB_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
-      <DebugInformationFormat></DebugInformationFormat>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_SECURE_SCL=0;QT_CORE_LIB;QT_WIDGETS_LIB;QT_GUI_LIB;QT_CONCURRENT_LIB;USE_QT;CC_USE_AS_DLL;_CRT_SECURE_NO_WARNINGS;NOMINMAX;__STDC_LIMIT_MACROS;QT_USE_QSTRINGBUILDER;QT_NO_DEBUG;CMAKE_INTDIR=\"Release\";CC_CORE_LIB_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -198,7 +204,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <ImportLibrary>D:/captainT/project_13/ImageMultiView/Build/CC/Release/CC_CORE_LIB.lib</ImportLibrary>
       <ProgramDataBaseFile>D:/captainT/project_13/ImageMultiView/Build/CC/Release/CC_CORE_LIB.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
-      <Version></Version>
+      <Version>
+      </Version>
     </Link>
     <ProjectReference>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
@@ -219,7 +226,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;QT_CORE_LIB;QT_WIDGETS_LIB;QT_GUI_LIB;QT_CONCURRENT_LIB;USE_QT;CC_USE_AS_DLL;_CRT_SECURE_NO_WARNINGS;NOMINMAX;__STDC_LIMIT_MACROS;QT_USE_QSTRINGBUILDER;QT_NO_DEBUG;CMAKE_INTDIR="MinSizeRel";CC_CORE_LIB_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
-      <DebugInformationFormat></DebugInformationFormat>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;QT_CORE_LIB;QT_WIDGETS_LIB;QT_GUI_LIB;QT_CONCURRENT_LIB;USE_QT;CC_USE_AS_DLL;_CRT_SECURE_NO_WARNINGS;NOMINMAX;__STDC_LIMIT_MACROS;QT_USE_QSTRINGBUILDER;QT_NO_DEBUG;CMAKE_INTDIR=\"MinSizeRel\";CC_CORE_LIB_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -258,7 +266,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <ImportLibrary>D:/captainT/project_13/ImageMultiView/Build/CC/MinSizeRel/CC_CORE_LIB.lib</ImportLibrary>
       <ProgramDataBaseFile>D:/captainT/project_13/ImageMultiView/Build/CC/MinSizeRel/CC_CORE_LIB.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
-      <Version></Version>
+      <Version>
+      </Version>
     </Link>
     <ProjectReference>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
@@ -318,7 +327,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <ImportLibrary>D:/captainT/project_13/ImageMultiView/Build/CC/RelWithDebInfo/CC_CORE_LIB.lib</ImportLibrary>
       <ProgramDataBaseFile>D:/captainT/project_13/ImageMultiView/Build/CC/RelWithDebInfo/CC_CORE_LIB.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
-      <Version></Version>
+      <Version>
+      </Version>
     </Link>
     <ProjectReference>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
@@ -439,40 +449,40 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\TrueKdTree.h" />
     <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\include\WeibullDistribution.h" />
     <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\Chi2Helper.h" />
-    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\AutoSegmentationTools.cpp"  />
-    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\CCMiscTools.cpp"  />
-    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\CCShareable.cpp"  />
-    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\ChamferDistanceTransform.cpp"  />
-    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\ChunkedPointCloud.cpp"  />
-    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\CloudSamplingTools.cpp"  />
-    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\Delaunay2dMesh.cpp"  />
-    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\DgmOctree.cpp"  />
-    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\DgmOctreeReferenceCloud.cpp"  />
-    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\DistanceComputationTools.cpp"  />
-    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\ErrorFunction.cpp"  />
-    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\FastMarching.cpp"  />
-    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\FastMarchingForPropagation.cpp"  />
-    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\GeometricalAnalysisTools.cpp"  />
-    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\KdTree.cpp"  />
-    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\LocalModel.cpp"  />
-    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\ManualSegmentationTools.cpp"  />
-    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\MeshSamplingTools.cpp"  />
-    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\Neighbourhood.cpp"  />
-    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\NormalDistribution.cpp"  />
-    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\NormalizedProgress.cpp"  />
-    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\PointProjectionTools.cpp"  />
-    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\Polyline.cpp"  />
-    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\ReferenceCloud.cpp"  />
-    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\RegistrationTools.cpp"  />
-    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\SaitoSquaredDistanceTransform.cpp"  />
-    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\ScalarField.cpp"  />
-    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\ScalarFieldTools.cpp"  />
-    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\SimpleCloud.cpp"  />
-    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\SimpleMesh.cpp"  />
-    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\StatisticalTestingTools.cpp"  />
-    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\TrueKdTree.cpp"  />
-    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\WeibullDistribution.cpp"  />
-    <ClCompile Include="D:\captainT\project_13\ImageMultiView\Build\CC\CC_CORE_LIB_automoc.cpp"  />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\AutoSegmentationTools.cpp" />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\CCMiscTools.cpp" />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\CCShareable.cpp" />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\ChamferDistanceTransform.cpp" />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\ChunkedPointCloud.cpp" />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\CloudSamplingTools.cpp" />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\Delaunay2dMesh.cpp" />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\DgmOctree.cpp" />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\DgmOctreeReferenceCloud.cpp" />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\DistanceComputationTools.cpp" />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\ErrorFunction.cpp" />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\FastMarching.cpp" />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\FastMarchingForPropagation.cpp" />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\GeometricalAnalysisTools.cpp" />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\KdTree.cpp" />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\LocalModel.cpp" />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\ManualSegmentationTools.cpp" />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\MeshSamplingTools.cpp" />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\Neighbourhood.cpp" />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\NormalDistribution.cpp" />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\NormalizedProgress.cpp" />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\PointProjectionTools.cpp" />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\Polyline.cpp" />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\ReferenceCloud.cpp" />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\RegistrationTools.cpp" />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\SaitoSquaredDistanceTransform.cpp" />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\ScalarField.cpp" />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\ScalarFieldTools.cpp" />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\SimpleCloud.cpp" />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\SimpleMesh.cpp" />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\StatisticalTestingTools.cpp" />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\TrueKdTree.cpp" />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\trunk-master\CC\src\WeibullDistribution.cpp" />
+    <ClCompile Include="D:\captainT\project_13\ImageMultiView\Build\CC\CC_CORE_LIB_automoc.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="D:/captainT/project_13/ImageMultiView/Build/ZERO_CHECK.vcxproj">

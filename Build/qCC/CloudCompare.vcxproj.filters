@@ -265,6 +265,9 @@
     <ClCompile Include="..\..\PatchInpainting\PatchInpainting.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\PoissonCloning\PoissonClone.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="D:\captainT\project_13\ImageMultiView\trunk-master\qCC\cc2.5DimEditor.h">
@@ -755,6 +758,9 @@
     </ClInclude>
     <ClInclude Include="..\..\PatchInpainting\cudaFunctions.cuh">
       <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PoissonCloning\PoissonClone.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

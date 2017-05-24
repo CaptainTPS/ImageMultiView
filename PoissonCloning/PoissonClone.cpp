@@ -301,6 +301,11 @@ void DIY_Cloning::evaluate(const Mat &I, const Mat &wmask, const Mat &cloned)
 
 void DIY_Cloning::normalClone(const Mat &destination, const Mat &patch, const Mat &binaryMask, Mat &cloned, int flag)
 {
+	/*
+	patch: needed to be cloned src colors(3 channels), zero for empty parts; size is the same as destinantion;
+	binary mask: mask for destination, parts of non zero needed to be cloned; 
+				zero for all other parts, should be the same as empty parts above;
+	*/
 	const int w = destination.cols;
 	const int h = destination.rows;
 	const int channel = destination.channels();
@@ -495,4 +500,214 @@ void DIY_Cloning::seamlessClone(InputArray _src, InputArray _dst, InputArray _ma
 	DIY_Cloning obj;
 	obj.normalClone(dest, cd_mask, dst_mask, blend, flags);
 
+}
+
+void constructAXb(Mat& dx, Mat& dy, Mat& srcWithEmpty, Mat& mask, Mat& A, Mat& b){
+	Mat initA(dx.rows * dx.cols + dy.rows * dy.cols, srcWithEmpty.rows * srcWithEmpty.cols, CV_32F);
+	initA = 0;
+	//about boarder, using BORDER_DEFAULT = BORDER_REFLECT_101 = 4, //!< `gfedcb|abcdefgh|gfedcba`
+	//using rowMajor expand
+
+	int srcW = srcWithEmpty.cols;
+	int srcH = srcWithEmpty.rows;
+	//for dx
+	int px = 0;
+	for (size_t i = 0; i < dx.rows; i++)
+	{
+		for (size_t j = 0; j < dx.cols; j++)
+		{
+			if (j != dx.cols - 1)
+			{
+				initA.at<float>(px, px) = -1;
+				initA.at<float>(px, px + 1) = 1;
+			}
+			else
+			{
+				initA.at<float>(px, px - 1) = 1;
+				initA.at<float>(px, px) = -1;
+			}
+			px++;
+		}
+	}
+	//for dy
+	int py_row = px;
+	int py_col = 0;
+	int offset = srcW;
+	for (size_t i = 0; i < dy.rows; i++)
+	{
+		for (size_t j = 0; j < dy.cols; j++)
+		{
+			if (i != dy.rows - 1)
+			{
+				initA.at<float>(py_row, py_col) = -1;
+				initA.at<float>(py_row, py_col + offset) = 1;
+			}
+			else
+			{
+				initA.at<float>(py_row, py_col - offset) = 1;
+				initA.at<float>(py_row, py_col) = -1;
+			}
+			py_row++;
+			py_col++;
+		}
+	}
+
+	//construct b
+	int totalH = dx.rows * dx.cols + dy.rows * dy.cols;
+	int totalW = srcWithEmpty.rows * srcWithEmpty.cols;
+	int cntKnown = 0;
+	int cntX = 0;
+
+	bool *flags = new bool[srcWithEmpty.rows * srcWithEmpty.cols];
+	int index = 0;
+	for (int i = 0; i < mask.rows; i++)
+	{
+		for (int j = 0; j < mask.cols; j++)
+		{
+			flags[index] = (mask.at<uchar>(i, j) != 0);
+			if (flags[index])
+			{
+				cntKnown++;
+			}
+			else
+			{
+				cntX++;
+			}
+			index++;
+		}
+	}
+
+	Mat btemp = Mat::zeros(dx.rows * dx.cols + dy.rows * dy.cols, 1, CV_32F);
+	int pb = 0;
+	for (int i = 0; i < dx.rows; ++i)
+	{
+		for (int j = 0; j < dx.cols; ++j)
+		{
+			btemp.at<float>(pb, 0) = dx.at<float>(i, j);
+			pb++;
+		}
+	}
+	for (int i = 0; i < dy.rows; ++i)
+	{
+		for (int j = 0; j < dy.cols; ++j)
+		{
+			btemp.at<float>(pb, 0) = dy.at<float>(i, j);
+			pb++;
+		}
+	}
+
+	Mat AX(totalH, cntX, CV_32F);
+	Mat AKnown(totalH, cntKnown, CV_32F);
+	int xnow = 0;
+	int know = 0;
+	for (int i = 0; i < totalW; ++i)
+	{
+		if (flags[i])
+		{
+			initA.col(i).copyTo(AKnown.col(know));
+			know++;
+		}
+		else{
+			initA.col(i).copyTo(AX.col(xnow));
+			xnow++;
+		}
+	}
+
+	Mat srcKnow(cntKnown, 1, CV_32F);
+	int snow = 0;
+	int pushnow = 0;
+	for (int i = 0; i < srcWithEmpty.rows; ++i)
+	{
+		for (int j = 0; j < srcWithEmpty.cols; ++j)
+		{
+			if (flags[snow])
+			{
+				srcKnow.at<float>(pushnow, 0) = srcWithEmpty.at<float>(i, j);
+				pushnow++;
+			}
+			snow++;
+		}
+	}
+
+	A = AX.clone();
+	b = (btemp - AKnown * srcKnow);
+
+	delete[] flags;
+}
+
+void recoverDest(Mat& dest, Mat& mask, Mat& x){
+	int now = 0;
+	for (int i = 0; i < mask.rows; i++)
+	{
+		for (int j = 0; j < mask.cols; j++)
+		{
+			if (mask.ptr(i)[j] == 0)
+			{
+				dest.at<float>(i, j) = x.at<float>(now, 0);
+				now++;
+			}
+		}
+	}
+}
+
+void DIY_Cloning::patchClone(Mat& dest, Mat& patch, Mat& dest_mask){
+	assert(dest.size() == patch.size() && dest.size() == dest_mask.size());
+	assert(dest.channels() == 3 && patch.channels() == 3);
+
+	if (dest.type() != CV_32FC3)
+	{
+		dest.convertTo(dest, CV_32FC3, 1.0 / 255.0);
+	}
+	if (patch.type() != CV_32FC3)
+	{
+		patch.convertTo(patch, CV_32FC3, 1.0 / 255.0);
+	}
+
+	dest_dx = Mat(dest.size(), CV_32FC3);
+	dest_dy = Mat(dest.size(), CV_32FC3);
+	patch_dx = Mat(patch.size(), CV_32FC3);
+	patch_dy = Mat(patch.size(), CV_32FC3);
+	dx = Mat(dest.size(), CV_32FC3);
+	dy = Mat(dest.size(), CV_32FC3);
+	binaryMaskFloat = Mat(dest_mask.size(), CV_32FC1);
+	binaryMaskFloatInverted = Mat(dest_mask.size(), CV_32FC1);
+
+	Mat Kernel(Size(3, 3), CV_8UC1);
+	Kernel.setTo(Scalar(1));
+	Mat temp_dest_mask;
+	erode(dest_mask, temp_dest_mask, Kernel, Point(-1, -1), 1);
+	temp_dest_mask.convertTo(binaryMaskFloat, CV_32FC1, 1.0 / 255.0);
+
+	Mat wmask = temp_dest_mask.clone();
+	bitwise_not(wmask, wmask);
+	wmask.convertTo(binaryMaskFloatInverted, CV_32FC1, 1.0 / 255.0);
+	//get dx dy
+	computeGradientX(dest, dest_dx);
+	computeGradientY(dest, dest_dy);
+	computeGradientX(patch, patch_dx);
+	computeGradientY(patch, patch_dy);
+	//integrate
+	arrayProduct(dest_dx, binaryMaskFloat, dest_dx);
+	arrayProduct(dest_dy, binaryMaskFloat, dest_dy);
+	arrayProduct(patch_dx, binaryMaskFloatInverted, patch_dx);
+	arrayProduct(patch_dy, binaryMaskFloatInverted, patch_dy);
+	dx = dest_dx + patch_dx;
+	dy = dest_dy + patch_dy;
+	//solve
+	Mat dx_channel[3];
+	Mat dy_channel[3];
+	Mat dest_channel[3];
+	split(dx, dx_channel);
+	split(dy, dy_channel);
+	split(dest, dest_channel);
+
+	for (int i = 0; i < dest.channels(); i++)
+	{
+		Mat A, b;
+		constructAXb(dx_channel[i], dy_channel[i], dest_channel[i], dest_mask, A, b);
+		Mat x;
+		cv::solve(A, b, x, DECOMP_SVD);
+		recoverDest(dest_channel[i], dest_mask, x);
+	}
+	merge(dest_channel, 3, dest);
 }

@@ -100,6 +100,7 @@
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;QT_OPENGL_LIB;CC_USE_AS_DLL;QCC_DB_USE_AS_DLL;NOMINMAX;_CRT_SECURE_NO_WARNINGS;__STDC_LIMIT_MACROS;QT_USE_QSTRINGBUILDER;QT_CONCURRENT_LIB;QT_OPENGLEXTENSIONS_LIB;CMAKE_INTDIR="Debug";QCC_DB_LIB_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
+      <BrowseInformation>true</BrowseInformation>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;QT_OPENGL_LIB;CC_USE_AS_DLL;QCC_DB_USE_AS_DLL;NOMINMAX;_CRT_SECURE_NO_WARNINGS;__STDC_LIMIT_MACROS;QT_USE_QSTRINGBUILDER;QT_CONCURRENT_LIB;QT_OPENGLEXTENSIONS_LIB;CMAKE_INTDIR=\"Debug\";QCC_DB_LIB_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -144,6 +145,9 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ProjectReference>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
     </ProjectReference>
+    <Bscmake>
+      <PreserveSbr>true</PreserveSbr>
+    </Bscmake>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>

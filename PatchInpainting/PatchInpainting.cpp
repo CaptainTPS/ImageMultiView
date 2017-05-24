@@ -5,6 +5,8 @@
 #include "PatchInpainting.h"
 #include "PIheader.h"
 
+#include "D:\captainT\project_13\ImageMultiView\PoissonCloning\PoissonClone.h"
+
 #ifndef DEBUG
 #define DEBUG 1
 #endif
@@ -372,6 +374,58 @@ void transferPatch(const cv::Point& psiHatQ, const cv::Point& psiHatP, cv::Mat& 
 	CopyWithMask(mat, psiHatQ, psiHatP, maskMat, outputMask);
 }
 
+void transferPatchWithPoisson(const cv::Point& psiHatQ, const cv::Point& psiHatP, cv::Mat& mat, cv::Mat& depthMat, const cv::Mat& maskMat, cv::Mat& outputMask){
+	assert(maskMat.type() == CV_8U);
+	assert(mat.size() == maskMat.size());
+	assert(RADIUS <= psiHatQ.x && psiHatQ.x < mat.cols - RADIUS && RADIUS <= psiHatQ.y && psiHatQ.y < mat.rows - RADIUS);
+	assert(RADIUS <= psiHatP.x && psiHatP.x < mat.cols - RADIUS && RADIUS <= psiHatP.y && psiHatP.y < mat.rows - RADIUS);
+
+	outputMask = getPatch(maskMat, psiHatP);
+	if (mat.channels() == 3)
+	{
+		//for rgb image
+		cv::Mat dest = getPatch(mat, psiHatP).clone();
+		cv::Mat tempmask = (outputMask == 0);
+		pc::DIY_Cloning dc;
+		cv::Mat src = getPatch(mat, psiHatQ);
+		dc.patchClone(dest, getPatch(mat, psiHatQ), tempmask);
+
+		cv::Mat depth_base = getPatch(depthMat, psiHatP);
+		cv::Mat depthMask = getPatch(depthMat, psiHatQ);
+		for (int i = 0; i < outputMask.cols; i++)
+		{
+			for (int j = 0; j < outputMask.rows; j++)
+			{
+				if (abs(depthMask.at<float>(j, i) - depth_base.at<float>(j, i)) > DEPTH_THRESHOLD)
+				{
+					outputMask.at<uchar>(j, i) = 0;
+				}
+			}
+		}
+
+		dest.copyTo(getPatch(mat, psiHatP), outputMask);
+	}
+	else
+	{
+		//for gray img
+		cv::Mat depth_base = getPatch(depthMat, psiHatP);
+		cv::Mat depthMask = getPatch(depthMat, psiHatQ);
+		for (int i = 0; i < outputMask.cols; i++)
+		{
+			for (int j = 0; j < outputMask.rows; j++)
+			{
+				if (abs(depthMask.at<float>(j, i) - depth_base.at<float>(j, i)) > DEPTH_THRESHOLD)
+				{
+					outputMask.at<uchar>(j, i) = 0;
+				}
+			}
+		}
+		getPatch(mat, psiHatQ).copyTo(getPatch(mat, psiHatP), outputMask);
+	}
+
+
+}
+
 void DIYmatchTemplate_notuse(const cv::Mat& source, const cv::Mat& tmplate, cv::Mat& result, const cv::Mat& tmplateMask, const cv::Mat& srcMask){
 	//just use cv_tm_sqdiff method
 	for (int r = 0; r < result.rows; r++)
@@ -497,6 +551,24 @@ cv::Point getMatchPoint(const cv::Point& now, cv::Mat& result, cv::Mat erodedMas
 	}
 
 	return qreturn;
+}
+
+cv::Point getMatchPointNoEmpty(const cv::Point& now, cv::Mat& result, cv::Mat erodedMask, const cv::Mat& depthMat, int selectTopNum = 1){
+	cv::Mat eroded = (erodedMask != 0);
+	cv::erode(eroded, eroded, cv::Mat(), cv::Point(-1, -1), RADIUS);
+
+	cv::Point q;
+
+	result.setTo(1.1f, eroded == 0);
+	float dnow, dq;
+	dnow = depthMat.at<float>(now);
+	do
+	{
+		cv::minMaxLoc(result, NULL, NULL, &q);
+		dq = depthMat.at<float>(q);
+		result.at<float>(q) = 1.1;
+	} while (abs(dnow - dq) > DEPTH_THRESHOLD);
+	return q;
 }
 
 std::string type2str(int type) {
@@ -689,7 +761,11 @@ void InnerMainLoop(cv::Mat& colorMat, cv::Mat& maskMat, cv::Mat& depthMat, cv::M
 		}
 		//psiHatQ = getMatchPoint(psiHatP, result, erodedMask, depthMat);
 		int topN = 3;
+#ifdef NO_POISSON
 		psiHatQ = getMatchPoint(psiHatP, result, maskMat, depthMat, topN);//try not use erode
+#else
+		psiHatQ = getMatchPointNoEmpty(psiHatP, result, maskMat, depthMat, topN);
+#endif
 		assert(psiHatQ != psiHatP);
 
 		if (0 && loop == 150){
@@ -712,9 +788,17 @@ void InnerMainLoop(cv::Mat& colorMat, cv::Mat& maskMat, cv::Mat& depthMat, cv::M
 		// updates
 		// copy from psiHatQ to psiHatP for each colorspace
 		cv::Mat outputMask;// not 0 stands for have been inpainted
+#ifdef NO_POISSON
 		transferPatch(psiHatQ, psiHatP, grayMat, depthMat, (maskMat == 0), outputMask);
 		transferPatch(psiHatQ, psiHatP, colorMat, depthMat, (maskMat == 0), outputMask);
+#else
+		if (loop == 6){
+			int tetest = 0;
 
+		}
+		transferPatchWithPoisson(psiHatQ, psiHatP, grayMat, depthMat, (maskMat == 0), outputMask);
+		transferPatchWithPoisson(psiHatQ, psiHatP, colorMat, depthMat, (maskMat == 0), outputMask);
+#endif
 		// fill in confidenceMat with confidences C(pixel) = C(psiHatP)
 		confidence = computeConfidence(psiHatPConfidence);
 
