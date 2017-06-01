@@ -311,7 +311,7 @@ void computePriority(const contours_t& contours, const cv::Mat& grayMat, const c
 			float lre = zp / (zp + var);
 
 			// set the priority in priorityMat
-			priorityMat.ptr<float>(point.y)[point.x] = std::abs((float)confidence * gradient.dot(normal) * lre);
+			priorityMat.ptr<float>(point.y)[point.x] = std::abs((float)confidence /*  * gradient.dot(normal)*/ * lre);
 			assert(priorityMat.ptr<float>(point.y)[point.x] >= 0);
 
 			//testout.ptr<float>(point.y)[point.x] = std::abs(gradient.dot(normal));
@@ -568,7 +568,28 @@ cv::Point getMatchPointNoEmpty(const cv::Point& now, cv::Mat& result, cv::Mat er
 		dq = depthMat.at<float>(q);
 		result.at<float>(q) = 1.1;
 	} while (abs(dnow - dq) > DEPTH_THRESHOLD);
-	return q;
+
+	//from top N find the nearest one
+	cv::Point qreturn = q;
+#if 0
+	float distance = (q - now).x * (q - now).x + (q - now).y * (q - now).y;
+	for (int i = 1; i < selectTopNum; i++)
+	{
+		do
+		{
+			cv::minMaxLoc(result, NULL, NULL, &q);
+			dq = depthMat.at<float>(q);
+			result.at<float>(q) = 1.1;
+		} while (abs(dnow - dq) > DEPTH_THRESHOLD);
+		float d = (q - now).x * (q - now).x + (q - now).y * (q - now).y;
+		if (d < distance)
+		{
+			qreturn = q;
+			distance = d;
+		}
+	}
+#endif
+	return qreturn;
 }
 
 std::string type2str(int type) {
@@ -761,8 +782,11 @@ void InnerMainLoop(cv::Mat& colorMat, cv::Mat& maskMat, cv::Mat& depthMat, cv::M
 		}
 		//psiHatQ = getMatchPoint(psiHatP, result, erodedMask, depthMat);
 		int topN = 3;
+#define NO_POISSON
+
 #ifdef NO_POISSON
-		psiHatQ = getMatchPoint(psiHatP, result, maskMat, depthMat, topN);//try not use erode
+		//psiHatQ = getMatchPoint(psiHatP, result, maskMat, depthMat, topN);//try not use erode
+		psiHatQ = getMatchPointNoEmpty(psiHatP, result, maskMat, depthMat, topN);
 #else
 		psiHatQ = getMatchPointNoEmpty(psiHatP, result, maskMat, depthMat, topN);
 #endif
@@ -835,8 +859,7 @@ void InnerMainLoop(cv::Mat& colorMat, cv::Mat& maskMat, cv::Mat& depthMat, cv::M
 		}
 		if (DEBUG /*&& (loop) %500 == 0*/) {
 			//change mask part into red
-			cv::Vec3f match = cv::Vec3f(0, 0, 0);
-			for (int i = 0; i < drawMat.rows; i++)
+			/*for (int i = 0; i < drawMat.rows; i++)
 			{
 				for (int j = 0; j < drawMat.cols; j++)
 				{
@@ -847,7 +870,9 @@ void InnerMainLoop(cv::Mat& colorMat, cv::Mat& maskMat, cv::Mat& depthMat, cv::M
 						drawMat.at<cv::Vec3f>(i, j) = cv::Vec3f(0, 0, 1);
 					}
 				}
-			}
+			}*/
+
+			drawMat.setTo(cv::Vec3f(0, 0, 1), (maskMat == 0));
 
 			if (0 && loop >= 146 && loop <= 152)
 			{
@@ -887,6 +912,9 @@ void InnerMainLoop(cv::Mat& colorMat, cv::Mat& maskMat, cv::Mat& depthMat, cv::M
 	//showMat("test", colorMatcopy, 0);
 	std::string spath = "D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\output_b";
 	spath += std::to_string(RADIUS);
+#ifdef NO_POISSON
+	spath += "nPoisson";
+#endif
 	spath += ".png";
 	cv::imwrite(spath, outColor);
 

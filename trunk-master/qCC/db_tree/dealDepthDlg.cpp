@@ -46,6 +46,7 @@ static const QString s_fileFilterSeparator(";;");
 //whether it is proper to put it here?
 AlgebraicSurface as;
 
+QRgb DepthtoRGB(float depth, int *r, int *g, int *b);
 
 DealDepthDlg::DealDepthDlg(QWidget* parent/*=0*/)
 	:QWidget(parent)
@@ -62,8 +63,8 @@ DealDepthDlg::DealDepthDlg(QWidget* parent/*=0*/)
 	frameflag = -1;
 
 	//mm
-	bdstart = -30;
-	bdend = 30;
+	bdstart = -90;
+	bdend = 90;
 	viewNum = 30;
 
 
@@ -174,6 +175,23 @@ void DealDepthDlg::addDepthImage(){
 		ccHObject* parentObject = newGroup->getChild(0)->getParent();
 		parentObject = rgbdi;
 		ccImage* depthImage = new ccImage(*(static_cast<ccImage*>(newGroup->getChild(0))));
+
+#define GRAY_IMAGE
+#ifdef GRAY_IMAGE
+		for (size_t row = 0; row < depthImage->getH(); row++)
+		{
+			for (size_t col = 0; col < depthImage->getW(); col++)
+			{
+				QRgb temp = depthImage->data().pixel(col, row);
+				//cout << qRed(temp) << " " << qGreen(temp) << " " << qBlue(temp) << " " << endl;
+				float depth = (255.0 - qRed(temp)) * 1.0 / 256.0;
+				//QRgb t2 = DepthtoRGB(depth, NULL, NULL, NULL);
+				//cout << temp << " " << t2 << endl;
+				depthImage->data().setPixel(col, row, DepthtoRGB(depth, NULL,NULL,NULL));
+			}
+		}
+#endif
+
 		rgbdi->addChild(depthImage);
 		//newGroup->detachChild(newGroup->getChild(0));
 		delete newGroup;
@@ -453,6 +471,7 @@ void findContour(QImage &srcDepth, QImage &contourMask, float contourThresh){
 		for (int j = 0; j < srcDepth.width(); j++)
 		{
 			d_result = 0;
+#if 0
 			//around (i, j)
 			for (int m = -1; m < 2; m++)
 			{
@@ -472,7 +491,18 @@ void findContour(QImage &srcDepth, QImage &contourMask, float contourThresh){
 			tempRGB = srcDepth.pixel(j, i);
 			RGBtoDepth(tempRGB, &depth);
 			d_result -= 9 * depth;
-
+#else 
+			//right to (i, j)
+			int x = j + 1;
+			if (x >= srcDepth.width())
+				continue;
+			tempRGB = srcDepth.pixel(x, i);
+			RGBtoDepth(tempRGB, &depth);
+			d_result += depth;
+			tempRGB = srcDepth.pixel(j, i);
+			RGBtoDepth(tempRGB, &depth);
+			d_result -= depth;
+#endif
 			//test
 			//float t_d = abs(d_result);
 			//max_t = max_t > t_d ? max_t : t_d;
@@ -481,6 +511,8 @@ void findContour(QImage &srcDepth, QImage &contourMask, float contourThresh){
 			if (abs(d_result) > contourThresh)
 			{
 				contourMask.setPixel(j, i, 1);//1 for the removing contour 
+				
+#ifdef EXPAND
 				//expand one pixel
 				for (int m = -1; m < 1; m++)
 				{
@@ -493,6 +525,7 @@ void findContour(QImage &srcDepth, QImage &contourMask, float contourThresh){
 						contourMask.setPixel(x, y, 1); 
 					}
 				}
+#endif
 			}
 		}
 	}
@@ -619,7 +652,7 @@ void eliminateCracks(QImage &srcImg, QImage &srcDepth, QImage &objImg, QImage &o
 
 //paper Free-viewpoint depth image based rendering
 void forwardMappingDepthImageBase(QImage &srcImg, QImage &srcDepth, QImage &objImg, QImage &objDepth, QImage &objMask, cameraPara &cam){
-	float contourThreshold = 0.1;
+	float contourThreshold = 0.05;
 	QImage contourMask(srcDepth.width(),srcDepth.height(),QImage::Format_MonoLSB);// less significant bit (LSB) first
 	contourMask.fill(0);
 	//contourMask.setPixel(0, 0, 1);
@@ -1213,7 +1246,7 @@ void DealDepthDlg::getNewView(ccImage &result){
 		double lengthPerPixel = width_notpixel / width_pixel;
 		ccLog::Print("start deal holes.");
 		//dealHoles(nview, lengthPerPixel);
-		std::cout << objImg.save("img.png") << endl;
+		//std::cout << objImg.save("img.png") << endl;
 		dealHoles(rgbdi, objImg, objDepth,objMask, lengthPerPixel, result);
 	}
 }

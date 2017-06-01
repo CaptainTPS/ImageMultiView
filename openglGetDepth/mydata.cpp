@@ -37,9 +37,13 @@ cameraPara::cameraPara(){
 	focalLength = 35.0;
 	nearPlane = 1013.85;
 	farPlane = 4703.46;
+#if 0
 	width = 640;
 	height = 480;
-
+#else
+	width = 1920;
+	height = 1088;
+#endif
 
 	screenRatio = 1.0* width / height;
 	//cal vertical fov

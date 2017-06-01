@@ -859,7 +859,7 @@ void readYUV(string imgPath, string depthPath, int frameN){
 	int frame = 0;
 	cv::Mat re;
 	cv::Mat re_d;
-	while (!input.eof()||!dinput.eof())
+	while (!input.eof()&&!dinput.eof())
 	{
 		cout << frame++ << endl;
 		input.read(data, cnt);
@@ -1207,10 +1207,11 @@ int main(){
 	outDepthImage();
 #endif
 
+#define YUV_DATA	
 #ifdef YUV_DATA
 	string path = "F:\\Shark\\Shark_1\\Shark_1.yuv";
-	string depthPath = "F:\\MicroWorld\\depth_MicroWorld_1\\depth_MicroWorld_1.yuv";
-	int frameN = -1;
+	string depthPath = "F:\\Shark\\depth_Shark_1\\depth_Shark_1.yuv";
+	int frameN = 234;
 	readYUV(path, depthPath, frameN);
 #endif
 
@@ -1219,7 +1220,7 @@ int main(){
 	readMatlab(path);
 #endif
 
-#define POINT_CLOUD	
+
 #ifdef POINT_CLOUD
 	string img = "D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\in\\113color.png";
 	string depth = "D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\in\\113depth.png";
