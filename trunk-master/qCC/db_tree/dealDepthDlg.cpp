@@ -63,8 +63,8 @@ DealDepthDlg::DealDepthDlg(QWidget* parent/*=0*/)
 	frameflag = -1;
 
 	//mm
-	bdstart = -90;
-	bdend = 90;
+	bdstart = -50;
+	bdend = 50;
 	viewNum = 30;
 
 
@@ -492,16 +492,23 @@ void findContour(QImage &srcDepth, QImage &contourMask, float contourThresh){
 			RGBtoDepth(tempRGB, &depth);
 			d_result -= 9 * depth;
 #else 
+			float d1, d2, ds;
+			tempRGB = srcDepth.pixel(j, i);
+			RGBtoDepth(tempRGB, &ds);
 			//right to (i, j)
 			int x = j + 1;
 			if (x >= srcDepth.width())
 				continue;
 			tempRGB = srcDepth.pixel(x, i);
-			RGBtoDepth(tempRGB, &depth);
-			d_result += depth;
-			tempRGB = srcDepth.pixel(j, i);
-			RGBtoDepth(tempRGB, &depth);
-			d_result -= depth;
+			RGBtoDepth(tempRGB, &d1);
+			//down to (i,j)
+			int y = i + 1;
+			if (y >= srcDepth.height())
+				continue;
+			tempRGB = srcDepth.pixel(j, y);
+			RGBtoDepth(tempRGB, &d2);
+
+			d_result = max(abs(d1 - ds), abs(d2 - ds));
 #endif
 			//test
 			//float t_d = abs(d_result);
@@ -511,7 +518,8 @@ void findContour(QImage &srcDepth, QImage &contourMask, float contourThresh){
 			if (abs(d_result) > contourThresh)
 			{
 				contourMask.setPixel(j, i, 1);//1 for the removing contour 
-				
+		
+#define EXPAND
 #ifdef EXPAND
 				//expand one pixel
 				for (int m = -1; m < 1; m++)
@@ -542,6 +550,7 @@ void doWarp(QImage &srcImg, QImage &srcDepth, QImage &contourMask, QImage &objIm
 	double width_notpixel = 2.0 * f * tan(cam.angleOfView / 2 * M_PI / 180.0);
 
 	bool isContour;
+	int pos_before = 0;
 	for (int i = 0; i < srcImg.height(); i++)
 	{
 		for (int j = 0; j < srcImg.width(); j++)
@@ -558,7 +567,7 @@ void doWarp(QImage &srcImg, QImage &srcDepth, QImage &contourMask, QImage &objIm
 			double d_pixel = disparity / width_notpixel * width_pixel;
 
 
-			int p_x = (int)(j - d_pixel);
+			int p_x = ceil(j - d_pixel);
 			if (p_x < 0 || p_x >= srcImg.width())
 				continue;
 
@@ -571,6 +580,23 @@ void doWarp(QImage &srcImg, QImage &srcDepth, QImage &contourMask, QImage &objIm
 				objImg.setPixel(p_x, i, srcImg.pixel(j, i));
 				objMask.setPixel(p_x, i, qRgb(0, 0, 0));
 			}
+
+			//cracks are based on depth gap
+			/*if (abs(p_x - pos_before) == 2 )
+			{
+				int px_new = (p_x + pos_before) / 2;
+				QRgb dep_o = objDepth.pixel(px_new, i);
+				float depth_o;
+				RGBtoDepth(dep_o, &depth_o);
+				if (depth < depth_o)
+				{
+					objDepth.setPixel(px_new, i, dep);
+					objImg.setPixel(px_new, i, qRgb(0, 0, 0));
+					objMask.setPixel(px_new, i, qRgb(255, 255, 255));
+				}
+			}
+
+			pos_before = p_x;*/
 		}
 	}
 
@@ -589,9 +615,9 @@ void eliminateCracks(QImage &srcImg, QImage &srcDepth, QImage &objImg, QImage &o
 	{
 		for (int j = 0; j < objDepth.width(); j++)
 		{
-			QRgb temp = objMask.pixel(j, i);
+			/*QRgb temp = objMask.pixel(j, i);
 			if (qRed(temp) == 0 && qGreen(temp) == 0 && qBlue(temp) == 0)
-				continue;
+				continue;*/
 
 			depthBlock.clear();
 			for (int m = -1; m <= 1; m++)
@@ -677,9 +703,13 @@ void forwardMappingDepthImageBase(QImage &srcImg, QImage &srcDepth, QImage &objI
 	testimg.save("..\\data\\out\\contourTest.png");*/
 	//test end
 	doWarp(srcImg, srcDepth, contourMask, objImg, objDepth, objMask, cam);
+	//objMask.save("D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\objMask.png");
+	//objImg.save("D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\objImg.png");
 
 	float crackThreshold = 0.0004;
 	eliminateCracks(srcImg, srcDepth, objImg, objDepth, objMask, crackThreshold, cam);
+	//objMask.save("D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\objMask2.png");
+	//objImg.save("D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\objImg2.png");
 }
 
 void addAroundPoints(cameraPara &m_cam, newPatchDealer &patch, QImage &depth, int col, int row, double lengthPerPixel, double gapThreshold){

@@ -310,8 +310,11 @@ void computePriority(const contours_t& contours, const cv::Mat& grayMat, const c
 			float var = cv::sum(regPatch)[0];
 			float lre = zp / (zp + var);
 
+			//background first
+			float dterm = depthMat.at<float>(point);
+
 			// set the priority in priorityMat
-			priorityMat.ptr<float>(point.y)[point.x] = std::abs((float)confidence /*  * gradient.dot(normal)*/ * lre);
+			priorityMat.ptr<float>(point.y)[point.x] = std::abs( /*(float)confidence * */ /* gradient.dot(normal) * */ lre * dterm);
 			assert(priorityMat.ptr<float>(point.y)[point.x] >= 0);
 
 			//testout.ptr<float>(point.y)[point.x] = std::abs(gradient.dot(normal));
@@ -327,8 +330,16 @@ ignore the empty part in src image
 */
 void CopyWithMask(cv::Mat& mat, const cv::Point& psiHatQ, const cv::Point& psiHatP, const cv::Mat& maskMat, cv::Mat& outputMask){
 	
+	//minimize difference
+	cv::Mat temp = getPatch(mat, psiHatQ).clone();
+
+	/*cv::Mat diff = temp - getPatch(mat, psiHatP);
+	auto diff_mean = cv::mean(diff, outputMask == 0);
+	temp = temp - diff_mean;*/
+
 	// copy contents of psiHatQ to psiHatP with mask
-	getPatch(mat, psiHatQ).copyTo(getPatch(mat, psiHatP), outputMask);
+	//getPatch(mat, psiHatQ).copyTo(getPatch(mat, psiHatP), outputMask);
+	temp.copyTo(getPatch(mat, psiHatP), outputMask);
 }
 
 /*

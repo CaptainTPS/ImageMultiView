@@ -23,26 +23,23 @@ cameraPara::cameraPara(){
 	height = 480;
 #endif
 
-#if 0
+#if 1
 	//for MicroWorld data
 	angleOfView = 40.42648;//angle not radian
 	focalLength = 35.0;
-	nearPlane = 960 + 0.987432;
-	farPlane = 960 + 851.166600;
+	nearPlane = 960 + 1.510547;
+	farPlane = 960 + 1067.710000;
 	width = 1920;
 	height = 1088;
 #endif
+#if 0
 	//for nyu_v1 data (length should be mm)
 	angleOfView = 40.42648;//angle not radian
 	focalLength = 35.0;
 	nearPlane = 1013.85;
 	farPlane = 4703.46;
-#if 0
 	width = 640;
 	height = 480;
-#else
-	width = 1920;
-	height = 1088;
 #endif
 
 	screenRatio = 1.0* width / height;
