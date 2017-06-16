@@ -29,7 +29,7 @@
 #include "MeshRender.h" 
 //#include "MeshRenderQt.h"//this is not used cannot get depth out
 #include "videoThread.h"
-
+#include "cvFunctions.h"
 
 
 #define DEBUG_TEST
@@ -47,6 +47,10 @@ static const QString s_fileFilterSeparator(";;");
 AlgebraicSurface as;
 
 QRgb DepthtoRGB(float depth, int *r, int *g, int *b);
+void QImageToData(QImage& qimg, unsigned char* output, int width, int height, int channel);
+void DataToQImage(QImage& out, unsigned char* input, int width, int height, int channel);
+void depthDataToData(QImage& depthData, unsigned char* depth, int width, int height, int channel);
+void DataToDepthdata(QImage& depthData, unsigned char* depth, int width, int height, int channel);
 
 DealDepthDlg::DealDepthDlg(QWidget* parent/*=0*/)
 	:QWidget(parent)
@@ -249,6 +253,15 @@ void DealDepthDlg::playVideo(){
 	f->setVisible(true);
 	f->prepareDisplayForRefresh();
 	f->refreshDisplay();
+}
+
+void seeQImageOpencv(QImage& img, int channel){
+	unsigned char* d = new unsigned char[img.width() * img.height() * channel];
+	QImageToData(img, d, img.width(), img.height(), channel);
+
+	cvFunctions::seeImage(d, img.width(), img.height(), channel);
+
+	delete[] d;
 }
 
 void RGBtoDepth(int r, int g, int b, float *depth){
@@ -521,10 +534,10 @@ void findContour(QImage &srcDepth, QImage &contourMask, float contourThresh){
 		
 #define EXPAND
 #ifdef EXPAND
-				//expand one pixel
-				for (int m = -1; m < 1; m++)
+				//expand one pixel(to right down one more)
+				for (int m = -1; m < 2; m++)
 				{
-					for (int n = -1; n < 1; n++)
+					for (int n = -1; n < 2; n++)
 					{
 						int x = j + n;
 						int y = i + m;
@@ -638,7 +651,7 @@ void eliminateCracks(QImage &srcImg, QImage &srcDepth, QImage &objImg, QImage &o
 			sort(depthBlock.begin(), depthBlock.end());
 			d_RGB = objDepth.pixel(j, i);
 			RGBtoDepth(d_RGB, &depth);
-			if (abs(depth - depthBlock[4]) > threshold)
+			if (depth - depthBlock[4] > threshold) //only considering near may cover background
 			{
 				QPoint tPoint(j, i);
 				cracks.push_back(tPoint);
@@ -648,6 +661,7 @@ void eliminateCracks(QImage &srcImg, QImage &srcDepth, QImage &objImg, QImage &o
 	}
 
 	//deal with cracks
+#if 0
 	double bd = cam.baseDistance;
 	double f = cam.focalLength;
 	double width_pixel = cam.width;
@@ -673,7 +687,22 @@ void eliminateCracks(QImage &srcImg, QImage &srcDepth, QImage &objImg, QImage &o
 		objMask.setPixel(cracks[i], qRgb(0, 0, 0));
 		objDepth.setPixel(cracks[i], DepthtoRGB(depth, &r,&g,&b));
 	}
+#else
+	//just mark as empty for cracks
+	for (int i = 0; i < cracks.size(); i++)
+	{
+		objMask.setPixel(cracks[i], qRgb(255, 255, 255));
+	}
+#endif
+}
 
+void depthFilter(QImage& depthImg){
+	int channel = 1;
+	unsigned char* d = new unsigned char[depthImg.width() * depthImg.height()];
+	depthDataToData(depthImg, d, depthImg.width(), depthImg.height(), channel);
+	cvFunctions::filterDepth(d, depthImg.width(), depthImg.height(), channel);
+	DataToDepthdata(depthImg, d, depthImg.width(), depthImg.height(), channel);
+	delete[] d;
 }
 
 //paper Free-viewpoint depth image based rendering
@@ -683,7 +712,7 @@ void forwardMappingDepthImageBase(QImage &srcImg, QImage &srcDepth, QImage &objI
 	contourMask.fill(0);
 	//contourMask.setPixel(0, 0, 1);
 	//bool n = (contourMask.pixel(0, 0)) & 1;
-#if 1
+#if 0
 	findContour(srcDepth, contourMask, contourThreshold);
 #endif
 	//test contour
@@ -702,14 +731,26 @@ void forwardMappingDepthImageBase(QImage &srcImg, QImage &srcDepth, QImage &objI
 	}
 	testimg.save("..\\data\\out\\contourTest.png");*/
 	//test end
+#if 1
+	//seeQImageOpencv(srcDepth, 3);
+	depthFilter(srcDepth);
+	//seeQImageOpencv(srcDepth, 3);
+	srcDepth.save("D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\srcDepth.png");
+#endif
 	doWarp(srcImg, srcDepth, contourMask, objImg, objDepth, objMask, cam);
 	//objMask.save("D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\objMask.png");
 	//objImg.save("D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\objImg.png");
 
-	float crackThreshold = 0.0004;
+
+	//seeQImageOpencv(objImg, 3);
+	//seeQImageOpencv(objDepth, 3);
+
+#if 1
+	float crackThreshold = 0.1;
 	eliminateCracks(srcImg, srcDepth, objImg, objDepth, objMask, crackThreshold, cam);
 	//objMask.save("D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\objMask2.png");
 	//objImg.save("D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\objImg2.png");
+#endif
 }
 
 void addAroundPoints(cameraPara &m_cam, newPatchDealer &patch, QImage &depth, int col, int row, double lengthPerPixel, double gapThreshold){
@@ -1182,6 +1223,23 @@ void DealDepthDlg::getMultiView(){
 	rgbdi->addChild(t);
 }
 
+void saveDepth(QImage depth){
+	//for not gray images
+	QString p = "D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\depthImg.png";
+	//depth is [0,1];
+	for (int h = 0; h < depth.height(); h++)
+	{
+		for (int w = 0; w < depth.width(); w++)
+		{
+			float d;
+			RGBtoDepth(depth.pixel(w, h), &d);
+			int gray = (int)(d * 255);
+			depth.setPixel(w, h, qRgb(gray, gray, gray));
+		}
+	}
+	depth.save(p);
+}
+
 void DealDepthDlg::getNewView(ccImage &result){
 	if (m_obj->isA(CC_TYPES::RGBD_IMAGE)){
 		RGBDImage* rgbdi = ccHObjectCaster::ToRGBDImage(m_obj);
@@ -1194,6 +1252,15 @@ void DealDepthDlg::getNewView(ccImage &result){
 		QImage depthImg = ccHObjectCaster::ToImage(rgbdi->getChild(0))->data();
 		QImage srcImg = rgbdi->data();
 
+
+		//saveDepth(depthImg);
+		/*int channel = 1;
+		unsigned char* d = new unsigned char[depthImg.width() * depthImg.height()];
+		depthDataToData(depthImg, d, depthImg.width(), depthImg.height(), channel);
+		cvFunctions::filterDepth(d, depthImg.width(), depthImg.height(), channel);
+		DataToDepthdata(depthImg, d, depthImg.width(), depthImg.height(), channel);
+		delete[] d;*/
+		//saveDepth(depthImg);
 		/*cameraPara cam;
 		m_cam = cam;*/
 
@@ -1427,20 +1494,42 @@ void depthDataToData(QImage& depthData, unsigned char* depth, int width, int hei
 	}
 }
 
+void DataToDepthdata(QImage& depthData, unsigned char* depth, int width, int height, int channel){
+	//depth is [0,1];
+	assert(channel == 1);
+	assert(depthData.width() * depthData.height() == (width * height));
+
+	int mark = 0;
+	for (int h = 0; h < height; h++)
+	{
+		for (int w = 0; w < width; w++)
+		{
+			float d = (int)depth[mark++] * 1.0 / 255.0;
+			depthData.setPixel(w, h, DepthtoRGB(d));
+		}
+	}
+}
+
 void DataToQImage(QImage& out, unsigned char* input, int width, int height, int channel){
 	assert(out.height() == height && out.width() == width);
-	assert(channel == 3);
+	assert(channel == 3 || channel == 1);
 	
 	int mark = 0;
 	for (int h = 0; h < out.height(); h++)
 	{
 		for (int w = 0; w < out.width(); w++)
 		{
-			int b = input[mark++];
-			int g = input[mark++];
-			int r = input[mark++];
-			if (mark < 10)
-				std::cout << b << " " << g << " " << r << std::endl;
+			int b, g, r;
+			if (channel == 3)
+			{
+				b = input[mark++];
+				g = input[mark++];
+				r = input[mark++];
+			}
+			else
+			{
+				b = g = r = input[mark++];
+			}
 			out.setPixel(w, h, qRgb(r, g, b));
 		}
 	}

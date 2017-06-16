@@ -4314,6 +4314,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="..\..\PatchInpainting\PatchInpainting.h" />
     <ClInclude Include="..\..\PoissonCloning\PoissonClone.h" />
     <ClInclude Include="..\..\trunk-master\qCC\db_tree\apss.h" />
+    <ClInclude Include="..\..\trunk-master\qCC\db_tree\cvFunctions.h" />
     <ClInclude Include="..\..\trunk-master\qCC\db_tree\dealDepthDlg.h">
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\..\moc_%(Filename).cpp"</Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\\moc_%(Filename).cpp</Outputs>
@@ -4481,6 +4482,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="..\..\PatchInpainting\PatchInpainting.cpp" />
     <ClCompile Include="..\..\PoissonCloning\PoissonClone.cpp" />
     <ClCompile Include="..\..\trunk-master\qCC\db_tree\apss.cpp" />
+    <ClCompile Include="..\..\trunk-master\qCC\db_tree\cvFunctions.cpp" />
     <ClCompile Include="..\..\trunk-master\qCC\db_tree\dealDepthDlg.cpp" />
     <ClCompile Include="..\..\trunk-master\qCC\db_tree\MeshRender.cpp" />
     <ClCompile Include="..\..\trunk-master\qCC\db_tree\videoThread.cpp" />

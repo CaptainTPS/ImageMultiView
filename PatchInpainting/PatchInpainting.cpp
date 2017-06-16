@@ -482,7 +482,8 @@ cv::Mat computeSSD(const cv::Mat& tmplate, const cv::Mat& source, const cv::Mat&
 	assert(tmplate.rows <= source.rows && tmplate.cols <= source.cols);
 	assert(tmplateMask.size() == tmplate.size() && tmplate.type() == tmplateMask.type());
 
-	float belta = 10;
+	//float belta = 10;
+	float belta = 0;
 
 	cv::Mat result(source.rows - tmplate.rows + 1, source.cols - tmplate.cols + 1, CV_32F, 0.0f);
 
@@ -603,6 +604,197 @@ cv::Point getMatchPointNoEmpty(const cv::Point& now, cv::Mat& result, cv::Mat er
 	return qreturn;
 }
 
+cv::Point getMatchPointNearby(const cv::Point& now, cv::Mat& result, cv::Mat erodedMask, const cv::Mat& depthMat, bool emptyInLeft = true, int selectTopNum = 1){
+	cv::Mat eroded = (erodedMask != 0);
+	cv::erode(eroded, eroded, cv::Mat(), cv::Point(-1, -1), RADIUS);
+
+	cv::Mat rect = cv::Mat::ones(erodedMask.size(), CV_8U);
+	int rectLength = 300;
+	if (emptyInLeft)
+	{
+		int le = now.x - rectLength / 2;
+		le = le < 0 ? 0 : le;
+		int ri = now.x + rectLength / 2;
+		ri = ri >= result.cols ? result.cols - 1 : ri;
+		int up = now.y - rectLength / 2;
+		up = up < 0 ? 0 : up;
+		int down = now.y + rectLength / 2;
+		down = down >= result.rows ? result.rows - 1 : down;
+		rect.colRange(le, ri).rowRange(up, down) = 0;
+	}
+	else
+	{
+		int le = now.x - rectLength / 2;
+		le = le < 0 ? 0 : le;
+		int ri = now.x + rectLength / 2;
+		ri = ri >= result.cols ? result.cols - 1 : ri;
+		int up = now.y - rectLength / 2;
+		up = up < 0 ? 0 : up;
+		int down = now.y + rectLength / 2;
+		down = down >= result.rows ? result.rows - 1 : down;
+		rect.colRange(le, ri).rowRange(up, down) = 0;
+	}
+
+	cv::Point q;
+	result.setTo(1.1f, rect != 0);
+	result.setTo(1.1f, eroded == 0);
+	float dnow, dq;
+	dnow = depthMat.at<float>(now);
+	do
+	{
+		cv::minMaxLoc(result, NULL, NULL, &q);
+		dq = depthMat.at<float>(q);
+		result.at<float>(q) = 1.1;
+	} while (abs(dnow - dq) > DEPTH_THRESHOLD);
+
+	//from top N find the nearest one
+	cv::Point qreturn = q;
+#if 0
+	float distance = (q - now).x * (q - now).x + (q - now).y * (q - now).y;
+	for (int i = 1; i < selectTopNum; i++)
+	{
+		do
+		{
+			cv::minMaxLoc(result, NULL, NULL, &q);
+			dq = depthMat.at<float>(q);
+			result.at<float>(q) = 1.1;
+		} while (abs(dnow - dq) > DEPTH_THRESHOLD);
+		float d = (q - now).x * (q - now).x + (q - now).y * (q - now).y;
+		if (d < distance)
+		{
+			qreturn = q;
+			distance = d;
+		}
+	}
+#endif
+	return qreturn;
+}
+
+float computeSumd(cv::Mat& src, cv::Mat& mask){
+	cv::Mat m;
+	if (mask.channels() == 3)
+	{
+		cv::Mat t[3];
+		cv::split(mask, t);
+		m = t[0].clone();
+	}
+	else
+	{
+		m = mask.clone();
+	}
+	cv::erode(m, m, cv::Mat(), cv::Point(-1, -1), 1);
+	//dx
+	cv::Mat kernel = cv::Mat::zeros(1, 3, CV_8S);
+	kernel.at<char>(0, 2) = 1;
+	kernel.at<char>(0, 1) = -1;
+	cv::Mat gx;
+	filter2D(src, gx, CV_32FC3, kernel);
+	kernel = cv::Mat::zeros(3, 1, CV_8S);
+	kernel.at<char>(2, 0) = 1;
+	kernel.at<char>(1, 0) = -1;
+	cv::Mat gy;
+	filter2D(src, gy, CV_32FC3, kernel);
+
+	cv::multiply(gx, gx, gx);
+	cv::multiply(gy, gy, gy);
+
+	float sum = 0;
+	for (size_t ch = 0; ch < src.channels(); ch++)
+	{
+		for (size_t row = 0; row < src.rows; row++)
+		{
+			for (size_t col = 0; col < src.cols; col++)
+			{
+				if (m.at<float>(row,col) != 0)
+				{
+					sum += gx.at <cv::Vec3f>(row, col)[ch] + gy.at <cv::Vec3f>(row, col)[ch];
+				}
+			}
+		}
+	}
+
+	float a = cv::countNonZero(m);
+	float b = m.cols * m.rows;
+
+	return (sum * b / a);
+}
+
+cv::Point getMatchPointSimilarGradient(const cv::Point& now, cv::Mat& result, cv::Mat erodedMask, const cv::Mat& depthMat, cv::Mat& colorMat, cv::Mat& tplMask, cv::Mat& srcMask, int selectTopNum = 1){
+	cv::Mat eroded = (erodedMask != 0);
+	cv::erode(eroded, eroded, cv::Mat(), cv::Point(-1, -1), RADIUS);
+	cv::Point q;
+	result.setTo(1.1f, eroded == 0);
+	
+	cv::Mat rect = cv::Mat::ones(erodedMask.size(), CV_8U);
+	int rectLength = 150;
+	int le = now.x - rectLength / 2;
+	le = le < 0 ? 0 : le;
+	int ri = now.x + rectLength / 2;
+	ri = ri >= result.cols ? result.cols - 1 : ri;
+	int up = now.y - rectLength / 2;
+	up = up < 0 ? 0 : up;
+	int down = now.y + rectLength / 2;
+	down = down >= result.rows ? result.rows - 1 : down;
+	rect.colRange(le, ri).rowRange(up, down) = 0;
+	result.setTo(1.1f, rect != 0);
+
+	float dnow, dq;
+	dnow = depthMat.at<float>(now);
+	do
+	{
+		cv::minMaxLoc(result, NULL, NULL, &q);
+		dq = depthMat.at<float>(q);
+		result.at<float>(q) = 1.1;
+	} while (abs(dnow - dq) > DEPTH_THRESHOLD);
+
+	//from top N find the silimar gradient one
+	cv::Point qreturn = q;
+
+	cv::Mat src = getPatch(colorMat, now);
+	float re_src = computeSumd(src, tplMask);
+
+	cv::Mat match = getPatch(colorMat, q);
+	cv::Mat mask = getPatch(srcMask, q);
+	float re_match = computeSumd(match, mask);
+	float diff = abs(re_match - re_src);
+	for (int i = 1; i < selectTopNum; i++)
+	{
+		do
+		{
+			cv::minMaxLoc(result, NULL, NULL, &q);
+			dq = depthMat.at<float>(q);
+			result.at<float>(q) = 1.1;
+		} while (abs(dnow - dq) > DEPTH_THRESHOLD);
+		
+		match = getPatch(colorMat, q);
+		mask = getPatch(srcMask, q);
+		float re_match = computeSumd(match, mask);
+		float d = abs(re_match - re_src);
+
+		if (d < diff)
+		{
+			qreturn = q;
+			diff = d;
+		}
+	}
+	return qreturn;
+}
+
+void changeHalfMask(cv::Mat& mask, bool left){
+	int w = mask.cols;
+	int half = (w - 1) / 2;
+	int center = half;
+	if (left)
+	{
+		mask.colRange(center + 1, center + half + 1) = 0;
+	}
+	else
+	{
+		mask.colRange(0, center) = 0;
+	}
+	
+}
+
 std::string type2str(int type) {
 	std::string r;
 
@@ -713,7 +905,8 @@ void InnerMainLoop(cv::Mat& colorMat, cv::Mat& maskMat, cv::Mat& depthMat, cv::M
 	std::string videoPath = "D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\process_b";
 	videoPath += std::to_string(RADIUS);
 	videoPath += ".avi";
-	cv::VideoWriter vw(videoPath, cv::VideoWriter::fourcc('M', 'J', 'P', 'G'), 20, colorMat.size());
+	//cv::VideoWriter vw(videoPath, cv::VideoWriter::fourcc('M', 'J', 'P', 'G'), 20, colorMat.size());
+	cv::VideoWriter vw(videoPath, cv::VideoWriter::fourcc('M', 'S', 'V', 'C'), 20, colorMat.size());
 	std::cout << "vw: " << vw.isOpened() << std::endl;
 #endif
 
@@ -780,6 +973,9 @@ void InnerMainLoop(cv::Mat& colorMat, cv::Mat& maskMat, cv::Mat& depthMat, cv::M
 		cv::Mat mergeArr[3] = { allConfInv, allConfInv, allConfInv };
 		cv::merge(mergeArr, 3, srcMask);
 
+		//only use the left part to match
+		changeHalfMask(templateMask, true);
+
 		result = computeSSD(psiHatPColor, colorMat, psiHatPDepth, depthMat, templateMask, srcMask);
 
 		// set all target regions to 1.1, which is over the maximum value possilbe
@@ -792,12 +988,14 @@ void InnerMainLoop(cv::Mat& colorMat, cv::Mat& maskMat, cv::Mat& depthMat, cv::M
 			reCopy = result.clone();
 		}
 		//psiHatQ = getMatchPoint(psiHatP, result, erodedMask, depthMat);
-		int topN = 3;
+		int topN = 6;
 #define NO_POISSON
 
 #ifdef NO_POISSON
 		//psiHatQ = getMatchPoint(psiHatP, result, maskMat, depthMat, topN);//try not use erode
-		psiHatQ = getMatchPointNoEmpty(psiHatP, result, maskMat, depthMat, topN);
+		//psiHatQ = getMatchPointNoEmpty(psiHatP, result, maskMat, depthMat, topN);
+		//psiHatQ = getMatchPointNearby(psiHatP, result, maskMat, depthMat, topN);
+		psiHatQ = getMatchPointSimilarGradient(psiHatP,result,maskMat,depthMat, colorMat, templateMask,srcMask, topN);
 #else
 		psiHatQ = getMatchPointNoEmpty(psiHatP, result, maskMat, depthMat, topN);
 #endif
@@ -967,23 +1165,189 @@ void PatchInpaint::mainLoop(std::string colorPath, std::string maskPath, std::st
 	InnerMainLoop(colorMat, maskMat, depthMat, outColor);
 }
 
+void PreProcess(cv::Mat& colorMat, cv::Mat& maskMat){
+	bool f = false;
+	if (colorMat.type() == CV_8UC3)
+	{
+		colorMat.convertTo(colorMat, CV_32FC3, 1.0 / 255.0);
+		f = true;
+	}
+
+	for (int row = 0; row < colorMat.rows; row++)
+	{
+		for (int col = 0; col < colorMat.cols; col++)
+		{
+			if (maskMat.at<uchar>(row, col) == 0)
+			{
+				int toRight = 0;
+				while (col + toRight < colorMat.cols && maskMat.at<uchar>(row, col + toRight) == 0)
+					toRight++;
+				//cout << "row : " << row << " col: " << col << endl;
+				if (toRight >= 4)
+				{
+					col = col + toRight;
+					continue;
+				}
+				bool left = true;
+				bool right = true;
+				if (col - 1 < 0) left = false;
+				if (col + toRight + 1 >= colorMat.cols) right = false;
+
+				cv::Vec3f lf, rf;
+				if (left && right)
+				{
+					lf = colorMat.at<cv::Vec3f>(row, col -1);
+					rf = colorMat.at<cv::Vec3f>(row, col + toRight);
+				}
+				else if (left)
+				{
+					rf = lf = colorMat.at<cv::Vec3f>(row, col - 1);
+				}
+				else if (right)
+				{
+					lf = rf = colorMat.at<cv::Vec3f>(row, col + toRight);
+				}
+				else
+				{
+					continue;
+				}
+				for (size_t i = 1; i <= toRight; i++)
+				{
+					float alpha = (float)i / (toRight + 1);
+					colorMat.at<cv::Vec3f>(row, col + i - 1) = lf * (1.0 - alpha) + rf * alpha;
+					maskMat.at<uchar>(row, col + i - 1) = 255;
+				}
+			}
+		}
+	}
+	if (f)
+	{
+		colorMat.convertTo(colorMat, CV_8UC3, 255.0);
+	}
+}
+
+void fixMarginEmpty(cv::Mat& colorMat, cv::Mat& maskMat, bool left){
+	int col, step;
+	if (left)
+	{
+		col = 0;
+		step = 1;
+	}
+	else
+	{
+		col = colorMat.cols - 1;
+		step = -1;
+	}
+
+	for (size_t row = 0; row < colorMat.rows; row++)
+	{
+		if (maskMat.at<uchar>(row, col) != 0)
+		{
+			continue;
+		}
+
+		int notEmpty = col;
+		while (maskMat.at<uchar>(row, notEmpty) == 0)
+		{
+			notEmpty += step;
+		}
+		int fill = notEmpty;
+		do
+		{
+			if (maskMat.at<uchar>(row, notEmpty) != 0){
+				fill -= step;
+				maskMat.at<uchar>(row, fill) = maskMat.at<uchar>(row, notEmpty);
+				colorMat.at<cv::Vec3b>(row, fill) = colorMat.at<cv::Vec3b>(row, notEmpty);
+				notEmpty += step;
+			}
+			else{
+				notEmpty += step;
+			}
+		} while (fill != col);
+	}
+}
+
+double fs(int delta_x, int delta_y, double sigma){
+	//spatial
+	double inner = -1.0 / sigma * sqrt(delta_x * delta_x + delta_y * delta_y);
+	return exp(inner);
+}
+
+double fI(cv::Scalar a, cv::Scalar b, double sigma){
+	//RGB
+	double inner = 0;
+	for (size_t i = 0; i < 3; i++)
+	{
+		inner += (a[i] - b[i])*(a[i] - b[i]);
+	}
+	inner = -0.1 / sigma * sqrt(inner);
+	return exp(inner);
+}
+
+double fd(cv::Scalar a, cv::Scalar b, double sigma){
+	//depth
+	double inner = abs(a[0] - b[0]);
+	inner = -0.1 / sigma * inner;
+	return exp(inner);
+}
+
+void PostProcess(cv::Mat& colorMat, cv::Mat& depthMat){
+	//trilateral filter
+	double sigma1 = 1.0, sigma2 = 0.25, sigma3 = 0.15;
+	//window size is (2*boarder + 1)
+	int border = 3;
+
+	cv::Mat tempc = colorMat;
+	cv::Mat tempd = depthMat;
+	int borderType = cv::BORDER_DEFAULT;
+	copyMakeBorder(tempc, tempc, border, border, border, border, borderType);
+	copyMakeBorder(tempd, tempd, border, border, border, border, borderType);
+
+	tempc.convertTo(tempc, CV_64FC3);
+	tempd.convertTo(tempd, CV_64F);
+
+	cv::Mat resultc = tempc.clone();
+
+	for (size_t i = 0; i < colorMat.rows; i++)
+	{
+		for (size_t j = 0; j < colorMat.cols; j++)
+		{
+			int r = i + border;
+			int c = j + border;
+			cv::Vec3d s(0,0,0);
+			double weight = 0;
+			for (int bx = -border; bx <= border; bx++)
+			{
+				for (int by = -border; by <= border; by++)
+				{
+					double alpha = fs(bx, by, sigma1);
+					alpha *= fI(tempc.at<cv::Vec3d>(r, c), tempc.at<cv::Vec3d>(r + by, c + bx), sigma2);
+					alpha *= fd(tempd.at<double>(r, c), tempd.at<double>(r + by, c + bx), sigma3);
+					s += alpha * tempc.at<cv::Vec3d>(r, c);
+					weight += alpha;
+				}
+			}
+			s /= weight;
+			resultc.at<cv::Vec3d>(r, c) = s;
+		}
+	}
+	resultc.convertTo(resultc, CV_8UC3);
+	cv::Rect boundR(border, border, resultc.cols - 2 * border, resultc.rows - 2 * border);
+	colorMat = resultc(boundR).clone();
+}
+
 void PatchInpaint::mainLoop(unsigned char* color, unsigned char* mask, unsigned char* depth, unsigned char* out, int width, int height){
 	cv::Mat colorMat(height, width, CV_8UC3, color);
 	cv::Mat maskMat(height, width, CV_8UC1, mask);
 	cv::Mat depthMat(height, width, CV_8UC1, depth);
 	cv::Mat outColor(height, width, CV_8UC3, out);
-
-	//test
-	cv::String localPath = "D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\";
-	cv::imwrite(localPath + "colorMat.png", colorMat);
-	cv::imwrite(localPath + "maskMat.png", maskMat);
-	cv::imwrite(localPath + "depthMat.png", depthMat);
+	
+	//bilateral filter
 	cv::Mat nDepthMat(depthMat.size(), depthMat.type());
 	cv::bilateralFilter(depthMat, nDepthMat, 5, 50, 50);
-	cv::imwrite(localPath + "outMat.png", nDepthMat);
 
 	//test
-	int cnt = 0;
+	/*int cnt = 0;
 	cv::Vec3b match = cv::Vec3b(0, 0, 0);
 	for (int i = 0; i < height; i++)
 	{
@@ -998,10 +1362,29 @@ void PatchInpaint::mainLoop(unsigned char* color, unsigned char* mask, unsigned 
 			}
 		}
 	}
-	cout << cnt << endl;
+	cout << cnt << endl;*/
+
+
+	//test
+	//cv::String localPath = "D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\";
+	//cv::imwrite(localPath + "colorMat.png", colorMat);
+	//cv::imwrite(localPath + "maskMat.png", maskMat);
+
+	PreProcess(colorMat, maskMat);
+
+	//for later only use half to match
+	fixMarginEmpty(colorMat, maskMat, true);
+
+	cv::erode(maskMat, maskMat, cv::Mat(), cv::Point(-1,-1), 3);
+	//cv::imwrite(localPath + "colorMat2.png", colorMat);
+	//cv::imwrite(localPath + "maskMat2.png", maskMat);
 
 	InnerMainLoop(colorMat, maskMat, nDepthMat, outColor);
-	cv::imwrite(localPath + "output2.png", outColor);
+#if 1
+	cv::imwrite("D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\postimg.png", outColor);
+	PostProcess(outColor, nDepthMat);
+	cv::imwrite("D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\postimg2.png", outColor);
+#endif
 	unsigned char* ptr = outColor.data;
 	for (int i = 0; i < outColor.cols * outColor.rows * outColor.channels(); i++)
 	{
