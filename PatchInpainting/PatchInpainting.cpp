@@ -820,7 +820,7 @@ std::string type2str(int type) {
 
 
 
-void InnerMainLoop(cv::Mat& colorMat, cv::Mat& maskMat, cv::Mat& depthMat, cv::Mat& outColor){
+void InnerMainLoop(cv::Mat& colorMat, cv::Mat& maskMat, cv::Mat& depthMat, cv::Mat& outColor, bool isLeft){
 	// ---------------- read the images ------------------------
 	// colorMat     - color picture + border
 	// maskMat      - mask picture + border
@@ -907,7 +907,7 @@ void InnerMainLoop(cv::Mat& colorMat, cv::Mat& maskMat, cv::Mat& depthMat, cv::M
 	videoPath += ".avi";
 	//cv::VideoWriter vw(videoPath, cv::VideoWriter::fourcc('M', 'J', 'P', 'G'), 20, colorMat.size());
 	cv::VideoWriter vw(videoPath, cv::VideoWriter::fourcc('M', 'S', 'V', 'C'), 20, colorMat.size());
-	std::cout << "vw: " << vw.isOpened() << std::endl;
+	//std::cout << "vw: " << vw.isOpened() << std::endl;
 #endif
 
 	while (cv::countNonZero(roiMask) != area)   // end when target is filled
@@ -974,7 +974,7 @@ void InnerMainLoop(cv::Mat& colorMat, cv::Mat& maskMat, cv::Mat& depthMat, cv::M
 		cv::merge(mergeArr, 3, srcMask);
 
 		//only use the left part to match
-		changeHalfMask(templateMask, true);
+		changeHalfMask(templateMask, isLeft);
 
 		result = computeSSD(psiHatPColor, colorMat, psiHatPDepth, depthMat, templateMask, srcMask);
 
@@ -1127,10 +1127,10 @@ void InnerMainLoop(cv::Mat& colorMat, cv::Mat& maskMat, cv::Mat& depthMat, cv::M
 	spath += ".png";
 	cv::imwrite(spath, outColor);
 
-	showMat("final result", outColor, 0);
+	//showMat("final result", outColor, 0);
 }
 
-void PatchInpaint::mainLoop(std::string colorPath, std::string maskPath, std::string depthPath){
+void PatchInpaint::mainLoop(std::string colorPath, std::string maskPath, std::string depthPath, bool isLeft){
 
 	std::string colorFilename, maskFilename, depthFilename;
 
@@ -1162,7 +1162,7 @@ void PatchInpaint::mainLoop(std::string colorPath, std::string maskPath, std::st
 		maskMat,
 		depthMat
 		);
-	InnerMainLoop(colorMat, maskMat, depthMat, outColor);
+	InnerMainLoop(colorMat, maskMat, depthMat, outColor, isLeft);
 }
 
 void PreProcess(cv::Mat& colorMat, cv::Mat& maskMat){
@@ -1336,7 +1336,7 @@ void PostProcess(cv::Mat& colorMat, cv::Mat& depthMat){
 	colorMat = resultc(boundR).clone();
 }
 
-void PatchInpaint::mainLoop(unsigned char* color, unsigned char* mask, unsigned char* depth, unsigned char* out, int width, int height){
+void PatchInpaint::mainLoop(unsigned char* color, unsigned char* mask, unsigned char* depth, unsigned char* out, int width, int height, bool isLeft){
 	cv::Mat colorMat(height, width, CV_8UC3, color);
 	cv::Mat maskMat(height, width, CV_8UC1, mask);
 	cv::Mat depthMat(height, width, CV_8UC1, depth);
@@ -1345,6 +1345,7 @@ void PatchInpaint::mainLoop(unsigned char* color, unsigned char* mask, unsigned 
 	//bilateral filter
 	cv::Mat nDepthMat(depthMat.size(), depthMat.type());
 	cv::bilateralFilter(depthMat, nDepthMat, 5, 50, 50);
+	cv::imwrite("D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\7DepthFill.png", nDepthMat);
 
 	//test
 	/*int cnt = 0;
@@ -1371,19 +1372,19 @@ void PatchInpaint::mainLoop(unsigned char* color, unsigned char* mask, unsigned 
 	//cv::imwrite(localPath + "maskMat.png", maskMat);
 
 	PreProcess(colorMat, maskMat);
-
+	cv::imwrite("D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\8ImgBeforeInpain.png", colorMat);
 	//for later only use half to match
-	fixMarginEmpty(colorMat, maskMat, true);
+	fixMarginEmpty(colorMat, maskMat, isLeft);
 
 	cv::erode(maskMat, maskMat, cv::Mat(), cv::Point(-1,-1), 3);
 	//cv::imwrite(localPath + "colorMat2.png", colorMat);
 	//cv::imwrite(localPath + "maskMat2.png", maskMat);
 
-	InnerMainLoop(colorMat, maskMat, nDepthMat, outColor);
+	InnerMainLoop(colorMat, maskMat, nDepthMat, outColor, isLeft);
 #if 1
-	cv::imwrite("D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\postimg.png", outColor);
+	cv::imwrite("D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\9ImgAfterInpain.png", outColor);
 	PostProcess(outColor, nDepthMat);
-	cv::imwrite("D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\postimg2.png", outColor);
+	cv::imwrite("D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\10ImgTrilateral.png", outColor);
 #endif
 	unsigned char* ptr = outColor.data;
 	for (int i = 0; i < outColor.cols * outColor.rows * outColor.channels(); i++)

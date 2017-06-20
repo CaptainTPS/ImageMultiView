@@ -7,6 +7,7 @@
 
 using namespace cv;
 using std::cout;
+using std::cerr;
 
 cvFunctions::cvFunctions()
 {
@@ -58,4 +59,28 @@ void cvFunctions::seeImage(unsigned char* d, int width, int height, int channel)
 
 	imshow("image", img);
 	waitKey();
+}
+
+void cvFunctions::genVideo(vector<unsigned char*>& dataContainer, int width, int height, int channel, string path){
+	cv::VideoWriter vw(path, cv::VideoWriter::fourcc('M', 'S', 'V', 'C'), 20, Size(width, height));
+
+	if (!vw.isOpened()){
+		cerr << "cannot open output file!" << std::endl;
+		return;
+	}
+
+	for (auto d : dataContainer){
+		assert(channel == 1 || channel == 3);
+		Mat img;
+		if (channel == 1)
+		{
+			img = Mat(height, width, CV_8UC1, d);
+		}
+		else if (channel == 3)
+		{
+			img = Mat(height, width, CV_8UC3, d);
+		}
+		vw << img;
+	}
+	vw.release();
 }

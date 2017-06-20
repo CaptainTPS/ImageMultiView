@@ -69,7 +69,7 @@ DealDepthDlg::DealDepthDlg(QWidget* parent/*=0*/)
 	//mm
 	bdstart = -50;
 	bdend = 50;
-	viewNum = 30;
+	viewNum = 120;
 
 
 	show();
@@ -188,7 +188,8 @@ void DealDepthDlg::addDepthImage(){
 			{
 				QRgb temp = depthImage->data().pixel(col, row);
 				//cout << qRed(temp) << " " << qGreen(temp) << " " << qBlue(temp) << " " << endl;
-				float depth = (255.0 - qRed(temp)) * 1.0 / 256.0;
+				//float depth = (255.0 - qRed(temp)) * 1.0 / 256.0;
+				float depth = (qRed(temp)) * 1.0 / 256.0;
 				//QRgb t2 = DepthtoRGB(depth, NULL, NULL, NULL);
 				//cout << temp << " " << t2 << endl;
 				depthImage->data().setPixel(col, row, DepthtoRGB(depth, NULL,NULL,NULL));
@@ -716,8 +717,9 @@ void forwardMappingDepthImageBase(QImage &srcImg, QImage &srcDepth, QImage &objI
 	findContour(srcDepth, contourMask, contourThreshold);
 #endif
 	//test contour
-	srcDepth.save("D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\depth.png");
-	contourMask.save("D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\contour.png");
+	srcImg.save("D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\1RGBImage.png");
+	srcDepth.save("D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\3DepthMemory.png");
+	//contourMask.save("D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\contour.png");
 	/*QImage testimg(cam.width, cam.height, QImage::Format_RGB32);
 	testimg.fill(qRgb(0, 0, 0));
 	for (int i = 0; i < cam.height; i++)
@@ -732,14 +734,15 @@ void forwardMappingDepthImageBase(QImage &srcImg, QImage &srcDepth, QImage &objI
 	testimg.save("..\\data\\out\\contourTest.png");*/
 	//test end
 #if 1
+	//srcDepth.save("D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\srcDepth1.png");
 	//seeQImageOpencv(srcDepth, 3);
 	depthFilter(srcDepth);
 	//seeQImageOpencv(srcDepth, 3);
-	srcDepth.save("D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\srcDepth.png");
+	srcDepth.save("D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\4DepthFilter.png");
 #endif
 	doWarp(srcImg, srcDepth, contourMask, objImg, objDepth, objMask, cam);
 	//objMask.save("D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\objMask.png");
-	//objImg.save("D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\objImg.png");
+	objImg.save("D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\5ImgWarp.png");
 
 
 	//seeQImageOpencv(objImg, 3);
@@ -1180,6 +1183,29 @@ void DealDepthDlg::doMarchingCube(ccImage* nview, double lengthPerPixel, cameraP
 	ccLog::Print("marching cube done.");
 }
 
+void opencvStoreVideo(vector<ccImage*>& container){
+	if (container.empty())
+		return;
+	int width = container[0]->data().width();
+	int height = container[0]->data().height();
+	int channel = 3;
+	
+	vector<unsigned char*> dataContainer;
+	for (size_t i = 0; i < container.size(); i++)
+	{
+		unsigned char* dataCon = new unsigned char[width * height * channel];
+		QImage temp = container[i]->data();
+		QImageToData(temp, dataCon, width, height, channel);
+		dataContainer.push_back(dataCon);
+	}
+
+	string path = "D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\outVideo\\video.avi";
+	cvFunctions::genVideo(dataContainer, width, height, channel, path);
+
+	for (auto data : dataContainer)
+		delete[] data;
+}
+
 void DealDepthDlg::getMultiView(){
 	RGBDImage* rgbdi;
 	if (m_obj->isA(CC_TYPES::RGBD_IMAGE)){
@@ -1189,6 +1215,7 @@ void DealDepthDlg::getMultiView(){
 		return;
 	}
 
+	QString name = rgbdi->getName();
 
 	ccHObject* t = new ccHObject;
 	t->setName("VIDEO");
@@ -1202,6 +1229,10 @@ void DealDepthDlg::getMultiView(){
 #ifdef USE_APSS
 	doMarchingCube(rgbdi, lengthPerPixel, m_cam, dilateVoxelNum);
 #endif
+
+	vector<ccImage*> videoContainer;
+
+#define ONLY_ONE_FRAME
 	for (int i = 0; i < viewNum; i++){
 		ccImage *result = new ccImage;
 		double bd = bdstart + i * (bdend - bdstart) / (viewNum -1);
@@ -1217,10 +1248,18 @@ void DealDepthDlg::getMultiView(){
 		std::cout << "now to frame: " << i << std::endl;
 		
 		//save
-		result->data().save("D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\video_out_scene3\\"+ QString::number(i) + ".png");
+		result->data().save("D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\MultiTest\\"+ name + "_" + QString::number(i) + ".png");
+		videoContainer.push_back(result);
 
+#ifdef ONLY_ONE_FRAME
+		break;
+#endif
 	}
 	rgbdi->addChild(t);
+
+#ifndef ONLY_ONE_FRAME
+	opencvStoreVideo(videoContainer);
+#endif
 }
 
 void saveDepth(QImage depth){
@@ -1646,7 +1685,7 @@ void fillHoles(QImage &newImg, QImage &depth, QImage &mask, cameraPara &cam, vec
 			outdepth.setPixel(j, i, qRgb(inputre, inputre, inputre));
 		}
 	}
-	outdepth.save(localPath + "outdepth1.png");
+	outdepth.save(localPath + "6DepthWarp.png");
 
 	fillDepth(depth);
 
@@ -1664,7 +1703,7 @@ void fillHoles(QImage &newImg, QImage &depth, QImage &mask, cameraPara &cam, vec
 			outdepth.setPixel(j, i, qRgb(inputre, inputre, inputre));
 		}
 	}
-	outdepth.save(localPath + "outdepth2.png");
+	//outdepth.save(localPath + "outdepth2.png");
 
 	depthDataToData(depth, depthPtr, w, h, 1);
 #endif
@@ -1679,20 +1718,16 @@ void fillHoles(QImage &newImg, QImage &depth, QImage &mask, cameraPara &cam, vec
 	outPtr = new unsigned char[w*h * 3];
 	QImageToData(newImg, colorPtr, w, h, 3);
 	QImageToData(mask, maskPtr, w, h, 1);
-	mask.save(localPath + "maskout.png");
+	//mask.save(localPath + "maskout.png");
 	
 	//deal mask
 	for (int i = 0; i < w*h; i++)
 	{
 		maskPtr[i] = maskPtr[i] == 255 ? 0 : 255;
 	}
-	std::cout << newImg.save("img.png") << endl;
+	//std::cout << newImg.save("img.png") << endl;
 	PatchInpaint pi;
-	pi.mainLoop(colorPtr, maskPtr, depthPtr, outPtr, w, h);//mask black for inpainting
-
-	std::cout << (int)outPtr[0] << " " << (int)outPtr[1] << std::endl;
-	int m = outPtr[0];
-	std::cout << m << std::endl;
+	pi.mainLoop(colorPtr, maskPtr, depthPtr, outPtr, w, h, (cam.baseDistance < 0));//mask black for inpainting
 	DataToQImage(newImg, outPtr, w, h, 3);
 	delete[] colorPtr;
 	delete[] maskPtr;
@@ -1782,7 +1817,7 @@ void fillHoles(QImage &newImg, QImage &depth, QImage &mask, cameraPara &cam, vec
 	//cout << tempd.save("D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\tempdepth.png") << endl;
 #endif
 	//test
-	std::cout << newImg.save("img.png") << endl;//not right
+	std::cout << newImg.save("img.png") << endl;
 	//depth.save("depth.png");
 	//mask.save("mask.png");
 }

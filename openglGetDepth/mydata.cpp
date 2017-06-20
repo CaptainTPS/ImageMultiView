@@ -23,7 +23,7 @@ cameraPara::cameraPara(){
 	height = 480;
 #endif
 
-#if 1
+#if 0
 	//for MicroWorld data
 	angleOfView = 40.42648;//angle not radian
 	focalLength = 35.0;
@@ -32,7 +32,7 @@ cameraPara::cameraPara(){
 	width = 1920;
 	height = 1088;
 #endif
-#if 0
+#if 1
 	//for nyu_v1 data (length should be mm)
 	angleOfView = 40.42648;//angle not radian
 	focalLength = 35.0;
