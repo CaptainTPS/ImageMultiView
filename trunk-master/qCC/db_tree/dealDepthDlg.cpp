@@ -1232,7 +1232,7 @@ void DealDepthDlg::getMultiView(){
 
 	vector<ccImage*> videoContainer;
 
-#define ONLY_ONE_FRAME
+//#define ONLY_ONE_FRAME
 	for (int i = 0; i < viewNum; i++){
 		ccImage *result = new ccImage;
 		double bd = bdstart + i * (bdend - bdstart) / (viewNum -1);
