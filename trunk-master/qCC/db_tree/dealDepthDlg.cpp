@@ -733,7 +733,7 @@ void forwardMappingDepthImageBase(QImage &srcImg, QImage &srcDepth, QImage &objI
 	}
 	testimg.save("..\\data\\out\\contourTest.png");*/
 	//test end
-#if 1
+#if 0
 	//srcDepth.save("D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\srcDepth1.png");
 	//seeQImageOpencv(srcDepth, 3);
 	depthFilter(srcDepth);
@@ -1279,6 +1279,38 @@ void saveDepth(QImage depth){
 	depth.save(p);
 }
 
+void resizeQImage(int w, int h, QImage& img, QImage& mask){
+	int oriw = img.width();
+	int orih = img.height();
+	float ratio1 = w *1.0 / oriw;
+	float ratio2 = h * 1.0 / orih;
+	float r = max(ratio1, ratio2);
+	int neww = oriw * r;
+	int newh = orih * r;
+	img = img.scaled(neww, newh, Qt::KeepAspectRatio);
+	mask = mask.scaled(neww, newh, Qt::KeepAspectRatio);
+	QImage imgcp = QImage(w, h, img.format());
+	QImage maskcp = QImage(w, h, mask.format());
+	int cw = neww / 2;
+	int ch = newh / 2;
+	for (int i = 0; i < w; i++)
+	{
+		for (int j = 0; j < h; j++)
+		{
+			auto px = img.pixel(cw - w / 2 + i, ch - h / 2 + j);
+			imgcp.setPixel(i, j, px);
+			px = mask.pixel(cw - w / 2 + i, ch - h / 2 + j);
+			//ori: white for empty; changed: black for empty
+			if (px == qRgb(0, 0, 0))
+				maskcp.setPixel(i, j, qRgb(255, 255, 255));
+			else
+				maskcp.setPixel(i, j, qRgb(0, 0, 0));
+		}
+	}
+	img = imgcp;
+	mask = maskcp;
+}
+
 void DealDepthDlg::getNewView(ccImage &result){
 	if (m_obj->isA(CC_TYPES::RGBD_IMAGE)){
 		RGBDImage* rgbdi = ccHObjectCaster::ToRGBDImage(m_obj);
@@ -1373,7 +1405,22 @@ void DealDepthDlg::getNewView(ccImage &result){
 		ccImage* tempdm = new ccImage(objMask);
 		tempdm->setName("mask");
 		tempdi->addChild(tempdm);
-		
+
+		//test
+		static int cnt = 0;
+		cnt++;
+		QImage i = objImg.copy();
+		QImage m = objMask.copy();
+		i = i.scaled(QSize(128, 128), Qt::KeepAspectRatioByExpanding);
+		m = m.scaled(QSize(128, 128), Qt::KeepAspectRatioByExpanding);
+		//here we will change mask: black for empty
+		resizeQImage(128, 128, i, m);
+		string p1 = "D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\ganTest\\gan_" + to_string(cnt) + "_img.png";
+		string p2 = "D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\ganTest\\gan_" + to_string(cnt) + "_mask.png";
+		i.save(QString(p1.data()));
+		m.save(QString(p2.data()));
+
+
 		rgbdi->addChild(tempdi);
 		ccLog::Print("get new view done.");
 
@@ -1383,7 +1430,10 @@ void DealDepthDlg::getNewView(ccImage &result){
 		ccLog::Print("start deal holes.");
 		//dealHoles(nview, lengthPerPixel);
 		//std::cout << objImg.save("img.png") << endl;
+
+#if 0 
 		dealHoles(rgbdi, objImg, objDepth,objMask, lengthPerPixel, result);
+#endif	
 	}
 }
 
