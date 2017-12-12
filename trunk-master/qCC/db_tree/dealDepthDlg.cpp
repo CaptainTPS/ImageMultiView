@@ -751,8 +751,15 @@ void forwardMappingDepthImageBase(QImage &srcImg, QImage &srcDepth, QImage &objI
 #if 1
 	float crackThreshold = 0.1;
 	eliminateCracks(srcImg, srcDepth, objImg, objDepth, objMask, crackThreshold, cam);
-	//objMask.save("D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\objMask2.png");
-	//objImg.save("D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\objImg2.png");
+	
+# if 1
+	static int x = 0;
+	string maskname = "D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\masks\\disparityMask5_" + to_string(x) + ".png";
+	string imgname = "D:\\captainT\\project_13\\ImageMultiView\\Build\\data\\out\\images\\disparityImg5_" + to_string(x) + ".png";
+	objMask.save(QString(maskname.data()));
+	objImg.save(QString(imgname.data()));
+	x += 1;
+#endif
 #endif
 }
 

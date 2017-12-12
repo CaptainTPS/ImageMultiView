@@ -234,7 +234,7 @@ void DIY_Cloning::computeDerivatives(const Mat& destination, const Mat &patch, c
 
 	Mat Kernel(Size(3, 3), CV_8UC1);
 	Kernel.setTo(Scalar(1));
-	erode(binaryMask, binaryMask, Kernel, Point(-1, -1), 3);
+	dilate(binaryMask, binaryMask, Kernel, Point(-1, -1), 3);
 
 	binaryMask.convertTo(binaryMaskFloat, CV_32FC1, 1.0 / 255.0);
 }
@@ -501,6 +501,31 @@ void DIY_Cloning::seamlessClone(InputArray _src, InputArray _dst, InputArray _ma
 	obj.normalClone(dest, cd_mask, dst_mask, blend, flags);
 
 }
+
+void DIY_Cloning::patchClone2(InputArray _src, InputArray _dst, InputArray _mask, OutputArray _blend, int flags){
+	const Mat src = _src.getMat();
+	const Mat dest = _dst.getMat();
+	const Mat mask = _mask.getMat();
+	_blend.create(dest.size(), CV_8UC3);
+	Mat blend = _blend.getMat();
+
+	Mat gray = Mat(mask.size(), CV_8UC1);
+
+	
+	if (mask.channels() == 3)
+		cvtColor(mask, gray, COLOR_BGR2GRAY);
+	else
+		gray = mask;
+
+	if (1)
+		gray = 255 - gray;
+
+
+	DIY_Cloning obj;
+	obj.normalClone(dest, src, gray, blend, flags);
+}
+
+
 
 void constructAXb(Mat& dx, Mat& dy, Mat& srcWithEmpty, Mat& mask, Mat& A, Mat& b){
 	Mat initA(dx.rows * dx.cols + dy.rows * dy.cols, srcWithEmpty.rows * srcWithEmpty.cols, CV_32F);

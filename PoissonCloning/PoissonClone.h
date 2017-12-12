@@ -28,6 +28,7 @@ namespace pc
 			cv::OutputArray blend, int flags);
 
 		void patchClone(cv::Mat& dest, cv::Mat& patch, cv::Mat& mask);
+		void patchClone2(cv::InputArray _src, cv::InputArray _dst, cv::InputArray _mask, cv::OutputArray _blend, int flags);
 
 	protected:
 
